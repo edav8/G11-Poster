@@ -23,6 +23,7 @@ const BUILD = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_DIR = path.join(os.homedir(), 'Desktop');
 const PDF = path.join(OUT_DIR, 'Chateau-Poster-A1.pdf');
 const PNG = path.join(OUT_DIR, 'Chateau-Poster-A1-preview.png');
+const FLAT = path.join(OUT_DIR, 'G11-Poster-A1-flat.jpg');
 const SITE_URL = process.env.SITE_URL || 'https://edav8.github.io/G11-Poster/';
 const PULL_BACK = Number(process.env.PULL_BACK || 1.06);
 const TILT_DOWN = Number(process.env.TILT_DOWN || 60);
@@ -62,8 +63,15 @@ const browser = await chromium.launch({
   args: ['--enable-unsafe-swiftshader', '--use-angle=default', '--hide-scrollbars']
 });
 
-async function posterPage(){
-  const ctx = await browser.newContext({ viewport: A1, deviceScaleFactor: 1 });
+/* DPI for the flat raster. Canva's PDF importer substitutes fonts, mangles word
+   spacing and drops the footer's QR and mascot images, so the Canva deliverable is a
+   pixel-perfect picture of the sheet rather than an import of it. 150dpi is the most
+   we can send: A1 at 300dpi is 7016x9933 and far over the upload limit. */
+const CANVA_DPI = Number(process.env.CANVA_DPI || 150);
+const SCALE = CANVA_DPI / 96;
+
+async function posterPage(scale = 1){
+  const ctx = await browser.newContext({ viewport: A1, deviceScaleFactor: scale });
   const p = await ctx.newPage();
   p.on('console', m => { if (m.type() === 'error') console.log('  [poster]', m.text()); });
   await p.goto(posterUrl, { waitUntil: 'networkidle' });
@@ -188,9 +196,15 @@ try {
   await out.page.screenshot({ path: PNG, fullPage: false });
   await out.ctx.close();
 
+  /* the flat sheet, for Canva and for anywhere else that needs one picture */
+  const flat = await posterPage(SCALE);
+  await flat.page.screenshot({ path: FLAT, fullPage: false, type: 'jpeg', quality: 92 });
+  await flat.ctx.close();
+
   const kb = f => Math.round(fs.statSync(f).size / 1024) + 'K';
   console.log('\n  PDF  ' + PDF + '  (' + kb(PDF) + ')');
-  console.log('  PNG  ' + PNG + '  (' + kb(PNG) + ')\n');
+  console.log('  PNG  ' + PNG + '  (' + kb(PNG) + ')');
+  console.log('  FLAT ' + FLAT + '  (' + kb(FLAT) + ', ' + CANVA_DPI + 'dpi)\n');
 } finally {
   await browser.close();
   server.close();

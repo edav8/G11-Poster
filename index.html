@@ -210,10 +210,16 @@ three-d-stage:not(:defined){visibility:hidden}
 .track{position:relative}
 .stage{position:sticky; top:0; height:100svh; overflow:hidden; display:grid; place-items:center;
   background:#0E1430}
-.plate{position:relative; width:min(92vw,1140px); aspect-ratio:16/10; overflow:hidden;
-  border-radius:12px; background:#06080F; box-shadow:0 10px 40px rgba(0,0,0,.5)}
-.plate video{position:absolute; inset:0; width:100%; height:100%; object-fit:contain}
-.cap{position:absolute; left:0; right:0; bottom:0; padding:28px 30px;
+/* The three clips were shot at three different ratios — 2.07:1 for the courtyard,
+   1.25:1 for the gallery, 1.35:1 for the theatre — so a fixed 16:10 frame with
+   object-fit:contain pillarboxed two of them and made the set look mismatched. Full
+   bleed with cover instead: every clip fills the screen edge to edge, and they all
+   read as the same size. */
+.plate{position:relative; width:100vw; height:100svh; overflow:hidden;
+  border-radius:0; background:#06080F}
+.plate video{position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center}
+.cap{position:absolute; left:0; right:0; bottom:0; padding:38px clamp(20px,5vw,60px) 46px;
   background:linear-gradient(180deg,transparent,rgba(6,8,15,.88)); color:#fff}
 .cap h2{font-size:clamp(22px,3.4vw,38px); max-width:22ch}
 .cap p{margin-top:10px; font-size:16px; max-width:52ch; color:rgba(255,255,255,.85)}
@@ -956,9 +962,17 @@ function tick(){
       if (t.loop){
         if (live && t.clip.el.paused) t.clip.el.play().catch(function(){});
         if (!live && !t.clip.el.paused) t.clip.el.pause();
-      } else if (t.scrub && t.clip.dur && live && !t.clip.seeking){
-        var want = p * (t.clip.dur - 0.05);
-        if (Math.abs(want - t.clip.el.currentTime) > 0.02){ t.clip.seeking = true; t.clip.el.currentTime = want; }
+      } else if (t.scrub && live){
+        /* Gate on the element's OWN seeking flag. The custom one this used to carry got
+           stuck true whenever a 'seeked' event was missed, and the clip then froze at 0
+           for the whole section — which is exactly how the gallery sequence went dark.
+           Read the duration off the element too, so a missed loadedmetadata cannot
+           silently disable the scrub. */
+        var dur = t.clip.dur || t.clip.el.duration || 0;
+        if (dur && !t.clip.el.seeking){
+          var want = p * (dur - 0.05);
+          if (Math.abs(want - t.clip.el.currentTime) > 0.02) t.clip.el.currentTime = want;
+        }
       }
     }
   }
