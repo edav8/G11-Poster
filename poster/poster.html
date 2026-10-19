@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Flamme — Bringing history to life</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Mulish:wght@0,400;0,600;0,800&display=swap">
+<style>
+/* A1 portrait, 594 × 841 mm. One topic, end to end, as the brief requires: children and
+   schools as the gateway to a broader visitor experience. Poster rules — body 22-24pt so
+   it reads at two metres; the detail behind each step is on the site the QR code opens. */
+@page{ size:594mm 841mm; margin:0 }
+:root{
+  --paper:#FFF7E7; --card:#FFFFFF; --ink:#2A2340; --mute:#5F5470;
+  --gold:#F5B700; --flame:#F2662B; --royal:#2B5BD7; --navy:#1E2A6B; --navy-d:#141C4A;
+  --green:#2F7A34; --hair:#E7D9BC; --amber:#FFF0C9;
+  --disp:"Jost","Futura",sans-serif; --body:"Mulish","Avenir Next",sans-serif;
+}
+*{box-sizing:border-box; margin:0; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+html,body{width:594mm; height:841mm}
+body{background:var(--paper); color:var(--ink); font-family:var(--body);
+  display:flex; flex-direction:column; overflow:hidden}
+h1,h2,h3,h4{font-family:var(--disp); font-weight:700; line-height:1.03}
+
+/* ── header ── */
+.head{background:var(--navy); color:#fff; padding:14mm 18mm 12mm; position:relative; overflow:hidden; flex:0 0 auto}
+.head::before{content:""; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 11% 190%,rgba(245,183,0,.52),rgba(242,102,43,.16) 46%,transparent 76%)}
+.head .in{position:relative; display:flex; gap:14mm; align-items:flex-end}
+.eyebrow{font-family:var(--disp); font-weight:700; font-size:16pt; letter-spacing:.24em;
+  text-transform:uppercase; color:var(--gold)}
+h1{font-size:76pt; margin-top:5mm; letter-spacing:-.02em}
+h1 em{font-style:normal; color:var(--gold)}
+.lede{flex:0 0 196mm; font-size:23pt; line-height:1.32; color:rgba(255,255,255,.92)}
+.by{margin-top:5mm; font-family:var(--disp); font-weight:600; font-size:15pt;
+  letter-spacing:.05em; color:rgba(255,255,255,.62)}
+
+/* ── the mechanic + the map ── */
+.where{display:grid; grid-template-columns:1fr 286mm; gap:12mm; padding:11mm 18mm 0; flex:0 0 auto}
+.where>div{display:flex; flex-direction:column; min-height:0}
+figure{position:relative; border-radius:4mm; overflow:hidden; background:#141C4A;
+  width:100%; aspect-ratio:2200/1640; flex:0 0 auto}
+figure img{display:block; width:100%; height:100%; object-fit:cover}
+.mcap{font-family:var(--disp); font-weight:700; font-size:15pt; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--mute); margin-top:3.5mm}
+.mech{display:flex; flex-direction:column; gap:6mm; min-width:0; justify-content:flex-start}
+.kicker{font-family:var(--disp); font-weight:700; font-size:15pt; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--flame)}
+.mech h2{font-size:34pt}
+.mech p{font-size:22pt; line-height:1.3; color:var(--mute)}
+.word{display:flex; gap:2.6mm; flex-wrap:wrap}
+.word i{width:13.5mm; height:17mm; border:1mm solid var(--royal); border-radius:2.2mm;
+  background:#fff; display:grid; place-items:center; font-family:var(--disp);
+  font-weight:700; font-size:21pt; font-style:normal}
+.ben{display:grid; grid-template-columns:1fr 1fr; gap:4mm 7mm; margin-top:1mm}
+.ben div{font-size:20pt; line-height:1.25}
+.ben b{font-family:var(--disp); font-size:19pt; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--royal); display:block}
+.seg{background:var(--amber); border-radius:3.5mm; padding:5mm 6mm; font-size:20pt; line-height:1.3}
+.seg b{font-family:var(--disp); font-size:19pt; letter-spacing:.1em; text-transform:uppercase;
+  color:#9A6B00; display:block; margin-bottom:2mm}
+
+/* ── six recommendations ── */
+.recs{flex:0 0 auto; padding:11mm 18mm 0; display:flex; flex-direction:column}
+/* answers the brief's investment constraint in the Château's own terms */
+.light{flex:1 1 auto; min-height:0; padding:11mm 18mm 0; display:flex; flex-direction:column; justify-content:center}
+.light .lh{display:flex; align-items:baseline; gap:6mm; margin-bottom:6mm}
+.light h2{font-size:30pt}
+.light .r0{flex:1 1 auto; height:.8mm; background:var(--hair)}
+.light .sub{font-family:var(--disp); font-weight:600; font-size:17pt; color:var(--mute)}
+.lgrid{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8mm}
+.lg h4{font-family:var(--disp); font-weight:700; font-size:18pt; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--flame)}
+.lg p{font-size:19pt; line-height:1.28; color:var(--mute); margin-top:2.5mm}
+.rhead{display:flex; align-items:baseline; gap:6mm; margin-bottom:6mm}
+.rhead h2{font-size:36pt}
+.rhead .r0{flex:1 1 auto; height:.8mm; background:var(--hair)}
+.rhead .n{font-family:var(--disp); font-weight:700; font-size:18pt; color:var(--mute)}
+.grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:7mm 8mm;
+  align-content:start}
+.r{display:flex; flex-direction:column; gap:2.6mm; min-width:0}
+.r .num{font-family:var(--disp); font-weight:700; font-size:17pt; color:var(--flame); letter-spacing:.1em}
+.r h4{font-size:23pt; line-height:1.1}
+.r p{font-size:20pt; line-height:1.28; color:var(--mute)}
+.r .v{font-size:18pt; line-height:1.25; color:var(--royal); margin-top:auto; padding-top:1.5mm}
+.r .v b{font-family:var(--disp); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:16pt}
+
+/* ── growth engine ── */
+.engine{flex:0 0 auto; margin-top:11mm; background:var(--navy-d); color:#fff; padding:11mm 18mm 11mm}
+.engine .eh{display:flex; align-items:baseline; gap:6mm; margin-bottom:7mm}
+.engine h2{font-size:34pt; color:#fff}
+.engine .r0{flex:1 1 auto; height:.8mm; background:rgba(255,255,255,.22)}
+.engine .sub{font-family:var(--disp); font-weight:600; font-size:17pt; color:rgba(255,255,255,.66)}
+.flow{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)) 150mm; gap:8mm; align-items:start}
+.step .s{font-family:var(--disp); font-weight:700; font-size:16pt; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--gold)}
+.step h4{font-size:26pt; margin-top:2.5mm; color:#fff}
+.step p{font-size:19pt; line-height:1.28; color:rgba(255,255,255,.8); margin-top:2.5mm}
+.money{background:var(--gold); color:var(--ink); border-radius:4mm; padding:6mm 7mm}
+.money .v{font-family:var(--disp); font-weight:700; font-size:44pt; line-height:1}
+.money p{font-size:18pt; line-height:1.26; margin-top:3mm; color:#4A3C00}
+.money .warn{font-family:var(--disp); font-weight:700; font-size:15pt; letter-spacing:.08em;
+  text-transform:uppercase; margin-top:3mm; color:#6B4E00}
+
+/* ── foot: phases + QR ── */
+.foot{flex:0 0 auto; padding:10mm 18mm 9mm; display:flex; gap:12mm; align-items:flex-start; overflow:hidden}
+.phases{flex:1 1 auto; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8mm}
+.ph .s{font-family:var(--disp); font-weight:700; font-size:16pt; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--flame)}
+.ph h4{font-size:22pt; margin-top:2mm}
+.ph p{font-size:18pt; line-height:1.26; color:var(--mute); margin-top:2mm}
+.qr{flex:0 0 auto; display:flex; gap:6mm; align-items:flex-start}
+.qr .box{width:40mm; height:40mm; background:#fff; border:1px solid var(--hair);
+  border-radius:3mm; padding:2.5mm; display:grid; place-items:center}
+.qr .box svg{width:100%; height:100%; shape-rendering:crispEdges}
+.qr .t{font-family:var(--disp); font-weight:700; font-size:19pt; line-height:1.2; max-width:58mm}
+.qr .u{font-size:13pt; color:var(--mute); margin-top:2.4mm; max-width:58mm}
+.flamme{flex:0 0 auto; width:48mm; height:auto; align-self:flex-end; margin-bottom:-9mm}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <div class="in">
+    <div style="flex:1 1 auto">
+      <div class="eyebrow">Château de Fontainebleau · INSEAD MiM Practicum · Group 11</div>
+      <h1><em>Flamme</em><br>Bringing history<br>to life</h1>
+      <p class="by">Leveraging Data for Marketing Science · Section E01 · 21 October 2026</p>
+    </div>
+    <p class="lede">Make children and schools the gateway to a broader visitor experience.
+      Instead of only observing rooms and reading lengthy labels, visitors solve clues,
+      collect stamps and uncover stories from the Château’s history — a low-cost learning
+      experience that makes the estate more accessible, engaging, immersive and
+      understandable.</p>
+  </div>
+</header>
+
+<section class="where">
+  <div class="mech">
+    <div>
+      <div class="kicker">The discovery mechanic</div>
+      <h2>Thirteen stations spell the name of the place</h2>
+      <p>Each station reveals one letter, with a bonus stamp in the free gardens and a Royal
+         Explorer Certificate at the finish.</p>
+    </div>
+    <div class="word" id="word"></div>
+    <div class="ben">
+      <div><b>Accessible</b>Clear, flexible routes and inclusive formats.</div>
+      <div><b>Engaging</b>Questions, stamps and challenges in each room.</div>
+      <div><b>Immersive</b>Meet royal history through stories and details.</div>
+      <div><b>Understandable</b>Short, bilingual, age-adapted explanations.</div>
+    </div>
+    <div class="seg"><b>Recommended school segment</b>CM1, roughly ages 9–10. François I and
+      the Renaissance create a natural curriculum link. CM2 and 5e can use adapted challenges;
+      an older-pupil Napoleon route could follow.</div>
+  </div>
+  <div style="display:flex; flex-direction:column; min-height:0">
+    <figure><img id="map" src="stations-map.png" alt="The estate, with the thirteen stations and the bonus garden stamp marked"></figure>
+    <div class="mcap">Thirteen stations · one bonus stamp in the free gardens</div>
+  </div>
+</section>
+
+<section class="recs">
+  <div class="rhead"><h2>Six recommendations</h2><span class="r0"></span>
+    <span class="n">One experience, from first contact to a returning family</span></div>
+  <div class="grid" id="recs"></div>
+</section>
+
+<section class="light">
+  <div class="lh"><h2>Keeping implementation light</h2><span class="r0"></span>
+    <span class="sub">Pilot, prove, then scale</span></div>
+  <div class="lgrid" id="lgrid">
+    <!-- filled from plan.js -->
+  </div>
+</section>
+
+<section class="engine">
+  <div class="eh"><h2>The school-to-family growth engine</h2><span class="r0"></span>
+    <span class="sub">An end-to-end marketing activities plan</span></div>
+  <div class="flow" id="flow"></div>
+</section>
+
+<footer class="foot">
+  <img class="flamme" src="../flamme.png" alt="Flamme, the salamander of François I, drawn as a mascot">
+  <div class="phases" id="phases"></div>
+  <div class="qr">
+    <div class="box" id="qr"></div>
+    <div>
+      <div class="t">The trail, station by station.</div>
+      <div class="u" id="url"></div>
+    </div>
+  </div>
+</footer>
+
+<script src="../plan.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script>
+var SITE = (new URLSearchParams(location.search)).get('url')
+        || 'https://claude.ai/artifact/E24gp3HGPTqD8DwQygkqaw';
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+document.getElementById('word').innerHTML =
+  'FONTAINEBLEAU'.split('').map(function(c){ return '<i>'+c+'</i>'; }).join('');
+
+document.getElementById('recs').innerHTML = RECS.map(function(r){
+  return '<article class="r"><div class="num">'+r.n+'</div><h4>'+esc(r.t)+'</h4>'+
+    '<p>'+esc(r.d)+'</p><div class="v"><b>Value</b> '+esc(r.v)+'</div></article>';
+}).join('');
+
+document.getElementById('flow').innerHTML = ENGINE.map(function(f){
+  return '<div class="step"><div class="s">'+f.s+'</div><h4>'+esc(f.t)+'</h4><p>'+esc(f.p)+'</p></div>';
+}).join('') +
+ '<div class="money"><div class="v">'+esc(SCENARIO.value)+'</div>'+
+ '<p>'+esc(SCENARIO.detail)+'</p>'+
+ '<div class="warn">'+esc(SCENARIO.warn)+'</div></div>';
+
+document.getElementById('lgrid').innerHTML = LIGHT.map(function(l){
+  return '<div class="lg"><h4>'+esc(l.t)+'</h4><p>'+esc(l.p)+'</p></div>'; }).join('');
+document.getElementById('phases').innerHTML = PHASES.map(function(p){
+  return '<div class="ph"><div class="s">'+esc(p.s)+'</div><h4>'+esc(p.t)+'</h4><p>'+esc(p.p)+'</p></div>'; }).join('');
+document.getElementById('url').textContent = SITE.replace(/^https?:\/\//,'');
+try{
+  var q = qrcode(0,'M'); q.addData(SITE); q.make();
+  document.getElementById('qr').innerHTML = q.createSvgTag({cellSize:4, margin:0});
+  var sv = document.querySelector('#qr svg');
+  if (sv){ sv.setAttribute('width','100%'); sv.setAttribute('height','100%'); }
+}catch(e){ document.getElementById('qr').innerHTML='<div style="font:700 11pt sans-serif">QR offline</div>'; }
+window.__posterReady = true;
+</script>
+</body>
+</html>
