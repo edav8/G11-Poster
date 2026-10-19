@@ -125,7 +125,8 @@ three-d-stage:not(:defined){visibility:hidden}
 /* sections */
 .band{padding-block:62px}
 .lede{font-size:19px; max-width:64ch}
-.recs{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px; margin-top:28px}
+.recs{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px;
+  margin-top:28px; align-items:start}
 .rc{background:var(--card); border:1px solid var(--hair); border-radius:14px; padding:20px;
   box-shadow:var(--sh-s); display:flex; flex-direction:column; gap:9px; min-width:0}
 .rc:nth-child(odd){transform:rotate(-.25deg)} .rc:nth-child(even){transform:rotate(.22deg)}
@@ -179,6 +180,19 @@ three-d-stage:not(:defined){visibility:hidden}
 .lword i{width:38px; height:48px; border:2px solid var(--royal); border-radius:7px;
   background:var(--card); display:grid; place-items:center; font-family:var(--disp);
   font-weight:700; font-size:20px; font-style:normal; box-shadow:var(--sh-s)}
+.hz{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:18px; margin-top:24px}
+.hz .h{background:var(--card); border:1px solid var(--hair); border-radius:14px; padding:20px;
+  box-shadow:var(--sh-s)}
+.hz .h .s{font-family:var(--disp); font-weight:700; font-size:12px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--flame)}
+.hz .h h3{font-size:19px; margin-top:6px}
+.hz .h p{font-size:15px; line-height:1.45; color:var(--mute); margin-top:7px}
+.hz .h .v{margin-top:10px; font-family:var(--disp); font-weight:700; font-size:11px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--royal)}
+.slot{margin-top:26px; border:2px dashed var(--amber-line); background:#FFFCF2;
+  border-radius:14px; padding:24px; color:var(--mute); font-size:15px; line-height:1.5}
+.slot b{font-family:var(--disp); font-weight:700; font-size:11px; letter-spacing:.14em;
+  text-transform:uppercase; color:#9A6B00; display:block; margin-bottom:6px}
 .four{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:26px}
 .f4 h3{font-family:var(--disp); font-weight:700; font-size:13px; letter-spacing:.12em;
   text-transform:uppercase; color:var(--flame)}
@@ -384,6 +398,20 @@ three-d-stage:not(:defined){visibility:hidden}
   </div>
 </section>
 
+<section class="band" id="mascot" style="background:#FFFCF4; border-block:1px solid var(--hair)">
+  <div class="wrap">
+    <div class="kick">The mascot</div>
+    <h2 style="font-size:clamp(28px,5vw,44px); margin-top:12px" id="mascHead"></h2>
+    <p class="lede" style="margin-top:16px" id="mascOwned"></p>
+    <div class="hz" id="mascHz"></div>
+    <p style="margin-top:20px; font-size:14.5px; color:var(--mute); max-width:70ch" id="mascCav"></p>
+    <div class="slot" id="mascSlot"><b>Artwork slot</b>The merchandise sheet — plush, caps, tote
+      bags, stationery, keyrings, a snow globe, postcards, the photo board and the throne photo
+      spot — drops in here once the image file is added to the build folder as
+      <code>mascot-retail.jpg</code>.</div>
+  </div>
+</section>
+
 <section class="band" id="steps">
   <div class="wrap">
     <div class="kick">Implementation</div>
@@ -467,6 +495,25 @@ document.getElementById('stepList').innerHTML = IMPLEMENTATION.map(function(x){
   return '<div class="sp"><div class="s">'+esc(x.s)+'</div>'+
     '<div><h3>'+esc(x.t)+'</h3><div class="d">'+esc(x.d)+'</div></div>'+
     '<div class="i"><b>Impact</b>'+esc(x.i)+'</div></div>'; }).join('');
+
+document.getElementById('mascHead').textContent = MASCOT.headline;
+document.getElementById('mascOwned').textContent = MASCOT.owned;
+document.getElementById('mascCav').textContent = MASCOT.caveat;
+document.getElementById('mascHz').innerHTML = MASCOT.horizon.map(function(h){
+  return '<div class="h"><div class="s">'+esc(h.s)+'</div><h3>'+esc(h.t)+'</h3>'+
+    '<p>'+esc(h.p)+'</p><div class="v">'+esc(h.v)+'</div></div>'; }).join('');
+/* the sheet appears as soon as the file exists; until then the slot explains itself */
+(function(){
+  var img = new Image();
+  img.onload = function(){
+    document.getElementById('mascSlot').outerHTML =
+      '<figure class="shot" style="margin-top:26px"><img src="mascot-retail.jpg" '+
+      'alt="Flamme merchandise in the Château shop, with a photo board and a throne photo spot">'+
+      '<figcaption><b>The emblem, applied</b>Retail, a photo board and a throne photo spot — '+
+      'the \u201cNext\u201d horizon. None of it is counted in the business case.</figcaption></figure>';
+  };
+  img.src = 'mascot-retail.jpg';
+})();
 
 document.getElementById('idea').textContent = CONCEPT.idea;
 document.getElementById('segment').textContent = CONCEPT.segment;

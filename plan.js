@@ -49,7 +49,9 @@ var RECS = [
   { n:'03', t:'Thirteen stations', where:'Selected rooms, and one free garden', p:[-110,88,8],
     d:'Conservation-approved, low-maintenance clue points across selected rooms. Each reveals one '
      + 'letter of FONTAINEBLEAU; a free-garden bonus extends the adventure.',
-    v:'More active learning and exploration without constructing a new attraction.' },
+    v:'More active learning and exploration without constructing a new attraction.',
+    art:{ img:'stamps.jpg', t:'Fourteen stamps',
+          s:'One per station plus the secret, self-inking so no staff member holds a pad' } },
 
   { n:'04', t:'Accessible storytelling', where:'The Grands Appartements', p:[-30,80,22],
     d:'Replace selected text-heavy explanations with short stories: who used the room, why it '
@@ -256,6 +258,18 @@ var STATION_SHOT = {
   alt: 'A stamp station in the Galerie François I: a numbered sign, the open passport and a stamp press on a wooden stand',
   cap: 'Station 4 · Galerie François I',
   note: 'A removable stand, a numbered sign and a self-inking press. Nothing is fixed to a historic wall or object.'
+};
+
+/* The fourteen stamp designs, one per station plus the secret. Ink colour matches each
+   station's page; the artwork is monoline throughout so coverage stays even. */
+var STAMP_SHEET = {
+  src: 'stamps.jpg',
+  alt: 'Fourteen stamp designs, one per station: a horseshoe staircase, a chapel window, '
+     + 'the king\u2019s staircase, a salamander, a crescent moon, a throne, an empress\u2019s bed, '
+     + 'the Turkish boudoir, a bicorne hat, the Chinese museum, the keep, a stag, a carp and '
+     + 'the secret flame rosette',
+  cap: 'Fourteen stamps',
+  note: 'One per station, plus the secret. Self-inking, so no staff member has to hold a pad.'
 };
 
 /* Implementation, step by step. Every figure is from the business case above:
