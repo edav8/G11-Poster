@@ -50,25 +50,43 @@ a{color:var(--royal)}
 .mast::before{content:""; position:absolute; inset:0;
   background:radial-gradient(ellipse at 14% 180%,rgba(245,183,0,.5),rgba(242,102,43,.16) 44%,transparent 74%)}
 .mast .in{position:relative; padding-block:30px 26px;
-  display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); gap:24px 44px;
-  align-items:end; padding-right:max(180px,env(safe-area-inset-right,0px))}
-.mast .house{font-family:var(--disp); font-weight:700; font-size:11px; letter-spacing:.3em;
+  display:grid; grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
+  grid-template-areas:"head who" "foot foot"; gap:26px 56px; align-items:start;
+  padding-right:max(168px,env(safe-area-inset-right,0px))}
+.mast .mhead{grid-area:head; min-width:0}
+.mast .who{grid-area:who; min-width:0}
+.mast .foot{grid-area:foot; min-width:0}
+.mast .house{font-family:var(--disp); font-weight:700; font-size:14px; letter-spacing:.26em;
   text-transform:uppercase; color:var(--gold)}
-.mast h1{font-size:clamp(32px,4.6vw,52px); margin-top:8px; letter-spacing:-.015em; max-width:18ch}
+/* 52px over 18ch ran to five lines and left a void beside it; 44 over 21ch settles at three */
+.mast h1{font-size:clamp(30px,3.9vw,44px); margin-top:10px; letter-spacing:-.015em;
+  max-width:21ch; line-height:1.04}
 .mast h1 em{font-style:normal; color:var(--gold)}
-.mast .kicker2{margin-top:10px; font-family:var(--disp); font-weight:500; font-size:19px;
+.mast .kicker2{margin-top:12px; font-family:var(--disp); font-weight:500; font-size:19px;
   color:rgba(255,255,255,.72)}
-.mast .who{min-width:0; font-size:14.5px; line-height:1.5; color:rgba(255,255,255,.8);
-  padding-bottom:2px}
-.mast .who b{color:#fff; font-weight:800}
-.mast .dis{display:block; margin-top:8px; font-size:11.5px; color:rgba(255,255,255,.5)}
-.mast .mascot{position:absolute; right:14px; bottom:0; height:168px; width:auto;
-  filter:drop-shadow(0 8px 16px rgba(0,0,0,.45)); pointer-events:none}
+/* the one sentence the page exists to install reads as a lead, not as another credit line */
+.mast .idea{font-size:18px; line-height:1.42; color:#fff; max-width:42ch}
+.mast .cred{margin-top:16px; display:grid; gap:7px; font-size:14.5px; line-height:1.35}
+.mast .cred > div{display:grid; grid-template-columns:92px minmax(0,1fr); gap:12px}
+.mast .cred dt{font-family:var(--disp); font-weight:700; font-size:14px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--gold)}
+.mast .cred dd{color:rgba(255,255,255,.86)}
+.mast .dis{margin-top:4px; padding-top:14px; border-top:1px solid rgba(255,255,255,.18);
+  font-size:14px; line-height:1.45; color:rgba(255,255,255,.66); max-width:92ch}
+.mast .mascot{position:absolute; right:0; bottom:0; height:184px; width:auto;
+  pointer-events:none; filter:drop-shadow(0 10px 22px rgba(0,0,0,.42))}
 @media (max-width:1040px){
-  .mast .in{grid-template-columns:1fr; padding-right:max(18px,env(safe-area-inset-right,0px))}
+  .mast .in{grid-template-columns:1fr; grid-template-areas:"head" "who" "foot";
+    padding-right:max(18px,env(safe-area-inset-right,0px))}
   .mast .mascot{height:120px; opacity:.9}
 }
-@media (max-width:720px){ .mast .mascot{display:none} }
+@media (max-width:720px){
+  .mast .mascot{display:none}
+  /* .26em tracking ran the eyebrow to three lines on a phone */
+  .mast .house{letter-spacing:.14em; font-size:14px}
+  .mast .cred > div{grid-template-columns:1fr; gap:1px}
+  .mast .cred dd{margin-bottom:4px}
+}
 
 /* the estate */
 .estate{background:var(--navy-d); color:#fff; padding-block:20px 30px}
@@ -107,7 +125,16 @@ three-d-stage:not(:defined){visibility:hidden}
 .stagebar button:hover{background:var(--gold); color:var(--ink)}
 
 .sheet{background:var(--card); color:var(--ink); border-radius:14px; padding:20px 22px;
-  box-shadow:0 6px 0 rgba(0,0,0,.3); flex:1 1 auto; min-height:0; overflow-y:auto}
+  box-shadow:0 6px 0 rgba(0,0,0,.3); flex:0 1 auto; min-height:0; overflow-y:auto}
+/* the panel is as tall as the map, and the headline plus two lines left most of it
+   empty; the five steps are the thing a reader wants next, so they fill it */
+.sheet .ssteps{margin-top:14px; padding-top:11px; border-top:1px solid var(--hair);
+  list-style:none; counter-reset:ss}
+.sheet .ssteps li{counter-increment:ss; display:grid; grid-template-columns:22px minmax(0,1fr);
+  gap:10px; padding:6px 0; font-family:var(--disp); font-weight:600; font-size:15px;
+  line-height:1.22}
+.sheet .ssteps li + li{border-top:1px solid var(--hair)}
+.sheet .ssteps li::before{content:counter(ss); font-weight:700; font-size:14px; color:var(--royal)}
 .sheet .top{display:flex; gap:13px; align-items:flex-start}
 .sheet .no{flex:0 0 42px; height:42px; border-radius:50%; background:var(--royal); color:#fff;
   font-family:var(--disp); font-weight:700; font-size:18px; display:grid; place-items:center;
@@ -258,6 +285,15 @@ three-d-stage:not(:defined){visibility:hidden}
   background:var(--gold); border:2px solid var(--ink); margin-left:-2px; box-shadow:0 3px 0 rgba(42,35,64,.3)}
 .jump a:first-child{border-radius:30px 0 0 30px}
 .jump a:last-child{border-radius:0 30px 30px 0; background:var(--paper)}
+/* On a phone the bar spans most of the width and covered the last lines of the page,
+   and its 12px caps were under the 14px floor the rest of the page keeps. */
+@media (max-width:720px){
+  .jump{left:calc(12px + env(safe-area-inset-left,0px));
+        right:calc(12px + env(safe-area-inset-right,0px)); justify-content:center}
+  .jump a{flex:1 1 0; min-width:0; text-align:center; font-size:14px; padding:13px 8px;
+          letter-spacing:.06em}
+  .foot{padding-bottom:104px}
+}
 .foot{background:var(--navy); color:rgba(255,255,255,.7); padding-block:40px; font-size:13.5px}
 .foot h3{color:#fff; font-size:17px; margin-bottom:10px}
 .foot p{margin-bottom:9px; max-width:74ch}
@@ -318,6 +354,15 @@ table.pf td:first-child{text-align:left; padding-left:0; white-space:normal}
 table.pf tr.tot td{font-family:var(--disp); font-weight:700; font-size:17px; border-bottom:0;
                    border-top:2px solid var(--gold); padding-top:13px}
 table.pf td.bs{color:var(--gold); font-weight:700}
+
+/* Five money columns cannot fit a 375px phone, and letting them try gave the whole
+   page a horizontal scrollbar. The table scrolls inside its own box instead. */
+/* a thumb needs 44px; these were 36 and 18 */
+.stagebar button{min-height:44px}
+.sheet .more{display:inline-block; min-height:44px; line-height:44px; font-size:14px}
+
+.tscroll{overflow-x:auto; -webkit-overflow-scrolling:touch; margin-top:24px}
+.tscroll table.pf{margin-top:0; min-width:430px}
 
 /* ── the assumption register ── */
 .reg{margin-top:26px; border-top:1px solid var(--hair)}
@@ -381,20 +426,27 @@ a:hover{text-decoration:underline}
 
 <header class="mast">
   <div class="wrap in">
-    <div>
+    <div class="mhead">
       <div class="house">Château de Fontainebleau · <span id="planYr"></span></div>
       <h1 id="bigIdea"></h1>
-      <p class="kicker2"><em style="font-style:normal;color:var(--gold);font-weight:700">Flamme</em> — bringing history to life</p>
+      <p class="kicker2"><em>Flamme</em> — bringing history to life</p>
     </div>
-    <img class="mascot" src="flamme-sm.png" alt="Flamme, the salamander of François I, drawn as a mascot">
+
     <div class="who">
-      Children discover the Château, schools book it every year, and families have a reason to return.
-      <span style="display:block; margin-top:10px">Group 11, Section E01<br>
-      Leveraging Data for Marketing Science<br>
-      Poster exhibition, Galerie des Cerfs, 21 October 2026</span>
-      <span class="dis">A student marketing proposal prepared for a course. Not affiliated with,
-      commissioned by or endorsed by the Château de Fontainebleau.</span>
+      <p class="idea">Children discover the Château, schools book it every year, and families
+        have a reason to return.</p>
+      <dl class="cred">
+        <div><dt>Group</dt><dd>11, Section E01</dd></div>
+        <div><dt>Course</dt><dd>Leveraging Data for Marketing Science</dd></div>
+        <div><dt>Exhibition</dt><dd>Galerie des Cerfs, 21 October 2026</dd></div>
+      </dl>
     </div>
+
+    <img class="mascot" src="flamme-sm.png"
+         alt="Flamme, the salamander of François I, drawn as a mascot">
+
+    <p class="foot dis">A student marketing proposal prepared for a course. Not affiliated with,
+      commissioned by or endorsed by the Château de Fontainebleau.</p>
   </div>
 </header>
 
@@ -505,7 +557,7 @@ a:hover{text-decoration:underline}
     <div class="kick" style="color:var(--gold)">Integrated commercial case</div>
     <h2 style="font-size:clamp(28px,5vw,44px); margin-top:10px" id="pfT"></h2>
     <p class="lede" style="margin-top:14px; color:rgba(255,255,255,.82)" id="pfLede"></p>
-    <table class="pf" id="pfTable"></table>
+    <div class="tscroll"><table class="pf" id="pfTable"></table></div>
     <div class="money" id="money"></div>
   </div>
 </section>
@@ -735,7 +787,10 @@ function paint(i, fly){
     '<p>'+esc(r.goal)+'</p>'+
     '<p style="color:var(--royal); font-size:14.5px"><b>Year one</b> '+esc(r.total)+
     ' \u00b7 <b>Base scenario</b> '+esc(r.base)+'</p>'+
-    '<p style="font-size:13.5px"><a href="#r'+esc(r.n)+'">Read the full case \u2193</a></p>';
+    '<ol class="ssteps">' +
+      r.steps.map(function(x){ return '<li><span>'+esc(x.t)+'</span></li>'; }).join('') +
+    '</ol>' +
+    '<p><a class="more" href="#r'+esc(r.n)+'">Read the full case \u2193</a></p>';
   var bs = lrow.querySelectorAll('button');
   for (var k=0;k<bs.length;k++) bs[k].setAttribute('aria-current', bs[k].dataset.i===String(i)?'true':'false');
   var ps = document.querySelectorAll('#pins .pin');
@@ -784,7 +839,7 @@ paint(0);
     var kit = makeKit(THREE);
     var model = new THREE.Group(); model.name = 'chateau_de_fontainebleau';
     buildGardens(kit, model);
-    buildPalace(kit, model).scale.y = 1.6;
+    var palace = buildPalace(kit, model); palace.scale.y = 1.6;
     stage.setObject(model);
     applyLook(THREE, stage, kit);
 
@@ -816,14 +871,44 @@ paint(0);
 
     var cam = stage._camera, ctl = stage._controls;
     cam.fov=32; cam.near=5; cam.far=20000; cam.updateProjectionMatrix();
-    var HOME = { pos:[-520,430,640], tgt:[-165,40,10] };
+    /* The camera used to sit at a hardcoded point, which framed the estate correctly at
+       exactly one viewport shape and at no other: on a taller stage the palace rode up
+       with dead sky under it, and on a narrower one the east wing ran off the edge.
+       Fit it to the model's own bounding sphere instead, against the live aspect, so the
+       whole estate is always inside the frame and centred in it. */
+    var VIEW = new THREE.Vector3(-355, 390, 630).normalize();   /* the three-quarter angle, kept */
+    var FILL = 0.82;                                            /* <1 crops the empty margin in */
     function home(){
-      cam.position.set(HOME.pos[0],HOME.pos[1],HOME.pos[2]);
-      if (ctl){ ctl.target.set(HOME.tgt[0],HOME.tgt[1],HOME.tgt[2]); ctl.update(); }
+      /* Frame the PALACE, not the whole model. The gardens sit on a ground slab that runs
+         far east of the building, and fitting to that put its centre 240 units off the
+         courtyard: the ch\u00e2teau ended up small and hard left with sky under it, and the
+         distance hit the orbit ceiling. */
+      var box = new THREE.Box3().setFromObject(palace);
+      var c = box.getCenter(new THREE.Vector3());
+      var sph = box.getBoundingSphere(new THREE.Sphere());
+      var vFov = cam.fov * Math.PI / 180;
+      var hFov = 2 * Math.atan(Math.tan(vFov / 2) * cam.aspect);
+      /* the tighter of the two half-angles sets the distance, so neither axis clips */
+      var d = sph.radius / Math.sin(Math.min(vFov, hFov) / 2) * FILL;
+      c.y += sph.radius * 0.04;            /* a touch of headroom, clear of the stage bar */
+      cam.position.copy(c).add(VIEW.clone().multiplyScalar(d));
+      if (ctl){
+        ctl.minDistance = d * 0.45;
+        ctl.maxDistance = d * 1.9;         /* derived, so the fit is never clamped away */
+        ctl.target.copy(c); ctl.update();
+      }
     }
     home();
+    /* the stage changes shape on rotate and on resize; re-fit rather than drift out of frame */
+    (function(){
+      var t = null;
+      addEventListener('resize', function(){
+        clearTimeout(t);
+        t = setTimeout(function(){ if (!W || !W.flying) home(); }, 160);
+      });
+    })();
     if (ctl){
-      ctl.enabled=true; ctl.enablePan=false; ctl.minDistance=300; ctl.maxDistance=2200;
+      ctl.enabled=true; ctl.enablePan=false;
       ctl.maxPolarAngle=Math.PI*0.46; ctl.enableDamping=true; ctl.dampingFactor=0.08;
       /* OrbitControls eats the wheel and sets touch-action:none, turning the map into a
          scroll trap. Give the page back its scroll. */
