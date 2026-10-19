@@ -256,6 +256,86 @@ three-d-stage:not(:defined){visibility:hidden}
 .foot h3{color:#fff; font-size:17px; margin-bottom:10px}
 .foot p{margin-bottom:9px; max-width:74ch}
 
+
+/* ── the three business cases ── */
+.case{background:var(--card); border:1px solid var(--hair); border-radius:16px;
+      padding:26px 28px; margin-top:22px}
+.case > header{display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap}
+.case .n{font-family:var(--disp); font-weight:700; font-size:40px; line-height:.9;
+         color:var(--flame-d); flex:0 0 auto}
+.case .pil{font-family:var(--disp); font-weight:700; font-size:11px; letter-spacing:.14em;
+           text-transform:uppercase; color:var(--royal)}
+.case header h3{font-size:clamp(21px,3vw,28px); margin-top:3px}
+.case .goal{font-size:16px; color:var(--mute); margin-top:5px}
+.case .w{flex:0 0 auto; max-width:230px; font-family:var(--disp); font-weight:600; font-size:12.5px;
+         color:var(--mute); border-left:2px solid var(--hair); padding-left:12px}
+.case .cd{font-size:16.5px; line-height:1.5; margin-top:18px; max-width:72ch}
+.cg{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:28px; margin-top:22px}
+.cg h4{font-family:var(--disp); font-weight:700; font-size:11px; letter-spacing:.14em;
+       text-transform:uppercase; color:var(--flame-d); margin-bottom:10px}
+.cst ol{list-style:none; counter-reset:st}
+.cst li{counter-increment:st; display:grid; grid-template-columns:26px minmax(0,1fr); gap:12px;
+        padding:11px 0; border-top:1px solid var(--hair)}
+.cst li:first-child{border-top:0; padding-top:0}
+.cst li::before{content:counter(st); font-family:var(--disp); font-weight:700; font-size:13px;
+                color:var(--royal); padding-top:3px}
+.cst li b{display:block; font-family:var(--disp); font-weight:700; font-size:15.5px}
+.cst li span{display:block; font-size:14.5px; line-height:1.45; color:var(--mute); margin-top:3px}
+table.ct{width:100%; border-collapse:collapse; font-size:14px}
+table.ct th{text-align:left; font-family:var(--disp); font-weight:700; font-size:10px;
+            letter-spacing:.12em; text-transform:uppercase; color:var(--mute);
+            padding-bottom:6px; border-bottom:1px solid var(--hair)}
+table.ct td{padding:7px 0; border-bottom:1px solid var(--hair); vertical-align:top}
+table.ct td.a{font-size:12.5px; color:var(--mute)}
+table.ct td.v{text-align:right; white-space:nowrap; font-family:var(--disp); font-weight:600}
+table.ct tr.t td{border-bottom:0; padding-top:10px; font-family:var(--disp); font-weight:700;
+                 font-size:16px; color:var(--ink)}
+.rev{margin-top:16px; background:var(--amber); border:1px solid var(--amber-line);
+     border-radius:12px; padding:15px 17px}
+.rev .k{font-family:var(--disp); font-weight:700; font-size:10px; letter-spacing:.12em;
+        text-transform:uppercase; color:var(--amber-ink)}
+.rev .b{font-family:var(--disp); font-weight:700; font-size:30px; line-height:1; color:#4A3600; margin-top:3px}
+.rev p{font-size:13.5px; line-height:1.45; color:#4A3600; margin-top:7px}
+.sn{margin-top:12px; font-size:13.5px; line-height:1.45; color:var(--mute)}
+.sn b{font-family:var(--disp); font-weight:700; font-size:10px; letter-spacing:.12em;
+      text-transform:uppercase; color:var(--ink); display:block}
+
+/* ── the integrated case ── */
+table.pf{width:100%; border-collapse:collapse; font-size:15px; margin-top:24px; color:#fff}
+table.pf th{text-align:right; font-family:var(--disp); font-weight:700; font-size:10px;
+            letter-spacing:.12em; text-transform:uppercase; color:var(--gold);
+            padding:0 0 8px 14px; border-bottom:1px solid rgba(255,255,255,.22)}
+table.pf th:first-child{text-align:left; padding-left:0}
+table.pf td{padding:11px 0 11px 14px; text-align:right; white-space:nowrap;
+            border-bottom:1px solid rgba(255,255,255,.13); font-variant-numeric:tabular-nums}
+table.pf td:first-child{text-align:left; padding-left:0; white-space:normal}
+table.pf tr.tot td{font-family:var(--disp); font-weight:700; font-size:17px; border-bottom:0;
+                   border-top:2px solid var(--gold); padding-top:13px}
+table.pf td.bs{color:var(--gold); font-weight:700}
+
+/* ── the assumption register ── */
+.reg{margin-top:26px; border-top:1px solid var(--hair)}
+.reg .r{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr) 190px; gap:20px;
+        padding:14px 0; border-bottom:1px solid var(--hair); align-items:start}
+.reg .i{font-size:15px; line-height:1.4; font-weight:600}
+.reg .b{font-size:14px; line-height:1.45; color:var(--mute)}
+.reg .s{font-family:var(--disp); font-weight:700; font-size:11.5px; letter-spacing:.04em;
+        border-radius:999px; padding:4px 11px; text-align:center}
+.reg .s.ok{background:#1F5C2E; color:#fff}
+.reg .s.mid{background:var(--gold); color:#4A3600}
+.reg .s.low{background:var(--flame-d); color:#fff}
+.reg .hd{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr) 190px; gap:20px;
+         padding-bottom:7px; border-bottom:1px solid var(--hair)}
+.reg .hd span{font-family:var(--disp); font-weight:700; font-size:10px; letter-spacing:.12em;
+              text-transform:uppercase; color:var(--mute)}
+@media (max-width:860px){
+  .cg{grid-template-columns:1fr}
+  .case .w{max-width:none; border-left:0; padding-left:0; border-top:1px solid var(--hair); padding-top:8px; width:100%}
+  .reg .r,.reg .hd{grid-template-columns:1fr}
+  .reg .s{justify-self:start}
+  .reg .hd{display:none}
+}
+
 @media (max-width:980px){
   .egrid{grid-template-columns:1fr}
   .rail{height:auto} .rail .sheet{overflow:visible}
@@ -279,7 +359,7 @@ three-d-stage:not(:defined){visibility:hidden}
     </div>
     <img class="mascot" src="flamme-sm.png" alt="Flamme, the salamander of François I, drawn as a mascot">
     <div class="who">
-      Schools are the way in: a class visit seeds a family that comes back.
+      Children discover the Château, schools book it every year, and families have a reason to return.
       <span style="display:block; margin-top:10px">Group 11, Section E01<br>
       Leveraging Data for Marketing Science<br>
       Poster exhibition, Galerie des Cerfs, 21 October 2026</span>
@@ -296,7 +376,7 @@ three-d-stage:not(:defined){visibility:hidden}
         <three-d-stage id="stage" background="#9FC0DC"></three-d-stage>
         <div class="pinlayer" id="pins"></div>
         <div id="fallback"><p>The estate model needs WebGL, which this browser has turned off.
-          The six ideas are listed beside the map and again below.</p></div>
+          The three recommendations are listed beside the map and again below.</p></div>
         <div class="stagebar">
           <button type="button" id="reset">Reset view</button>
           <span class="hint">Drag sideways to turn it. Tap a number.</span>
@@ -304,9 +384,9 @@ three-d-stage:not(:defined){visibility:hidden}
       </div>
       <div class="rail">
         <article class="sheet" id="sheet" aria-live="polite"></article>
-        <nav class="letters" aria-label="The six ideas">
-          <h2>Six ideas</h2>
-          <div class="sub">Each one marked where it happens on the estate.</div>
+        <nav class="letters" aria-label="The three recommendations">
+          <h2>Three recommendations</h2>
+          <div class="sub">Each one marked where it happens — or, for the schools engine, where it does not.</div>
           <div class="lrow" id="lrow"></div>
         </nav>
       </div>
@@ -315,7 +395,7 @@ three-d-stage:not(:defined){visibility:hidden}
 </section>
 
 <div class="draftbar"><div class="wrap in"><b>Concept</b>
-  <span>From our Royal Discovery Trail concept document. Station positions on the model are schematic, not a survey.</span>
+  <span>From our Three Key Recommendations business case. Financial figures are illustrative scenarios, not forecasts; station positions on the model are schematic, not a survey.</span>
 </div></div>
 
 <section class="band" id="problem">
@@ -340,7 +420,7 @@ three-d-stage:not(:defined){visibility:hidden}
     <p class="lede" style="margin-top:16px" id="idea"></p>
     <div class="four" id="benefits"></div>
     <div style="margin-top:32px">
-      <h3 style="font-size:21px">One of the six: the discovery mechanic</h3>
+      <h3 style="font-size:21px">Inside recommendation 01: the discovery mechanic</h3>
       <p style="margin-top:8px; font-size:16.5px" id="mech"></p>
       <div class="lword" id="lword"></div>
     </div>
@@ -368,11 +448,12 @@ three-d-stage:not(:defined){visibility:hidden}
 
 <section class="band" id="recs">
   <div class="wrap">
-    <h2 style="font-size:clamp(28px,5vw,44px); margin-top:12px">Six recommendations</h2>
-    <p class="lede" style="margin-top:14px">One experience that connects learning, discovery,
-      school outreach and long-term visitor relationships.</p>
+    <h2 style="font-size:clamp(28px,5vw,44px); margin-top:12px">Three recommendations</h2>
+    <p class="lede" style="margin-top:14px">One integrated growth idea, split into an experience,
+      an acquisition engine and an accessibility layer. Each carries its own five steps, its own
+      first-year cost and its own illustrative receipts.</p>
     <figure class="shot" id="shot"></figure>
-    <div class="recs" id="recGrid" style="margin-top:28px"></div>
+    <div id="recGrid" style="margin-top:28px"></div>
   </div>
 </section>
 
@@ -390,14 +471,33 @@ three-d-stage:not(:defined){visibility:hidden}
   </div>
 </section>
 
-<section class="engine" id="engine">
+<section class="engine" id="case">
   <div class="wrap">
-    <h2 style="font-size:clamp(28px,5vw,44px); margin-top:12px">The school-to-family growth engine</h2>
-    <p class="lede" style="margin-top:14px; color:rgba(255,255,255,.82)">Use learning as the
-      starting point for a repeatable, low-cost marketing journey — not as a stand-alone
-      school activity.</p>
-    <div class="flow" id="flow"></div>
+    <h2 style="font-size:clamp(28px,5vw,44px); margin-top:12px" id="pfT"></h2>
+    <p class="lede" style="margin-top:14px; color:rgba(255,255,255,.82)" id="pfLede"></p>
+    <table class="pf" id="pfTable"></table>
     <div class="money" id="money"></div>
+  </div>
+</section>
+
+<section class="band" id="baseline">
+  <div class="wrap">
+    <div class="kick" style="color:var(--flame-d)" id="blPeriod"></div>
+    <h2 style="font-size:clamp(28px,5vw,44px); margin-top:10px" id="blT"></h2>
+    <div class="reg" id="blRows" style="margin-top:22px"></div>
+    <p style="margin-top:18px; font-size:13.5px; color:var(--mute); max-width:76ch" id="blSrc"></p>
+    <p style="margin-top:10px; font-size:13.5px; color:var(--mute); max-width:76ch" id="blCav"></p>
+  </div>
+</section>
+
+<section class="band" id="assume" style="background:#FFFCF4; border-block:1px solid var(--hair)">
+  <div class="wrap">
+    <h2 style="font-size:clamp(28px,5vw,44px); margin-top:12px" id="asT"></h2>
+    <p class="lede" style="margin-top:14px">Nothing here is presented as more certain than it is.
+      Six inputs, each labelled with where it came from.</p>
+    <div class="reg" id="asRows">
+      <div class="hd"><span>Input</span><span>Basis</span><span>Status</span></div>
+    </div>
   </div>
 </section>
 
@@ -414,21 +514,19 @@ three-d-stage:not(:defined){visibility:hidden}
   </div>
 </section>
 
-<section class="band" id="steps">
+<section class="band" id="guard">
   <div class="wrap">
-    <h2 style="font-size:clamp(28px,5vw,44px); margin-top:12px">Step by step, and what each one changes</h2>
-    <p class="lede" style="margin-top:14px">Every figure here is from the business case: the kit,
-      the print run, the cohort and the break-even. Nothing new is assumed.</p>
-    <div class="steps" id="stepList"></div>
+    <h2 style="font-size:clamp(28px,5vw,44px); margin-top:12px" id="guT"></h2>
+    <p class="lede" style="margin-top:14px">Three control rules. They are what make a pilot of
+      this kind safe for a monument to authorise.</p>
+    <div class="four" id="guGrid"></div>
   </div>
 </section>
 
-<section class="band" style="background:#FFFCF4; border-block:1px solid var(--hair)">
+<section class="band" style="background:#FFFCF4; border-block:1px solid var(--hair)" id="roadmap">
   <div class="wrap">
-    <h2 style="font-size:clamp(26px,4.4vw,38px); margin-top:12px">Pilot, prove, then scale</h2>
-    <div class="phases" id="phaseGrid"></div>
-    <h3 style="margin-top:38px; font-size:20px">Keeping implementation light</h3>
-    <div class="four" id="lightGrid"></div>
+    <h2 style="font-size:clamp(26px,4.4vw,38px); margin-top:12px" id="rdT"></h2>
+    <div class="phases" id="rdGrid"></div>
   </div>
 </section>
 
@@ -445,17 +543,17 @@ three-d-stage:not(:defined){visibility:hidden}
 </section>
 
 <nav class="jump" id="jump" aria-label="Jump to">
-  <a href="#estate">The trail</a>
-  <a href="#recs">The six</a>
+  <a href="#estate">The map</a>
+  <a href="#recs">The three</a>
+  <a href="#case">The numbers</a>
 </nav>
 
 <footer class="foot">
   <div class="wrap">
     <h3>Sources</h3>
-    <p>The concept, the six recommendations, the growth engine and the illustrative scenario are
-      our own, from the Royal Discovery Trail concept document. The €6,800 figure is a scenario,
-      not a forecast: school trips may qualify for free admission, and actual receipts depend on
-      family conversion, ticket eligibility and non-cannibalised demand.</p>
+    <p id="srcInt"></p>
+    <p id="srcExt"></p>
+    <p id="srcNote"></p>
     <p>The estate model is an original procedural reconstruction, schematic and not a survey.
       Film sequences were generated by us for this project.</p>
     <p>INSEAD Master in Management, class of 2028 · Section E01, Group 11.</p>
@@ -491,10 +589,7 @@ document.getElementById('shot').innerHTML =
   '<img src="'+STATION_SHOT.src+'" alt="'+esc(STATION_SHOT.alt)+'">'+
   '<figcaption><b>'+esc(STATION_SHOT.cap)+'</b>'+esc(STATION_SHOT.note)+'</figcaption>';
 
-document.getElementById('stepList').innerHTML = IMPLEMENTATION.map(function(x){
-  return '<div class="sp"><div class="s">'+esc(x.s)+'</div>'+
-    '<div><h3>'+esc(x.t)+'</h3><div class="d">'+esc(x.d)+'</div></div>'+
-    '<div class="i"><b>Impact</b>'+esc(x.i)+'</div></div>'; }).join('');
+/* implementation steps now live inside each recommendation card */
 
 document.getElementById('mascHead').textContent = MASCOT.headline;
 document.getElementById('mascOwned').textContent = MASCOT.owned;
@@ -518,29 +613,75 @@ document.getElementById('mascHz').innerHTML = MASCOT.horizon.map(function(h){
 document.getElementById('idea').textContent = CONCEPT.idea;
 document.getElementById('segment').textContent = CONCEPT.segment;
 document.getElementById('benefits').innerHTML = BENEFITS.map(function(b){
+  return '<div class="f4"><h3>'+esc(b.k)+'</h3><p>'+esc(b.v)+'</p></div>'; }).join('');
+
+/* ── the observed baseline ── */
+document.getElementById('blT').textContent = BASELINE.t;
+document.getElementById('blPeriod').textContent = BASELINE.period;
+document.getElementById('blSrc').textContent = BASELINE.source;
+document.getElementById('blCav').textContent = BASELINE.caveat;
+document.getElementById('blRows').innerHTML =
+  '<div class="hd"><span>Measure</span><span>What it means here</span><span>Value</span></div>' +
+  BASELINE.rows.map(function(r){
+    return '<div class="r"><div class="i">'+esc(r.k)+'</div><div class="b">'+esc(r.i)+'</div>'+
+      '<div class="s mid" style="background:var(--navy); color:#fff">'+esc(r.v)+'</div></div>'; }).join('');
+
+/* ── the assumption register ── */
+document.getElementById('asT').textContent = ASSUMPTIONS.t;
+document.getElementById('asRows').insertAdjacentHTML('beforeend', ASSUMPTIONS.rows.map(function(r){
+  return '<div class="r"><div class="i">'+esc(r.i)+'</div><div class="b">'+esc(r.b)+'</div>'+
+    '<div class="s '+r.k+'">'+esc(r.s)+'</div></div>'; }).join(''));
+
+/* ── the control rules and the ninety days ── */
+document.getElementById('guT').textContent = GUARDRAILS.t;
+document.getElementById('guGrid').innerHTML = GUARDRAILS.rows.map(function(b){
   return '<div class="f4"><h3>'+esc(b.t)+'</h3><p>'+esc(b.p)+'</p></div>'; }).join('');
-document.getElementById('lightGrid').innerHTML = LIGHT.map(function(b){
-  return '<div class="f4"><h3>'+esc(b.t)+'</h3><p>'+esc(b.p)+'</p></div>'; }).join('');
-document.getElementById('flow').innerHTML = ENGINE.map(function(s){
-  return '<div class="st"><div class="s">'+esc(s.s)+'</div><h3>'+esc(s.t)+'</h3><p>'+esc(s.p)+'</p></div>'; }).join('');
-document.getElementById('phaseGrid').innerHTML = PHASES.map(function(p){
-  return '<div class="pz"><div class="s">'+esc(p.s)+'</div><h3>'+esc(p.t)+'</h3><p>'+esc(p.p)+'</p></div>'; }).join('');
+document.getElementById('rdT').textContent = ROADMAP.t;
+document.getElementById('rdGrid').innerHTML = ROADMAP.rows.map(function(r){
+  return '<div class="pz"><div class="s">'+esc(r.s)+'</div><h3>'+esc(r.p)+'</h3>'+
+    '<p><b>What it proves.</b> '+esc(r.e)+'</p></div>'; }).join('');
+
+/* ── the integrated case ── */
+document.getElementById('pfT').textContent = PORTFOLIO.t;
+document.getElementById('pfLede').textContent = PORTFOLIO.lede;
+document.getElementById('pfTable').innerHTML =
+  '<thead><tr><th>Mechanism</th><th>Low</th><th>Base</th><th>High</th><th>Year-one cost</th></tr></thead><tbody>'+
+  PORTFOLIO.rows.map(function(r){
+    return '<tr><td>'+esc(r.k)+'</td><td>'+esc(r.low)+'</td><td class="bs">'+esc(r.base)+
+      '</td><td>'+esc(r.high)+'</td><td>'+esc(r.cost)+'</td></tr>'; }).join('')+
+  '<tr class="tot"><td>Total</td><td>'+esc(PORTFOLIO.totals.low)+'</td><td class="bs">'+
+  esc(PORTFOLIO.totals.base)+'</td><td>'+esc(PORTFOLIO.totals.high)+'</td><td>'+
+  esc(PORTFOLIO.totals.cost)+'</td></tr></tbody>';
 document.getElementById('money').innerHTML =
-  '<div class="v">'+esc(SCENARIO.value)+'</div><div class="b"><p>'+esc(SCENARIO.detail)+'</p>'+
-  '<div class="warn">'+esc(SCENARIO.warn)+'</div><div class="note">'+esc(SCENARIO.note)+'</div></div>';
+  '<div class="v">'+esc(PORTFOLIO.totals.base)+'</div><div class="b"><p>'+esc(PORTFOLIO.headline)+'</p>'+
+  '<div class="warn">'+esc(PORTFOLIO.warn)+'</div>'+
+  '<div class="note">'+esc(BASELINE.caveat)+'</div></div>';
+
+/* ── sources ── */
+document.getElementById('srcInt').textContent = 'Our own material: ' + SOURCES.internal;
+document.getElementById('srcExt').textContent = 'Public sources: ' + SOURCES.external;
+document.getElementById('srcNote').textContent = SOURCES.note;
+
+/* ── the three recommendations, in full ── */
 document.getElementById('recGrid').innerHTML = RECS.map(function(r){
-  var art = '';
-  if (r.art && r.art.img){
-    art = '<div class="art"><div class="fig"><img src="'+r.art.img+'" alt="'+esc(r.art.t)+'">'+
-      '<span><span class="t">'+esc(r.art.t)+'</span><span class="s">'+esc(r.art.s)+'</span></span></div></div>';
-  } else if (r.art){
-    art = '<div class="art"><a href="'+r.art.href+'" target="_blank" rel="noopener">'+
-      '<span class="ic">PDF</span><span><span class="t">'+esc(r.art.t)+'</span>'+
-      '<span class="s">'+esc(r.art.s)+'</span></span></a></div>';
-  }
-  return '<article class="rc"><div class="n">'+esc(r.n)+'</div><div class="w">'+esc(r.where)+'</div>'+
-    '<h3>'+esc(r.t)+'</h3><p>'+esc(r.d)+'</p>'+
-    '<div class="v"><b>Value</b> '+esc(r.v)+'</div>'+art+'</article>';
+  var steps = '<div class="cst"><h4>Five steps</h4><ol>'+ r.steps.map(function(x){
+    return '<li><div><b>'+esc(x.t)+'</b><span>'+esc(x.p)+'</span></div></li>'; }).join('') +'</ol></div>';
+  var rowsum = r.costs.map(function(c){
+    return '<tr><td>'+esc(c.t)+'<br><span class="a" style="font-size:12.5px;color:var(--mute)">'+
+      esc(c.a)+'</span></td><td class="v">'+esc(c.v)+'</td></tr>'; }).join('');
+  var money = '<div class="cmo"><h4>Year one</h4><table class="ct">'+
+    '<thead><tr><th>Line</th><th style="text-align:right">Allowance</th></tr></thead><tbody>'+
+    rowsum + '<tr class="t"><td>Total</td><td class="v">'+esc(r.total)+'</td></tr></tbody></table>'+
+    '<div class="sn" style="margin-top:6px">'+esc(r.totalNote)+'</div>'+
+    '<div class="rev"><div class="k">Illustrative base scenario</div><div class="b">'+esc(r.base)+
+    '</div><p>'+esc(r.baseCalc)+'</p></div>'+
+    '<div class="sn"><b>Sensitivity</b>'+esc(r.sens)+'</div>'+
+    '<div class="sn"><b>Break-even</b>'+esc(r.be)+'</div></div>';
+  return '<article class="case" id="r'+esc(r.n)+'"><header><div class="n">'+esc(r.n)+'</div>'+
+    '<div style="flex:1 1 300px; min-width:0"><div class="pil">'+esc(r.pillar)+'</div>'+
+    '<h3>'+esc(r.t)+'</h3><div class="goal">'+esc(r.goal)+'</div></div>'+
+    '<div class="w">'+esc(r.sub)+'<br><br>'+esc(r.where)+'</div></header>'+
+    '<p class="cd">'+esc(r.d)+'</p><div class="cg">'+steps+money+'</div></article>';
 }).join('');
 
 /* ── the thirteen stations ── */
@@ -551,7 +692,7 @@ document.getElementById('lword').innerHTML =
 var lrow = document.getElementById('lrow');
 lrow.innerHTML = RECS.map(function(r,i){
   return '<button type="button" data-i="'+i+'" aria-current="false">'+
-    '<span class="n">'+esc(r.n)+'</span><span class="t">'+esc(r.t)+'</span></button>'; }).join('');
+    '<span class="n">'+esc(r.n)+'</span><span class="t">'+esc(r.pillar)+'</span></button>'; }).join('');
 
 function paint(i, fly){
   sel = i;
@@ -560,8 +701,10 @@ function paint(i, fly){
     '<div class="top"><div class="no'+(r.off?' bonus':'')+'">'+esc(r.n)+'</div>'+
     '<div style="flex:1 1 180px; min-width:0"><h3>'+esc(r.t)+'</h3>'+
     '<div class="where">'+esc(r.where)+'</div></div></div>'+
-    '<p>'+esc(r.d)+'</p>'+
-    '<p style="color:var(--royal); font-size:14.5px"><b>Value</b> '+esc(r.v)+'</p>';
+    '<p>'+esc(r.goal)+'</p>'+
+    '<p style="color:var(--royal); font-size:14.5px"><b>Year one</b> '+esc(r.total)+
+    ' \u00b7 <b>Base scenario</b> '+esc(r.base)+'</p>'+
+    '<p style="font-size:13.5px"><a href="#r'+esc(r.n)+'">Read the full case \u2193</a></p>';
   var bs = lrow.querySelectorAll('button');
   for (var k=0;k<bs.length;k++) bs[k].setAttribute('aria-current', bs[k].dataset.i===String(i)?'true':'false');
   var ps = document.querySelectorAll('#pins .pin');

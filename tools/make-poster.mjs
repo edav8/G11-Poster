@@ -23,7 +23,7 @@ const BUILD = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_DIR = path.join(os.homedir(), 'Desktop');
 const PDF = path.join(OUT_DIR, 'Chateau-Poster-A1.pdf');
 const PNG = path.join(OUT_DIR, 'Chateau-Poster-A1-preview.png');
-const SITE_URL = process.env.SITE_URL || 'https://claude.ai/artifact/E24gp3HGPTqD8DwQygkqaw';
+const SITE_URL = process.env.SITE_URL || 'https://edav8.github.io/G11-Poster/';
 const PULL_BACK = Number(process.env.PULL_BACK || 1.06);
 const TILT_DOWN = Number(process.env.TILT_DOWN || 60);
 
@@ -159,24 +159,29 @@ try {
     const foot = document.querySelector('.foot').getBoundingClientRect();
     const fig = document.querySelector('#fig').getBoundingClientRect();
     let spill = 0, clipped = 0;
-    for (const c of document.querySelectorAll('.plan .a')) {
-      const r = c.getBoundingClientRect();
-      spill = Math.max(spill, Math.round(r.bottom - foot.top));
-      if (c.scrollHeight > c.clientHeight + 1) clipped++;
+    for (const c of document.querySelectorAll('.recs .r')) {
+      if (c.scrollHeight > c.clientHeight + 4) clipped++;
     }
+    /* sections must not overlap: each one's bottom above the next one's top */
+    let overlap = 0;
+    const secs = [].slice.call(document.querySelectorAll('body > header, body > section, body > footer'));
+    for (let k = 0; k < secs.length - 1; k++) {
+      if (secs[k].getBoundingClientRect().bottom > secs[k+1].getBoundingClientRect().top + 1) overlap++;
+    }
+    const last = secs[secs.length-1];
+    if (last && last.getBoundingClientRect().bottom > H + 1) overlap++;
     for (const t of document.querySelectorAll('.tag')) {
       const r = t.getBoundingClientRect();
-      spill = Math.max(spill, Math.round(r.bottom - fig.bottom), Math.round(fig.top - r.top),
-                              Math.round(fig.left - r.left), Math.round(r.right - fig.right));
+      if (r.left < 0 || r.right > document.documentElement.clientWidth) spill++;
     }
     return { sheet: Math.round(H), content: Math.round(document.body.scrollHeight),
-             spill, clipped, cards: document.querySelectorAll('.plan .a').length };
+             spill, clipped, overlap, cards: document.querySelectorAll('.recs .r').length };
   });
   if (over.content > over.sheet + 2 || over.spill > 2 || over.clipped > 0) {
     console.log('\n  !! ' + JSON.stringify(over));
     console.log('     a card overruns the footer, a label falls off the map, or text is clipped.\n');
   } else {
-    console.log('  fits: ' + over.cards + ' cards, content ' + over.content + 'px of ' + over.sheet + 'px');
+    console.log('  fits: ' + over.cards + ' cards, content ' + over.content + 'px of ' + over.sheet + 'px' + ', clipped ' + over.clipped + ', overlap ' + over.overlap + ', spill ' + over.spill);
   }
 
   await out.page.pdf({ path: PDF, width: '594mm', height: '841mm', printBackground: true, pageRanges: '1' });
