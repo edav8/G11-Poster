@@ -7,12 +7,19 @@
 var CONCEPT = {
   name: 'Flamme',
   tagline: 'Bringing history to life',
-  idea: 'Make children and schools the gateway to a broader visitor experience. Instead of '
-      + 'only observing rooms and reading lengthy labels, visitors solve clues, collect stamps '
-      + 'and uncover stories from the Château’s history — a low-cost learning experience that '
-      + 'makes the estate more accessible, engaging, immersive and understandable.',
-  mechanic: 'Thirteen stations spell FONTAINEBLEAU, with a bonus stamp in the free gardens '
-          + 'and a Royal Explorer Certificate at the finish.',
+
+  /* The one topic. Everything else is a way of delivering it. */
+  big: 'Make the Château immersive and fun for children and families.',
+
+  idea: 'The rooms are magnificent and almost silent. For a child they are a corridor of labels, '
+      + 'and a family that arrives without a plan is handed nothing at the door. The plan turns '
+      + 'the estate into something a child can play their way through — and uses schools as the '
+      + 'way in, because a class visit seeds a family that comes back.',
+
+  /* One of the ideas, not the whole plan. */
+  mechanic: 'Thirteen stations spell FONTAINEBLEAU, with a bonus stamp in the free gardens and '
+          + 'a Royal Explorer Certificate at the finish.',
+
   segment: 'CM1, roughly ages 9–10. François I and the Renaissance create a natural curriculum '
          + 'link. CM2 and 5e can use adapted challenges; an older-pupil Napoleon route could follow.'
 };
@@ -78,6 +85,202 @@ var SCENARIO = {
       + 'family conversion, ticket eligibility and non-cannibalised demand.'
 };
 
+/* ---------------------------------------------------------------------------
+ * THE BUSINESS CASE  —  four exhibits and a recommendation.
+ *
+ * Every number is (a) the group's pilot scale, (b) a stated assumption, or
+ * (c) arithmetic on the two. Nothing is a measured result: the pilot exists to
+ * measure it. LTM figures are quoted from their public pages, read 19 Oct 2026.
+ * ------------------------------------------------------------------------- */
+
+var BIZ = {
+  headline: 'Schools are an acquisition channel, not a revenue line',
+  frame: 'The school visit can stay free. Its value is the paying family visit it produces, so '
+       + 'the decision metric is not ticket income — it is what one returning household costs to '
+       + 'acquire, against what it spends.',
+
+  cohort: { classes:40, pupils:25, total:1000, note:'Phase 1–2 pilot scale' },
+  basket: { adults:2, price:17, value:34,
+            note:'Two accompanying adults at €17. Under-18s enter free, so children are '
+               + 'deliberately excluded from revenue.' },
+
+  scenarios: [
+    { k:'Cautious', rate:15, hh:150, rev:5100,  net:1810, roi:55  },
+    { k:'Base',     rate:20, hh:200, rev:6800,  net:3510, roi:107, lead:true },
+    { k:'Strong',   rate:30, hh:300, rev:10200, net:6910, roi:210 }
+  ],
+  sens: 'Sensitivity — at €14 admission the base case is €5,600 and still clears cost; the '
+      + 'conclusion holds across the plausible price range.',
+
+  costs: {
+    y1:3290, ongoing:2450,
+    lines: [
+      { t:'Fourteen self-inking stampers', v:'€490',   k:'one-off' },
+      { t:'Station holders and signage',   v:'€350',   k:'one-off' },
+      { t:'Passports, 1,000 × €0.80',      v:'€800',   k:'yearly'  },
+      { t:'Teacher packs and invitations', v:'€150',   k:'yearly'  },
+      { t:'Coordination and restocking',   v:'€1,500', k:'yearly'  }
+    ],
+    note:'Design and content absorbed: the trail reuses existing historical material and an '
+       + 'emblem the Château already owns. Unit prices pending supplier quotes.'
+  },
+
+  breakeven: { hh:97, pct:9.7,
+    headline:'Break-even is one pupil in ten',
+    line:'97 of 1,000 pupils need to return with family for the programme to pay for itself. '
+       + 'Everything above that is contribution.' },
+
+  cac: { y1:16.45, on:12.25, ret:34,
+    headline:'€16.45 to acquire a household that spends €34',
+    line:'2.1× in year one; 2.8× from year two, once the stampers and signage are paid for.' },
+
+  scale:'Linear in classes recruited — the kit is bought once, so each additional class carries '
+      + 'print and coordination only.'
+};
+
+/* Verified against ltmuseum.co.uk, 19 Oct 2026. */
+var EVIDENCE = {
+  headline:'The mechanic is proven; the conversion rate is not',
+  source:'London Transport Museum, Covent Garden',
+  quote:'Our free stamper trail will help your little ones follow the story told in the Museum displays.',
+  qsrc:'LTM, “Top 10 things to see and do”',
+
+  facts: [
+    { t:'The trail is free', p:'It is not a paid add-on. It earns by making the existing displays '
+       + 'legible to children — the same claim the Château makes for its own rooms.' },
+    { t:'Children go free', p:'Child and Under-18 entry is £0 on every pass tier, removing family '
+       + 'size as a barrier to the return visit.' },
+    { t:'There is no single-visit ticket', p:'The entry product is an Annual Pass — Adult £27, '
+       + 'unlimited visits for twelve months. LTM sells a year, not a visit.' },
+    { t:'It sits inside a system', p:'The trail is one of ten family activities, alongside a 0–7 '
+       + 'play zone and hands-on galleries. It is infrastructure, not a gimmick.' }
+  ],
+
+  read:'The strategic read: LTM monetises the relationship, then uses free trails to drive the '
+     + 'repeat visits that relationship already paid for. The stamper trail is retention '
+     + 'infrastructure. Our school-to-family engine is the same logic, run in the other '
+     + 'direction — acquire through the school, convert to the family.',
+
+  limit:'What it does not give us is a conversion rate. A transport museum in central London has '
+      + 'a different catchment and a different visit motive from a château 60 km from Paris. '
+      + 'The mechanic transfers; the numbers must be measured here. That is the pilot’s job.',
+
+  upside:'Highest-upside option, flagged not counted: a family annual pass on LTM’s logic. '
+       + 'It converts one school-driven visit into a year of return visits at near-zero marginal '
+       + 'cost. Priced separately — see the pricing workstream.'
+};
+
+var MASCOT = {
+  headline:'Flamme is an owned asset, not a licensing cost',
+  owned:'Flamme is François I’s salamander, on these walls since 1528. The Château owns the '
+      + 'emblem outright: no licence to buy, no invented character to defend, and a mascot that is '
+      + 'historically true — which a heritage site cannot compromise on.',
+  horizon: [
+    { s:'Now',   t:'Identity and wayfinding',
+      p:'Free passport, trail signage, teacher packs. A cost line that buys recognition.',
+      v:'Counted in the case above' },
+    { s:'Next',  t:'Retail',
+      p:'Stamp set, souvenir passport, stationery — the LTM shop line, applied to an emblem we own.',
+      v:'Not counted' },
+    { s:'Later', t:'Extension',
+      p:'Family annual pass, digital trail, an older-pupil Napoleon route, co-branding with the Forêt.',
+      v:'Not counted' }
+  ],
+  caveat:'Each later line needs its own business case. None is included in the figures above — '
+       + 'the case stands on the family return visit alone.'
+};
+
+var ASK = {
+  headline:'Fund the pilot, decide on evidence',
+  body:'Approve €3,290 for a one-year pilot across forty classes. Track schools recruited, '
+     + 'passport completion, attributable return visits and net contribution. Scale to thirteen '
+     + 'stations only if conversion clears 10%.',
+  risk:'Downside is bounded at the kit cost — €840 of it is reusable hardware.'
+};
+
+/* ---------------------------------------------------------------------------
+ * THE PROBLEM  —  why the trail exists at all.
+ * From our own competitor and benchmark work. Fontainebleau's children's offer was
+ * read from its own website and FAQ; the UK operators from their public pages.
+ * ------------------------------------------------------------------------- */
+var PROBLEM = {
+  headline: 'The rooms are magnificent. To a nine-year-old they are a corridor of labels.',
+  lede: 'The Château does programme for children. The problem is not quantity, it is '
+      + 'availability — and what a child is handed at the door compared with what a British '
+      + 'museum hands them.',
+
+  here: {
+    t:'What a child gets here',
+    points: [
+      'An “Enquête au château” investigation tour for ages 7–12, and printable livrets-jeux.',
+      'Almost all of it is booked, timed, age-gated and clustered on school holidays.',
+      'A family arriving unplanned — the typical garden visitor — receives nothing at the gate.',
+      'The Grands Appartements are text-heavy and chronologically dense. A child learns very little unaided.'
+    ]
+  },
+
+  there: {
+    t:'What a child gets in the UK',
+    points: [
+      'English Heritage hands out free quest booklets and Explorer Backpacks on request, at the gate, every day.',
+      'The National Trust issues an activity passport that children stamp across visit after visit.',
+      'The London Transport Museum runs a free stamper trail as one of ten family activities, not as a paid add-on.',
+      'Hampton Court Palace employs costumed interpreters daily, included in the standard ticket.'
+    ]
+  },
+
+  difference: 'The difference is not how much children’s content exists. It is that a British '
+            + 'child receives something physical, immediately, without a reservation — and that '
+            + 'the thing they receive gives them a reason to come back.',
+
+  cost: {
+    t:'What it costs the Château',
+    stats: [
+      { v:'2.06m', l:'visits to the estate in 2025' },
+      { v:'~29%',  l:'of them went inside the château — roughly 595,000 paid visits' },
+      { v:'+15% / +2%', l:'growth last year: the free gardens against the paid château' }
+    ],
+    line:'The largest audience the Château has is standing on its grass, and the visit it could '
+       + 'convert them to is the one a child finds boring.'
+  },
+
+  caveat:'Read as roughly a third: the conversion share divides visits by visits, not unique '
+       + 'visitors, so garden regulars inflate the denominator. The school workbook and the '
+       + 'family livret-jeu are distinct products and are not merged here.'
+};
+
+/* A photograph of station 4 in the Galerie François I: the sign, the open passport and
+   the press, as the visitor meets them. */
+var STATION_SHOT = {
+  src: 'station-photo.jpg',
+  alt: 'A stamp station in the Galerie François I: a numbered sign, the open passport and a stamp press on a wooden stand',
+  cap: 'Station 4 · Galerie François I',
+  note: 'A removable stand, a numbered sign and a self-inking press. Nothing is fixed to a historic wall or object.'
+};
+
+/* Implementation, step by step. Every figure is from the business case above:
+   the kit, the print run, the cohort and the break-even are BIZ, not new numbers. */
+var IMPLEMENTATION = [
+  { s:'01', t:'Choose the rooms, agree the fixings',
+    d:'Pick five or six rooms with conservation, using removable holders and free-standing signs.',
+    i:'Heritage risk is settled before any money is committed.' },
+  { s:'02', t:'Buy the kit once',
+    d:'Fourteen self-inking stampers and the station holders and signage.',
+    i:'€840 of reusable hardware — the bounded downside of the whole pilot.' },
+  { s:'03', t:'Print short, reuse everything else',
+    d:'1,000 passports at €0.80, plus teacher packs and family invitations.',
+    i:'€950. Design and content are absorbed: the emblem is already the Château’s.' },
+  { s:'04', t:'Recruit forty classes',
+    d:'A curriculum-linked invitation to CM1 teachers, with booking made simple.',
+    i:'1,000 pupils in the pilot cohort, at Phase 1–2 scale.' },
+  { s:'05', t:'Run it, and send the passport home',
+    d:'Pupils complete the stations on the school trip and take the passport away with them.',
+    i:'The referral leaves in a child’s hands. Each returning household is 2 adults × €17.' },
+  { s:'06', t:'Measure, then decide',
+    d:'Track schools recruited, completion, attributable return visits and net contribution.',
+    i:'Break-even is 97 households — one pupil in ten. Scale only above that.' }
+];
+
 var LIGHT = [
   { t:'Reuse',             p:'Adapt existing historical content, downloadable activities and the Flamme identity.' },
   { t:'Print smart',       p:'Short print runs and a digital alternative, rather than printing for every visitor.' },
@@ -110,4 +313,4 @@ var STATIONS = [
   { n:'★', L:'', t:'La Fontaine Belle Eau — Jardin Anglais', bonus:true, p:[-420,26,250] }
 ];
 
-if (typeof module !== 'undefined') module.exports = { CONCEPT, BENEFITS, RECS, ENGINE, SCENARIO, LIGHT, PHASES, STATIONS };
+if (typeof module !== 'undefined') module.exports = { CONCEPT, BENEFITS, RECS, ENGINE, SCENARIO, BIZ, EVIDENCE, MASCOT, ASK, LIGHT, PHASES, STATIONS };

@@ -9,9 +9,9 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
 
 const BUILD = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const OUT = process.env.OUT_DIR || path.join(BUILD, 'poster');
-const PDF = path.join(OUT, 'G11-Poster-A1.pdf');
-const PNG = path.join(OUT, 'G11-Poster-A1-preview.png');
+const OUT = path.join(os.homedir(), 'Desktop');
+const PDF = path.join(OUT, 'Chateau-Poster-A1.pdf');
+const PNG = path.join(OUT, 'Chateau-Poster-A1-preview.png');
 const SITE_URL = process.env.SITE_URL || 'https://claude.ai/artifact/E24gp3HGPTqD8DwQygkqaw';
 const TYPES = { '.html':'text/html','.js':'text/javascript','.css':'text/css','.png':'image/png',
   '.jpg':'image/jpeg','.json':'application/json','.pdf':'application/pdf','.svg':'image/svg+xml' };
@@ -31,7 +31,7 @@ try {
   const ctx = await browser.newContext({ viewport:{width:2245,height:3179}, deviceScaleFactor:1 });
   const p = await ctx.newPage();
   p.on('console', m => { if (m.type()==='error') console.log('  [poster]', m.text()); });
-  await p.goto(base + '/poster/poster.html?url=' + encodeURIComponent(SITE_URL), { waitUntil:'networkidle' });
+  await p.goto(base + '/poster.html?url=' + encodeURIComponent(SITE_URL), { waitUntil:'networkidle' });
   await p.waitForFunction(()=>window.__posterReady===true, null, {timeout:25000});
   await p.evaluate(()=>document.fonts.ready);
   await p.waitForFunction(()=>{const i=document.getElementById('map');return i&&i.complete&&i.naturalWidth>0;},null,{timeout:20000});
