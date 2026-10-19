@@ -167,6 +167,11 @@ try {
     const foot = document.querySelector('.foot').getBoundingClientRect();
     const fig = document.querySelector('#fig').getBoundingClientRect();
     let spill = 0, clipped = 0;
+    /* the cards can report a clean height while the GRID they sit in is overflowing a
+       squeezed section: check the container, which is what actually clips on the sheet */
+    for (const g of document.querySelectorAll('.recs .grid')) {
+      if (g.scrollHeight > g.clientHeight + 4) clipped++;
+    }
     for (const c of document.querySelectorAll('.recs .r')) {
       if (c.scrollHeight > c.clientHeight + 4) clipped++;
     }

@@ -37,6 +37,44 @@ var BENEFITS = [
 ];
 
 /* ---------------------------------------------------------------------------
+ * THE ONE BROAD TOPIC. The brief allows exactly one, and this is it; the three
+ * recommendations are workstreams inside it, not three separate topics.
+ * ------------------------------------------------------------------------- */
+var TOPIC = {
+  label: 'One broad topic',
+  t: 'Making the Ch\u00e2teau work for children, schools and international families',
+  sub: 'Three workstreams, one audience, one plan',
+  p: 'Every activity below serves the same audience and the same journey. Nothing here is a '
+   + 'second topic wearing a different hat.'
+};
+
+/* The investment constraint the brief points at, from the INSEAD case. */
+var CONSTRAINT = {
+  label: 'What it costs the Ch\u00e2teau',
+  budget: '\u20AC700,000',
+  budgetNote: 'the Ch\u00e2teau\u2019s annual marketing and communications budget',
+  ask: '\u20AC12,306',
+  share: '1.8%',
+  line: 'The whole plan asks for 1.8% of the marketing budget the Ch\u00e2teau already spends '
+      + 'each year. It needs no new platform, no mass advertising and no permanent staff.',
+  src: 'Budget figure: Preserving the Past while Sustaining the Future (INSEAD, 2024).'
+};
+
+/* The benchmark the problem rests on. Four operators, read from their public pages. */
+var BENCHMARK = {
+  label: 'What a British child is handed at the gate',
+  rows: [
+    { k:'English Heritage',          v:'Free quest booklets and Explorer Backpacks, on request, every day' },
+    { k:'The National Trust',        v:'An activity passport children stamp across visit after visit' },
+    { k:'London Transport Museum',   v:'A free stamper trail, one of ten family activities, not a paid add-on' },
+    { k:'Hampton Court Palace',      v:'Costumed interpreters daily, included in the standard ticket' }
+  ],
+  line: 'A British child receives something physical, immediately, without a reservation \u2014 and '
+      + 'it gives them a reason to come back. At Fontainebleau almost everything for children is '
+      + 'booked, timed and age-gated, so a family arriving unplanned receives nothing.'
+};
+
+/* ---------------------------------------------------------------------------
  * THE OBSERVED BASELINE. The only measured numbers in the plan.
  * ------------------------------------------------------------------------- */
 var BASELINE = {

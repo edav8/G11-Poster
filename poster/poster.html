@@ -22,19 +22,19 @@ body{background:var(--paper); color:var(--ink); font-family:var(--body);
   display:flex; flex-direction:column; overflow:hidden}
 h1,h2,h3,h4{font-family:var(--disp); font-weight:700; line-height:1.03}
 
-.head{background:var(--navy); color:#fff; padding:12mm 18mm 10mm; position:relative; overflow:hidden; flex:0 0 auto}
+.head{background:var(--navy); color:#fff; padding:10mm 18mm 8mm; position:relative; overflow:hidden; flex:0 0 auto}
 .head::before{content:""; position:absolute; inset:0;
   background:radial-gradient(ellipse at 11% 190%,rgba(245,183,0,.5),rgba(242,102,43,.16) 46%,transparent 76%)}
 .head .in{position:relative; display:flex; gap:14mm; align-items:flex-end}
 .eyebrow{font-family:var(--disp); font-weight:700; font-size:15pt; letter-spacing:.24em;
   text-transform:uppercase; color:var(--gold)}
-h1{font-size:62pt; margin-top:4mm; letter-spacing:-.02em; max-width:17ch}
+h1{font-size:50pt; margin-top:3mm; letter-spacing:-.02em; max-width:20ch; line-height:1.02}
 .lede{flex:0 0 184mm; font-size:20pt; line-height:1.3; color:rgba(255,255,255,.92)}
 .by{margin-top:4mm; font-family:var(--disp); font-weight:600; font-size:15pt; color:rgba(255,255,255,.62)}
 
 .mapband{background:var(--navy-d); padding:6mm 18mm 5mm; flex:0 0 auto}
 figure{position:relative; border-radius:4mm; overflow:hidden; background:#9FC0DC;
-  width:100%; aspect-ratio:2200/900}
+  width:100%; aspect-ratio:2200/570}
 figure>img{display:block; width:100%; height:100%; object-fit:cover}
 #leads{position:absolute; inset:0; width:100%; height:100%}
 #leads line{stroke:rgba(255,255,255,.9); stroke-width:1.1}
@@ -48,11 +48,37 @@ figure>img{display:block; width:100%; height:100%; object-fit:cover}
 .mcap{display:flex; justify-content:space-between; margin-top:3.5mm; font-family:var(--disp);
   font-weight:700; font-size:15pt; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.66)}
 
-.recs{flex:1 1 auto; min-height:0; padding:7mm 18mm 0; display:flex; flex-direction:column}
+.bench{flex:0 0 auto; padding:5mm 18mm 0}
+.bench .bh{display:flex; align-items:baseline; gap:6mm; margin-bottom:4mm}
+.bench h2{font-size:22pt}
+.bench .r0{flex:1 1 auto; height:.6mm; background:var(--hair)}
+.bench .sub{font-family:var(--disp); font-weight:600; font-size:14pt; color:var(--mute)}
+.bench .grid{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)) 150mm; gap:6mm; align-items:start}
+.bench .b{border-top:.8mm solid var(--royal); padding-top:2.6mm}
+.bench .b .k{font-family:var(--disp); font-weight:700; font-size:15pt; line-height:1.08}
+.bench .b .v{font-size:14pt; line-height:1.18; color:var(--mute); margin-top:1.2mm}
+.bench .note{background:var(--amber); border-radius:4mm; padding:3mm 4mm; font-size:14pt;
+  line-height:1.2; color:#4A3600}
+.bench .note b{font-family:var(--disp); font-weight:700; display:block; font-size:13pt;
+  letter-spacing:.12em; text-transform:uppercase; color:#7A5500; margin-bottom:1.6mm}
+
+/* the one topic, stated above the three */
+.rhead .topic{font-family:var(--disp); font-weight:700; font-size:13pt; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--flame-d); display:block; margin-bottom:1.6mm}
+
+/* what the plan costs the Chateau, against what it already spends */
+.budget{margin-top:3mm; background:#fff; border-radius:4mm; padding:3mm 4.5mm; display:flex;
+  gap:5mm; align-items:baseline; flex-wrap:wrap}
+.budget .big{font-family:var(--disp); font-weight:700; font-size:26pt; line-height:1; color:var(--flame-d)}
+.budget p{flex:1 1 220mm; min-width:0; font-size:15pt; line-height:1.2; color:var(--ink)}
+.budget .src{flex-basis:100%; font-size:12pt; color:var(--mute); margin-top:1mm}
+
+.recs{flex:1 1 auto; min-height:0; padding:6mm 18mm 0; display:flex; flex-direction:column}
 .rhead{display:flex; align-items:baseline; gap:6mm; margin-bottom:4.5mm}
-.rhead h2{font-size:34pt}
+.rhead h2{font-size:30pt; line-height:1.04; max-width:48ch}
 .rhead .r0{flex:1 1 auto; height:.8mm; background:var(--hair)}
-.rhead .n{font-family:var(--disp); font-weight:700; font-size:16pt; color:var(--mute)}
+.rhead .n{font-family:var(--disp); font-weight:700; font-size:16pt; color:var(--mute);
+  flex:0 0 auto; max-width:105mm; text-align:right}
 .grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6mm 8mm;
   align-content:stretch; flex:1 1 auto; min-height:0}
 .r{display:flex; flex-direction:column; gap:2.4mm; min-width:0}
@@ -64,7 +90,7 @@ figure>img{display:block; width:100%; height:100%; object-fit:cover}
 .r .v{margin-top:auto; padding-top:1.6mm; font-size:16pt; line-height:1.22; color:var(--royal)}
 .r .v b{font-family:var(--disp); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:14pt}
 
-.trail{flex:0 0 auto; margin-top:6mm; padding:0 18mm; display:grid;
+.trail{flex:0 0 auto; margin-top:5mm; padding:0 18mm; display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr)) 128mm; gap:7mm; align-items:stretch}
 .trail .box{background:var(--amber); border-radius:4mm; padding:4.5mm 5.5mm;
   display:flex; flex-direction:column}
@@ -82,7 +108,7 @@ figure>img{display:block; width:100%; height:100%; object-fit:cover}
 .shot figcaption b{font-family:var(--disp); font-weight:700; font-size:14pt; letter-spacing:.1em;
   text-transform:uppercase; color:var(--gold); display:block; margin-bottom:1.4mm}
 
-.engine{flex:0 0 auto; margin-top:7mm; background:var(--navy-d); color:#fff; padding:8mm 18mm 8mm}
+.engine{flex:0 0 auto; margin-top:6mm; background:var(--navy-d); color:#fff; padding:8mm 18mm 8mm}
 .engine .eh{display:flex; align-items:baseline; gap:6mm; margin-bottom:6mm}
 .engine h2{font-size:30pt; color:#fff}
 .engine .r0{flex:1 1 auto; height:.8mm; background:rgba(255,255,255,.22)}
@@ -170,13 +196,19 @@ table.pf tr.tot td{font-family:var(--disp); font-weight:700; font-size:21pt; bor
     <img id="map" src="poster-map.png" alt="The estate, with the three recommendations marked where each happens">
     <svg id="leads" viewBox="0 0 558 330" preserveAspectRatio="none" aria-hidden="true"></svg>
   </figure>
-  <div class="mcap"><span>Three recommendations, where each one happens</span>
+  <div class="mcap"><span>One topic, three workstreams, where each one happens</span>
     <span id="offnote"></span></div>
 </section>
 
+<section class="bench">
+  <div class="bh"><h2 id="benchH"></h2><span class="r0"></span>
+    <span class="sub">Read from their public pages, October 2026</span></div>
+  <div class="grid" id="benchGrid"></div>
+</section>
+
 <section class="recs">
-  <div class="rhead"><h2>Three recommendations</h2><span class="r0"></span>
-    <span class="n">Children discover it · schools book it every year · families come back</span></div>
+  <div class="rhead"><h2><span class="topic" id="topicLabel"></span><span id="topicT"></span></h2>
+    <span class="r0"></span><span class="n" id="topicSub"></span></div>
   <div class="grid" id="recs"></div>
 </section>
 
@@ -193,6 +225,7 @@ table.pf tr.tot td{font-family:var(--disp); font-weight:700; font-size:21pt; bor
     <div class="money" id="money"></div>
   </div>
   <div class="reg" id="reg"></div>
+  <div class="budget" id="budget"></div>
 </section>
 
 <footer class="foot">
@@ -216,6 +249,26 @@ document.getElementById('eyebrow').textContent =
   'Ch\u00e2teau de Fontainebleau \u00b7 ' + CONCEPT.plan + ' \u00b7 INSEAD Group 11';
 document.getElementById('big').textContent = CONCEPT.big;
 document.getElementById('lede').textContent = PROBLEM.headline + ' ' + PROBLEM.difference;
+/* the one broad topic, stated above the three workstreams */
+document.getElementById('topicLabel').textContent = TOPIC.label;
+document.getElementById('topicT').textContent = TOPIC.t;
+document.getElementById('topicSub').textContent = TOPIC.sub;
+
+/* the benchmark the problem rests on */
+document.getElementById('benchH').textContent = BENCHMARK.label;
+document.getElementById('benchGrid').innerHTML =
+  BENCHMARK.rows.map(function(b){
+    return '<div class="b"><div class="k">'+esc(b.k)+'</div><div class="v">'+esc(b.v)+'</div></div>';
+  }).join('') +
+  '<div class="note"><b>Why it matters</b>'+esc(BENCHMARK.line)+'</div>';
+
+/* what the plan costs against what the Chateau already spends */
+document.getElementById('budget').innerHTML =
+  '<div class="big">'+esc(CONSTRAINT.share)+'</div>' +
+  '<p><b>'+esc(CONSTRAINT.ask)+'</b> against '+esc(CONSTRAINT.budget)+' \u2014 ' +
+  esc(CONSTRAINT.budgetNote) + '. ' + esc(CONSTRAINT.line) + '</p>' +
+  '<div class="src">'+esc(CONSTRAINT.src)+'</div>';
+
 document.getElementById('guRules').innerHTML = GUARDRAILS.rows.map(function(g, i){
   return '<div class="box">' + (i === 0 ? '<div class="k">' + esc(GUARDRAILS.t) + '</div>' : '') +
     '<h3>' + esc(g.t) + '</h3><p>' + esc(g.short || g.p) + '</p></div>'; }).join('');

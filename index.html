@@ -299,6 +299,24 @@ three-d-stage:not(:defined){visibility:hidden}
 .foot p{margin-bottom:9px; max-width:74ch}
 
 
+/* the one broad topic, and the budget it asks for */
+.topicband{background:#FFFCF4; border-block:1px solid var(--hair); padding-block:34px}
+.topicband .lab{font-family:var(--disp); font-weight:700; font-size:14px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--flame-d)}
+.topicband h2{font-size:clamp(26px,4.2vw,38px); margin-top:8px; max-width:24ch}
+.topicband .sub{margin-top:10px; font-family:var(--disp); font-weight:600; font-size:18px; color:var(--mute)}
+.topicband p{margin-top:12px; font-size:16.5px; line-height:1.5; max-width:70ch}
+.bm{display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); gap:18px; margin-top:26px}
+.bm .b{border-top:2px solid var(--royal); padding-top:11px}
+.bm .b h3{font-family:var(--disp); font-weight:700; font-size:17px; line-height:1.14}
+.bm .b p{margin-top:5px; font-size:15px; line-height:1.4; color:var(--mute)}
+.budget{margin-top:26px; background:var(--card); border:1px solid var(--hair); border-radius:14px;
+  padding:20px 22px; display:flex; gap:22px; align-items:baseline; flex-wrap:wrap}
+.budget .big{font-family:var(--disp); font-weight:700; font-size:clamp(30px,5vw,42px); line-height:1;
+  color:var(--flame-d)}
+.budget p{flex:1 1 320px; min-width:0; font-size:16px; line-height:1.45}
+.budget .src{flex-basis:100%; font-size:14px; color:var(--mute)}
+
 /* ── the three business cases ── */
 .case{background:var(--card); border:1px solid var(--hair); border-radius:16px;
       padding:26px 28px; margin-top:22px}
@@ -527,6 +545,18 @@ a:hover{text-decoration:underline}
   </div>
 </section>
 
+<section class="topicband" id="topic">
+  <div class="wrap">
+    <div class="lab" id="topLab"></div>
+    <h2 id="topT"></h2>
+    <div class="sub" id="topSub"></div>
+    <p id="topP"></p>
+    <h3 style="margin-top:30px; font-size:20px" id="bmH"></h3>
+    <div class="bm" id="bmGrid"></div>
+    <div class="budget" id="budget"></div>
+  </div>
+</section>
+
 <section class="band" id="recs">
   <div class="wrap">
     <h2 style="font-size:clamp(28px,5vw,44px); margin-top:12px">Three recommendations</h2>
@@ -626,6 +656,7 @@ a:hover{text-decoration:underline}
 
 <nav class="jump" id="jump" aria-label="Jump to">
   <a href="#estate">The map</a>
+  <a href="#topic">The topic</a>
   <a href="#recs">The three</a>
   <a href="#case">The numbers</a>
 </nav>
@@ -744,6 +775,20 @@ document.getElementById('money').innerHTML =
 document.getElementById('srcInt').textContent = 'Our own material: ' + SOURCES.internal;
 document.getElementById('srcExt').textContent = 'Public sources: ' + SOURCES.external;
 document.getElementById('srcNote').textContent = SOURCES.note;
+
+/* the one broad topic, the benchmark behind it, and what it costs */
+document.getElementById('topLab').textContent = TOPIC.label;
+document.getElementById('topT').textContent   = TOPIC.t;
+document.getElementById('topSub').textContent = TOPIC.sub;
+document.getElementById('topP').textContent   = TOPIC.p;
+document.getElementById('bmH').textContent    = BENCHMARK.label;
+document.getElementById('bmGrid').innerHTML = BENCHMARK.rows.map(function(b){
+  return '<div class="b"><h3>'+esc(b.k)+'</h3><p>'+esc(b.v)+'</p></div>'; }).join('');
+document.getElementById('budget').innerHTML =
+  '<div class="big">'+esc(CONSTRAINT.share)+'</div>'+
+  '<p><b>'+esc(CONSTRAINT.ask)+'</b> against '+esc(CONSTRAINT.budget)+' \u2014 '+
+  esc(CONSTRAINT.budgetNote)+'. '+esc(CONSTRAINT.line)+'</p>'+
+  '<div class="src">'+esc(CONSTRAINT.src)+'</div>';
 
 /* ── the three recommendations, in full ── */
 document.getElementById('recGrid').innerHTML = RECS.map(function(r){
