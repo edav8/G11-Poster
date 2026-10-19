@@ -157,7 +157,7 @@ table.pf tr.tot td{font-family:var(--disp); font-weight:700; font-size:21pt; bor
 <header class="head">
   <div class="in">
     <div style="flex:1 1 auto">
-      <div class="eyebrow">Château de Fontainebleau · INSEAD MiM Practicum · Group 11</div>
+      <div class="eyebrow" id="eyebrow"></div>
       <h1 id="big"></h1>
       <p class="by">Leveraging Data for Marketing Science · Section E01 · 21 October 2026</p>
     </div>
@@ -212,6 +212,8 @@ var SITE = (new URLSearchParams(location.search)).get('url')
 var MM_W = 558, MM_H = 330;
 function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
+document.getElementById('eyebrow').textContent =
+  'Ch\u00e2teau de Fontainebleau \u00b7 ' + CONCEPT.plan + ' \u00b7 INSEAD Group 11';
 document.getElementById('big').textContent = CONCEPT.big;
 document.getElementById('lede').textContent = PROBLEM.headline + ' ' + PROBLEM.difference;
 document.getElementById('guRules').innerHTML = GUARDRAILS.rows.map(function(g, i){

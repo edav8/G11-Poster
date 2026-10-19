@@ -11,6 +11,7 @@
 var CONCEPT = {
   name: 'Flamme',
   tagline: "Flamme's Royal Stamp Trail",
+  plan: 'Marketing Activities Plan 2027',
 
   big: 'Make Fontainebleau accessible, immersive and engaging for children, schools and '
      + 'international families.',
@@ -119,7 +120,8 @@ var RECS = [
     v:'v/theatre.mp4',
     d:'The Château already maintains an educational site with visit-preparation resources and '
      + 'telephone booking. The low-investment improvement is a prominent "Schools & Teachers" '
-     + 'tab on the main website, with curriculum-matched offers and one simple reservation path.',
+     + 'tab on the main Château website, carrying curriculum-matched offers, a downloadable '
+     + 'class pack, clear prices, visiting rules and a simple reservation-request path.',
     steps: [
       { t:'Prioritise CM1',
         p:'Connect François I and the Renaissance to "Le temps des rois" in the CM1 history '
@@ -131,7 +133,8 @@ var RECS = [
         p:'Teacher guide, pupil booklet, map, accessibility, transport, FAQs and a booking '
          + 'call-to-action, linked to the existing education portal.' },
       { t:'Sell directly to teachers',
-        p:'Contact a pilot list of local schools with a three-email sequence: preview the pages, '
+        p:'Contact a pilot list of local private and public schools with a three-email sequence: '
+         + 'preview the pages, '
          + 'show the curriculum fit, give the booking steps.' },
       { t:'Build loyalty',
         p:'Send each child home with a family challenge; ask schools to reserve the same '
@@ -198,7 +201,8 @@ var RECS = [
            + 'NOT a measured international conversion rate.',
     sens:'An increment equal to 0.10% of that benchmark gives about €1,751; 0.50% gives about '
        + '€8,789.',
-    be:'Gross-cost break-even needs at least 170 additional €17 tickets, before taxes.'
+    be:'Gross-cost break-even needs at least 170 additional €17 tickets, before taxes and '
+     + 'incremental visitor-service expenses.'
   }
 ];
 
@@ -237,7 +241,8 @@ var ASSUMPTIONS = {
       b:'Eduscol official curriculum',
       s:'Verified curriculum', k:'ok' },
     { i:'Booklet printing allowance of €0.60',
-      b:'Above a public €0.27 ex-VAT reference for a 16-page A5 run of 1,000',
+      b:'Above a public €0.27 ex-VAT reference for a 16-page A5 run of 1,000, allowing '
+       + 'extra for a longer booklet',
       s:'Illustrative allowance', k:'mid' },
     { i:'Staff time at €25/h; station, costume, digital editing and contingency costs',
       b:'Planning assumptions — require supplier quotes and internal staffing checks',
@@ -282,14 +287,15 @@ var ROADMAP = {
 };
 
 var SOURCES = {
-  internal:'Fontainebleau_Tickets_Data xlsx (Price_List, Ticket_Data, Jan–Sep 2026) · '
-         + 'Flamme-Royal-Stamp-Trail pdf (route, booklet, certificate) · '
-         + 'E01-G11-LDMS-01 Value Chain (observed visitor and language friction) · '
-         + 'Flamme_Campaign_Fontainebleau pptx (school partnership concept).',
-  external:'chateau-fontainebleau-education.fr (school admission, existing offers, teacher '
-         + 'portal) · eduscol.education.fr (CM1 curriculum) · multi-pages.com (illustrative '
-         + 'A5 print pricing, Sep 2026) · ltmuseum.co.uk (children’s activity-guide '
-         + 'inspiration).',
+  internal:'Fontainebleau_Tickets_Data-2-2(3).xlsx (Price_List, Ticket_Data, Jan–Sep 2026) · '
+         + 'Flamme-Royal-Stamp-Trail.pdf (route, booklet, certificate) · '
+         + 'E01-G11-LDMS-01-Value-Chain(2).pdf (observed visitor and language friction) · '
+         + 'Flamme_Campaign_Fontainebleau.pptx (school partnership concept).',
+  external:'chateau-fontainebleau-education.fr/reserver-sa-venue/ (school admission and existing '
+         + 'offers) · chateau-fontainebleau-education.fr/preparer-sa-visite/ (the existing '
+         + 'teacher portal) · eduscol.education.fr/document/50990/download (the CM1 '
+         + 'curriculum) · multi-pages.com/fr/livret-a5 (illustrative A5 print pricing, '
+         + 'Sep 2026) · ltmuseum.co.uk (children’s activity-guide inspiration).',
   note:'Budget values are rounded and line-item allowances are not price quotations. Actual '
      + 'revenue uplift and campaign ROI require a controlled pilot, measured visit dates and '
      + 'project-level contribution accounting.'
