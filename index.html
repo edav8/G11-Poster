@@ -22,8 +22,8 @@
 <style>
 :root{
   --paper:#FFF7E7; --card:#FFFFFF; --ink:#2A2340; --mute:#5F5470;
-  --gold:#F5B700; --flame:#F2662B; --royal:#2B5BD7; --navy:#1E2A6B; --navy-d:#141C4A;
-  --green:#2F7A34; --hair:#E7D9BC; --amber:#FFF0C9; --amber-line:#F0D894;
+  --gold:#F5B700; --flame:#F2662B; --flame-d:#B23E10; --royal:#2B5BD7; --navy:#1E2A6B; --navy-d:#141C4A;
+  --green:#2F7A34; --hair:#E7D9BC; --amber:#FFF0C9; --amber-line:#F0D894; --amber-ink:#7A5500;
   --disp:"Jost","Futura","Avenir Next",system-ui,sans-serif;
   --body:"Mulish","Avenir Next",system-ui,sans-serif;
   --fr:"EB Garamond",Baskerville,Georgia,serif;
@@ -41,8 +41,8 @@ a{color:var(--royal)}
   padding-left:max(18px,env(safe-area-inset-left,0px));
   padding-right:max(18px,env(safe-area-inset-right,0px))}
 .narrow{max-width:900px}
-.kick{font-family:var(--disp); font-weight:700; font-size:11px; letter-spacing:.22em;
-  text-transform:uppercase; color:var(--flame)}
+.kick{font-family:var(--disp); font-weight:700; font-size:12px; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--flame-d)}
 .fr{font-family:var(--fr); font-style:italic}
 
 /* masthead */
@@ -56,8 +56,8 @@ a{color:var(--royal)}
   text-transform:uppercase; color:var(--gold)}
 .mast h1{font-size:clamp(32px,4.6vw,52px); margin-top:8px; letter-spacing:-.015em; max-width:18ch}
 .mast h1 em{font-style:normal; color:var(--gold)}
-.mast .kicker2{margin-top:9px; font-family:var(--disp); font-weight:700; font-size:13px;
-  letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.66)}
+.mast .kicker2{margin-top:10px; font-family:var(--disp); font-weight:500; font-size:19px;
+  color:rgba(255,255,255,.72)}
 .mast .who{min-width:0; font-size:14.5px; line-height:1.5; color:rgba(255,255,255,.8);
   padding-bottom:2px}
 .mast .who b{color:#fff; font-weight:800}
@@ -126,7 +126,7 @@ three-d-stage:not(:defined){visibility:hidden}
 .lrow button{display:flex; gap:9px; align-items:center; width:100%; text-align:left;
   border:1px solid var(--hair); border-radius:9px; background:#FFFCF4; padding:8px 9px;
   cursor:pointer; font:inherit; color:var(--ink)}
-.lrow button .n{flex:0 0 24px; height:24px; border-radius:50%; background:var(--flame); color:#fff;
+.lrow button .n{flex:0 0 24px; height:24px; border-radius:50%; background:var(--flame-d); color:#fff;
   font-family:var(--disp); font-weight:700; font-size:11px; display:grid; place-items:center}
 .lrow button .t{font-size:14px; line-height:1.25; font-weight:600; min-width:0}
 .lrow button:hover{border-color:var(--royal)}
@@ -137,10 +137,10 @@ three-d-stage:not(:defined){visibility:hidden}
 .lede{font-size:19px; max-width:64ch}
 .recs{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px;
   margin-top:28px; align-items:start}
-.rc{background:var(--card); border:1px solid var(--hair); border-radius:14px; padding:20px;
+.rc{background:var(--card); border:1px solid var(--hair); border-radius:14px; padding:22px;
   box-shadow:var(--sh-s); display:flex; flex-direction:column; gap:9px; min-width:0}
 .rc:nth-child(odd){transform:rotate(-.25deg)} .rc:nth-child(even){transform:rotate(.22deg)}
-.rc .n{font-family:var(--disp); font-weight:700; font-size:14px; letter-spacing:.1em; color:var(--flame)}
+.rc .n{font-family:var(--disp); font-weight:700; font-size:14px; letter-spacing:.1em; color:var(--flame-d)}
 .rc h3{font-size:20px}
 .rc .w{font-family:var(--disp); font-weight:700; font-size:10px; letter-spacing:.13em;
   text-transform:uppercase; color:var(--mute)}
@@ -150,7 +150,7 @@ three-d-stage:not(:defined){visibility:hidden}
 .rc .art{margin-top:10px; border-top:1px solid var(--hair); padding-top:11px}
 .rc .art a,.rc .art .fig{display:flex; gap:12px; align-items:center; text-decoration:none;
   color:var(--ink); background:#FFFCF2; border:1px solid var(--hair); border-radius:10px; padding:10px 12px}
-.rc .art .ic{flex:0 0 auto; width:32px; height:40px; border-radius:4px; background:var(--flame);
+.rc .art .ic{flex:0 0 auto; width:32px; height:40px; border-radius:4px; background:var(--flame-d);
   color:#fff; font-family:var(--disp); font-weight:700; font-size:10px; display:grid; place-items:center}
 .rc .art img{flex:0 0 64px; width:64px; height:auto}
 .rc .art .t{display:block; font-family:var(--disp); font-weight:700; font-size:14px}
@@ -159,17 +159,17 @@ three-d-stage:not(:defined){visibility:hidden}
 .compare{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; margin-top:28px}
 .cmp{background:var(--card); border:1px solid var(--hair); border-radius:14px; padding:22px; box-shadow:var(--sh-s)}
 .cmp.there{background:#F3F6FF; border-color:#D5DEF7}
-.cmp h3{font-family:var(--disp); font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--flame)}
+.cmp h3{font-family:var(--disp); font-size:14px; letter-spacing:.1em; text-transform:uppercase; color:var(--flame-d)}
 .cmp.there h3{color:var(--royal)}
 .cmp ul{margin:12px 0 0; padding-left:18px; display:flex; flex-direction:column; gap:9px}
 .cmp li{font-size:15.5px; line-height:1.45}
 .diff{margin-top:22px; background:var(--amber); border:1px solid var(--amber-line);
   border-radius:14px; padding:20px 24px; font-size:17.5px; line-height:1.5}
 .statrow{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:16px; margin-top:24px}
-.sv{background:var(--card); border:1px solid var(--hair); border-radius:14px; padding:18px; box-shadow:var(--sh-s)}
-.sv .v{font-family:var(--disp); font-weight:700; font-size:32px; line-height:1; color:var(--flame);
-  font-variant-numeric:tabular-nums}
-.sv .l{margin-top:8px; font-size:14.5px; line-height:1.4; color:var(--mute)}
+.sv{border-top:3px solid var(--flame); padding-top:14px}
+.sv .v{font-family:var(--disp); font-weight:700; font-size:40px; line-height:1; color:var(--ink);
+  font-variant-numeric:tabular-nums; letter-spacing:-.02em}
+.sv .l{margin-top:8px; font-size:15px; line-height:1.4; color:var(--mute); max-width:26ch}
 .shot{margin-top:30px; border-radius:16px; overflow:hidden; background:#1E2A6B; box-shadow:var(--sh)}
 .shot img{display:block; width:100%; height:auto}
 .shot figcaption{padding:14px 20px; color:rgba(255,255,255,.86); font-size:14.5px}
@@ -179,7 +179,7 @@ three-d-stage:not(:defined){visibility:hidden}
 .sp{display:grid; grid-template-columns:54px minmax(0,1fr) minmax(0,.85fr); gap:20px;
   padding:20px 0; border-top:1px solid var(--hair); align-items:start}
 .sp:last-child{border-bottom:1px solid var(--hair)}
-.sp .s{font-family:var(--disp); font-weight:700; font-size:22px; color:var(--flame)}
+.sp .s{font-family:var(--disp); font-weight:700; font-size:22px; color:var(--flame-d)}
 .sp h3{font-size:19px}
 .sp .d{font-size:15.5px; line-height:1.45; color:var(--mute); margin-top:6px}
 .sp .i{font-size:15.5px; line-height:1.45; font-weight:600; color:var(--royal)}
@@ -191,10 +191,8 @@ three-d-stage:not(:defined){visibility:hidden}
   background:var(--card); display:grid; place-items:center; font-family:var(--disp);
   font-weight:700; font-size:20px; font-style:normal; box-shadow:var(--sh-s)}
 .hz{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:18px; margin-top:24px}
-.hz .h{background:var(--card); border:1px solid var(--hair); border-radius:14px; padding:20px;
-  box-shadow:var(--sh-s)}
-.hz .h .s{font-family:var(--disp); font-weight:700; font-size:12px; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--flame)}
+.hz .h{border-top:2px solid var(--hair); padding-top:16px}
+.hz .h .s{font-family:var(--disp); font-weight:700; font-size:15px; color:var(--flame-d)}
 .hz .h h3{font-size:19px; margin-top:6px}
 .hz .h p{font-size:15px; line-height:1.45; color:var(--mute); margin-top:7px}
 .hz .h .v{margin-top:10px; font-family:var(--disp); font-weight:700; font-size:11px;
@@ -202,11 +200,11 @@ three-d-stage:not(:defined){visibility:hidden}
 .slot{margin-top:26px; border:2px dashed var(--amber-line); background:#FFFCF2;
   border-radius:14px; padding:24px; color:var(--mute); font-size:15px; line-height:1.5}
 .slot b{font-family:var(--disp); font-weight:700; font-size:11px; letter-spacing:.14em;
-  text-transform:uppercase; color:#9A6B00; display:block; margin-bottom:6px}
+  text-transform:uppercase; color:var(--amber-ink); display:block; margin-bottom:6px}
 .four{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:26px}
-.f4 h3{font-family:var(--disp); font-weight:700; font-size:13px; letter-spacing:.12em;
-  text-transform:uppercase; color:var(--flame)}
-.f4 p{font-size:15px; line-height:1.45; margin-top:7px; color:var(--mute)}
+.f4{border-left:2px solid var(--hair); padding-left:16px}
+.f4 h3{font-family:var(--disp); font-weight:600; font-size:19px; color:var(--ink)}
+.f4 p{font-size:15px; line-height:1.45; margin-top:5px; color:var(--mute)}
 
 /* film */
 .track{position:relative}
@@ -234,20 +232,18 @@ three-d-stage:not(:defined){visibility:hidden}
 .money .b{flex:1 1 320px; min-width:0}
 .money p{font-size:16px; line-height:1.45; color:#4A3C00}
 .money .warn{font-family:var(--disp); font-weight:700; font-size:12px; letter-spacing:.1em;
-  text-transform:uppercase; margin-top:10px; color:#6B4E00}
-.money .note{font-size:13.5px; color:#6B5A1E; margin-top:8px}
+  text-transform:uppercase; margin-top:10px; color:#4A3600}
+.money .note{font-size:13.5px; color:#4A3600; margin-top:8px}
 
 .phases{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px; margin-top:26px}
-.pz{background:var(--card); border:1px solid var(--hair); border-radius:14px; padding:20px;
-  box-shadow:var(--sh-s)}
-.pz .s{font-family:var(--disp); font-weight:700; font-size:12px; letter-spacing:.12em;
-  text-transform:uppercase; color:var(--flame)}
+.pz{border-top:2px solid var(--hair); padding-top:16px}
+.pz .s{font-family:var(--disp); font-weight:700; font-size:15px; color:var(--flame-d)}
 .pz h3{font-size:19px; margin-top:6px}
 .pz p{font-size:15px; line-height:1.45; color:var(--mute); margin-top:7px}
 
 .draftbar{background:var(--amber); border-block:1px solid var(--amber-line)}
 .draftbar .in{padding-block:12px; display:flex; gap:12px; flex-wrap:wrap; font-size:13.5px}
-.draftbar b{font-family:var(--disp); font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:#9A6B00}
+.draftbar b{font-family:var(--disp); font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--amber-ink)}
 .jump{position:fixed; z-index:40; display:flex; opacity:0; pointer-events:none; transition:opacity .25s;
   right:calc(16px + env(safe-area-inset-right,0px)); bottom:calc(16px + env(safe-area-inset-bottom,0px))}
 .jump.on{opacity:1; pointer-events:auto}
@@ -277,15 +273,16 @@ three-d-stage:not(:defined){visibility:hidden}
 <header class="mast">
   <div class="wrap in">
     <div>
-      <div class="house">Château de Fontainebleau · INSEAD MiM Practicum · Group 11</div>
+      <div class="house">Château de Fontainebleau</div>
       <h1 id="bigIdea"></h1>
-      <p class="kicker2"><em style="font-style:normal;color:var(--gold)">Flamme</em> · Bringing history to life</p>
+      <p class="kicker2"><em style="font-style:normal;color:var(--gold);font-weight:700">Flamme</em> — bringing history to life</p>
     </div>
     <img class="mascot" src="flamme-sm.png" alt="Flamme, the salamander of François I, drawn as a mascot">
     <div class="who">
-      Schools are the way in: a class visit seeds a family that comes back.<br>
-      <b>Leveraging Data for Marketing Science</b> · Section E01, Group 11 ·
-      Poster exhibition, Galerie des Cerfs, 21 October 2026.
+      Schools are the way in: a class visit seeds a family that comes back.
+      <span style="display:block; margin-top:10px">Group 11, Section E01<br>
+      Leveraging Data for Marketing Science<br>
+      Poster exhibition, Galerie des Cerfs, 21 October 2026</span>
       <span class="dis">A student marketing proposal prepared for a course. Not affiliated with,
       commissioned by or endorsed by the Château de Fontainebleau.</span>
     </div>
@@ -323,7 +320,6 @@ three-d-stage:not(:defined){visibility:hidden}
 
 <section class="band" id="problem">
   <div class="wrap">
-    <div class="kick">The problem</div>
     <h2 style="font-size:clamp(28px,5vw,44px); margin-top:12px" id="probHead"></h2>
     <p class="lede" style="margin-top:16px" id="probLede"></p>
     <div class="compare">
@@ -340,18 +336,17 @@ three-d-stage:not(:defined){visibility:hidden}
 
 <section class="band" style="background:#FFFCF4; border-block:1px solid var(--hair)">
   <div class="wrap narrow">
-    <div class="kick">The central idea</div>
     <h2 style="font-size:clamp(28px,5vw,44px); margin-top:12px">Something a child can play their way through</h2>
     <p class="lede" style="margin-top:16px" id="idea"></p>
     <div class="four" id="benefits"></div>
     <div style="margin-top:32px">
-      <div class="kick">One of the ideas · the discovery mechanic</div>
+      <h3 style="font-size:21px">One of the six: the discovery mechanic</h3>
       <p style="margin-top:8px; font-size:16.5px" id="mech"></p>
       <div class="lword" id="lword"></div>
     </div>
     <div style="margin-top:28px; background:var(--amber); border:1px solid var(--amber-line);
                 border-radius:14px; padding:18px 22px">
-      <div class="kick" style="color:#9A6B00">Recommended school segment</div>
+      <div class="kick" style="color:var(--amber-ink)">Recommended school segment</div>
       <p style="margin-top:8px; font-size:16.5px" id="segment"></p>
     </div>
   </div>
@@ -373,7 +368,6 @@ three-d-stage:not(:defined){visibility:hidden}
 
 <section class="band" id="recs">
   <div class="wrap">
-    <div class="kick">The plan</div>
     <h2 style="font-size:clamp(28px,5vw,44px); margin-top:12px">Six recommendations</h2>
     <p class="lede" style="margin-top:14px">One experience that connects learning, discovery,
       school outreach and long-term visitor relationships.</p>
@@ -398,7 +392,6 @@ three-d-stage:not(:defined){visibility:hidden}
 
 <section class="engine" id="engine">
   <div class="wrap">
-    <div class="kick" style="color:var(--gold)">An end-to-end marketing activities plan</div>
     <h2 style="font-size:clamp(28px,5vw,44px); margin-top:12px">The school-to-family growth engine</h2>
     <p class="lede" style="margin-top:14px; color:rgba(255,255,255,.82)">Use learning as the
       starting point for a repeatable, low-cost marketing journey — not as a stand-alone
@@ -410,7 +403,6 @@ three-d-stage:not(:defined){visibility:hidden}
 
 <section class="band" id="mascot" style="background:#FFFCF4; border-block:1px solid var(--hair)">
   <div class="wrap">
-    <div class="kick">The mascot</div>
     <h2 style="font-size:clamp(28px,5vw,44px); margin-top:12px" id="mascHead"></h2>
     <p class="lede" style="margin-top:16px" id="mascOwned"></p>
     <div class="hz" id="mascHz"></div>
@@ -424,7 +416,6 @@ three-d-stage:not(:defined){visibility:hidden}
 
 <section class="band" id="steps">
   <div class="wrap">
-    <div class="kick">Implementation</div>
     <h2 style="font-size:clamp(28px,5vw,44px); margin-top:12px">Step by step, and what each one changes</h2>
     <p class="lede" style="margin-top:14px">Every figure here is from the business case: the kit,
       the print run, the cohort and the break-even. Nothing new is assumed.</p>
@@ -434,7 +425,6 @@ three-d-stage:not(:defined){visibility:hidden}
 
 <section class="band" style="background:#FFFCF4; border-block:1px solid var(--hair)">
   <div class="wrap">
-    <div class="kick">Cost-conscious execution</div>
     <h2 style="font-size:clamp(26px,4.4vw,38px); margin-top:12px">Pilot, prove, then scale</h2>
     <div class="phases" id="phaseGrid"></div>
     <h3 style="margin-top:38px; font-size:20px">Keeping implementation light</h3>

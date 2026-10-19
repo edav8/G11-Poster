@@ -12,7 +12,7 @@
 @page{ size:594mm 841mm; margin:0 }
 :root{
   --paper:#FFF7E7; --card:#FFFFFF; --ink:#2A2340; --mute:#5F5470;
-  --gold:#F5B700; --flame:#F2662B; --royal:#2B5BD7; --navy:#1E2A6B; --navy-d:#141C4A;
+  --gold:#F5B700; --flame:#F2662B; --flame-d:#B23E10; --royal:#2B5BD7; --navy:#1E2A6B; --navy-d:#141C4A;
   --green:#2F7A34; --hair:#E7D9BC; --amber:#FFF0C9;
   --disp:"Jost","Futura",sans-serif; --body:"Mulish","Avenir Next",sans-serif;
 }
@@ -44,7 +44,7 @@ figure>img{display:block; width:100%; height:100%; object-fit:cover}
 .tag{position:absolute; transform:translate(-50%,-50%); background:#fff; border-radius:3mm;
   padding:2mm 4mm; font-family:var(--disp); font-weight:700; font-size:17pt;
   line-height:1.1; white-space:nowrap; color:var(--ink)}
-.tag i{font-style:normal; color:var(--flame); margin-right:2.4mm}
+.tag i{font-style:normal; color:var(--flame-d); margin-right:2.4mm}
 .mcap{display:flex; justify-content:space-between; margin-top:3.5mm; font-family:var(--disp);
   font-weight:700; font-size:15pt; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.66)}
 
@@ -55,7 +55,7 @@ figure>img{display:block; width:100%; height:100%; object-fit:cover}
 .rhead .n{font-family:var(--disp); font-weight:700; font-size:16pt; color:var(--mute)}
 .grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6mm 8mm; align-content:start}
 .r{display:flex; flex-direction:column; gap:2.4mm; min-width:0}
-.r .num{width:13mm; height:13mm; border-radius:50%; background:var(--flame); color:#fff;
+.r .num{width:13mm; height:13mm; border-radius:50%; background:var(--flame-d); color:#fff;
   font-family:var(--disp); font-weight:700; font-size:21pt; display:grid; place-items:center}
 .r.off .num{background:var(--royal); border:.8mm dashed #fff}
 .r h4{font-size:21pt; line-height:1.1}
@@ -67,9 +67,9 @@ figure>img{display:block; width:100%; height:100%; object-fit:cover}
   grid-template-columns:1fr 150mm; gap:9mm; align-items:center}
 .trail .box{background:var(--amber); border-radius:4mm; padding:6mm 7mm}
 .trail .k{font-family:var(--disp); font-weight:700; font-size:14pt; letter-spacing:.14em;
-  text-transform:uppercase; color:#9A6B00}
+  text-transform:uppercase; color:#7A5500}
 .trail h3{font-size:25pt; margin-top:2mm}
-.trail p{font-size:18pt; line-height:1.26; margin-top:2.5mm; color:#4A3C00}
+.trail p{font-size:18pt; line-height:1.26; margin-top:2.5mm; color:#4A3600}
 .word{display:flex; gap:2.2mm; flex-wrap:wrap; margin-top:4mm}
 .word i{width:10.5mm; height:13mm; border:.8mm solid var(--royal); border-radius:2mm;
   background:#fff; display:grid; place-items:center; font-family:var(--disp);
@@ -92,14 +92,14 @@ figure>img{display:block; width:100%; height:100%; object-fit:cover}
 .step p{font-size:16pt; line-height:1.24; color:rgba(255,255,255,.8); margin-top:2mm}
 .money{background:var(--gold); color:var(--ink); border-radius:4mm; padding:5mm 6mm}
 .money .v{font-family:var(--disp); font-weight:700; font-size:38pt; line-height:1}
-.money p{font-size:16pt; line-height:1.22; margin-top:2.4mm; color:#4A3C00}
+.money p{font-size:16pt; line-height:1.22; margin-top:2.4mm; color:#4A3600}
 .money .warn{font-family:var(--disp); font-weight:700; font-size:13pt; letter-spacing:.08em;
-  text-transform:uppercase; margin-top:2.4mm; color:#6B4E00}
+  text-transform:uppercase; margin-top:2.4mm; color:#4A3600}
 
 .foot{flex:0 0 auto; padding:7mm 18mm 7mm; display:flex; gap:11mm; align-items:flex-start; overflow:hidden}
 .phases{flex:1 1 auto; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:7mm}
 .ph .s{font-family:var(--disp); font-weight:700; font-size:14pt; letter-spacing:.12em;
-  text-transform:uppercase; color:var(--flame)}
+  text-transform:uppercase; color:var(--flame-d)}
 .ph h4{font-size:20pt; margin-top:1.6mm}
 .ph p{font-size:16pt; line-height:1.22; color:var(--mute); margin-top:1.6mm}
 .qr{flex:0 0 auto; display:flex; gap:5mm; align-items:flex-start}
