@@ -111,6 +111,8 @@ try {
   /* the website frames the palace; the poster wants the estate around it */
   await map.evaluate(a => {
     const e = window.__estate; if (!e || !e.ctl) return;
+    /* park the mascot at a chosen point so the printed plan is the same every run */
+    if (e.mascot) e.mascotT = 0.07;
     const p = e.cam.position, t = e.ctl.target;
     p.set(t.x + (p.x - t.x) * a.k, t.y + (p.y - t.y) * a.k, t.z + (p.z - t.z) * a.k);
     /* drop the look-at point so the estate sits high in frame instead of under a

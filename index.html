@@ -682,6 +682,28 @@ paint(0);
     var els = layer.querySelectorAll('.pin');
     var lines = layer.querySelectorAll('.leads line');
     var dots = layer.querySelectorAll('.leads circle');
+    /* Flamme walks the estate: a billboard sprite on a closed path, anchored at the feet
+       so it stands on the ground rather than floating through it. */
+    var mascot = null, walk = null;
+    try{
+      var tex = new THREE.TextureLoader().load('flamme.png');
+      tex.colorSpace = THREE.SRGBColorSpace;
+      mascot = new THREE.Sprite(new THREE.SpriteMaterial({
+        map: tex, transparent: true, depthWrite: false }));
+      var MH = 54;                       /* big enough to read as a marker in the court */
+      mascot.scale.set(MH * 0.70, MH, 1);
+      if (mascot.center) mascot.center.set(0.5, 0);
+      mascot.renderOrder = 5;
+      stage._scene.add(mascot);
+      /* a circuit inside the Cour du Cheval Blanc, clear of the lawns and the staircase */
+      walk = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(-305, 0,   0), new THREE.Vector3(-288, 0, -36),
+        new THREE.Vector3(-245, 0, -50), new THREE.Vector3(-200, 0, -34),
+        new THREE.Vector3(-188, 0,   0), new THREE.Vector3(-200, 0,  34),
+        new THREE.Vector3(-245, 0,  50), new THREE.Vector3(-288, 0,  36)
+      ], true, 'centripetal');
+    }catch(e){ mascot = null; }
+
     var v = new THREE.Vector3();
     (function project(){
       var w = layer.clientWidth, h = layer.clientHeight;
@@ -703,10 +725,19 @@ paint(0);
           dots[i].setAttribute('cx',gx); dots[i].setAttribute('cy',gy);
         }
       }
+      if (mascot && walk){
+        /* a slow circuit, with a small bob for the footfalls; parked when motion is reduced */
+        var t = REDUCED ? 0.12
+              : (typeof W === 'object' && W && W.mascotT != null ? W.mascotT
+                 : (performance.now() / 34000) % 1);
+        var pt = walk.getPointAt(t);
+        var bob = REDUCED ? 0 : Math.abs(Math.sin(performance.now() / 240)) * 2.6;
+        mascot.position.set(pt.x, pt.y + bob, pt.z);
+      }
       requestAnimationFrame(project);
     })();
     layer.classList.add('on');
-    W = { stage:stage, cam:cam, ctl:ctl, home:home };
+    W = { stage:stage, cam:cam, ctl:ctl, home:home, mascot:mascot, walk:walk, mascotT:null };
     window.__estate = W;
     paint(0);
   }catch(err){
