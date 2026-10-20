@@ -2,238 +2,224 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Immersive and fun for children and families — Château de Fontainebleau</title>
+<title>Don't change the Château — Château de Fontainebleau, INSEAD Group 11</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Mulish:wght@0,400;0,600;0,800&display=swap">
 <style>
-/* A1 portrait, 594 × 841 mm. Mirrors the website: one topic — make the Château immersive
-   and fun for children and families — with six ideas numbered where they happen, and the
-   trail as one of them. Poster rules: body 20–24pt, read at two metres. */
+/* A1 portrait, 594 × 841 mm, read standing up in about thirty seconds.
+   Reading path: problem → insight → the journey → three initiatives → feasibility → 90 days.
+   The cover treatment is sampled from page 1 of the booklet: navy #1E2A6B through plum
+   #52395A into a warm amber glow #8A6038, in a gold hairline frame.
+   One colour per initiative, used in the journey, the cards and the timeline:
+   01 flame, 02 royal, 03 green. Nothing on the sheet is smaller than 15pt. */
 @page{ size:594mm 841mm; margin:0 }
 :root{
-  --paper:#FFF7E7; --card:#FFFFFF; --ink:#2A2340; --mute:#5F5470;
-  --gold:#F5B700; --flame:#F2662B; --flame-d:#B23E10; --royal:#2B5BD7; --navy:#1E2A6B; --navy-d:#141C4A;
-  --green:#2F7A34; --hair:#E7D9BC; --amber:#FFF0C9;
+  --paper:#FDF4E5; --card:#FFFFFF; --ink:#2A2340; --mute:#574C68;
+  --gold:#F5B700; --navy:#1E2A6B; --navy-d:#141C4A; --plum:#52395A;
+  --a:#B23E10; --b:#2B5BD7; --c:#2F7A34;          /* 01, 02, 03 */
+  --hair:#E7D9BC; --amber:#FFF0C9; --amber-ink:#6B4E00;
   --disp:"Jost","Futura",sans-serif; --body:"Mulish","Avenir Next",sans-serif;
 }
 *{box-sizing:border-box; margin:0; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact}
 html,body{width:594mm; height:841mm}
 body{background:var(--paper); color:var(--ink); font-family:var(--body);
   display:flex; flex-direction:column; overflow:hidden}
-h1,h2,h3,h4{font-family:var(--disp); font-weight:700; line-height:1.03}
+h1,h2,h3,h4{font-family:var(--disp); font-weight:700; line-height:1.04}
+.sect{font-family:var(--disp); font-weight:700; font-size:16pt; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--mute)}
 
-.head{background:var(--navy); color:#fff; padding:10mm 18mm 8mm; position:relative; overflow:hidden; flex:0 0 auto}
-.head::before{content:""; position:absolute; inset:0;
-  background:radial-gradient(ellipse at 11% 190%,rgba(245,183,0,.5),rgba(242,102,43,.16) 46%,transparent 76%)}
-.head .in{position:relative; display:flex; gap:14mm; align-items:flex-end}
-.eyebrow{font-family:var(--disp); font-weight:700; font-size:15pt; letter-spacing:.24em;
+/* ── the cover ── */
+.head{position:relative; flex:0 0 auto; padding:11mm 98mm 9mm 18mm; color:#fff; overflow:hidden;
+  background:
+    radial-gradient(ellipse 58% 88% at 48% 120%, rgba(190,128,58,.9), rgba(120,76,58,.4) 46%, transparent 74%),
+    linear-gradient(176deg,#1E2A6B 0%,#232B69 34%,#3B3161 66%,#52395A 100%)}
+.head::before{content:""; position:absolute; inset:6mm; border:.7mm solid var(--gold);
+  border-radius:5mm; pointer-events:none}
+.eyebrow{font-family:var(--disp); font-weight:700; font-size:16pt; letter-spacing:.2em;
   text-transform:uppercase; color:var(--gold)}
-h1{font-size:50pt; margin-top:3mm; letter-spacing:-.02em; max-width:20ch; line-height:1.02}
-.lede{flex:0 0 184mm; font-size:20pt; line-height:1.3; color:rgba(255,255,255,.92)}
-.by{margin-top:4mm; font-family:var(--disp); font-weight:600; font-size:15pt; color:rgba(255,255,255,.62)}
+h1{font-size:55pt; margin-top:6mm; letter-spacing:-.02em; white-space:pre-line}
+h1 em{font-style:normal; color:var(--gold)}
+.head .sub{margin-top:7mm; font-size:22pt; line-height:1.3; color:rgba(255,255,255,.93); max-width:60ch}
+.flamme{position:absolute; right:14mm; bottom:10mm; height:92mm; width:auto;
+  filter:drop-shadow(0 8mm 12mm rgba(0,0,0,.42))}
 
-.mapband{background:var(--navy-d); padding:6mm 18mm 5mm; flex:0 0 auto}
-figure{position:relative; border-radius:4mm; overflow:hidden; background:#9FC0DC;
-  width:100%; aspect-ratio:2200/570}
-figure>img{display:block; width:100%; height:100%; object-fit:cover}
+/* ── the argument: one barrier per audience, before any solution ── */
+.bar{flex:0 0 auto; padding:6mm 18mm 0}
+.bar h2{font-size:34pt; margin-top:2mm}
+.brows{display:grid; gap:0; margin-top:6mm}
+.br{display:grid; grid-template-columns:62mm minmax(0,1fr) 74mm; gap:9mm; align-items:center;
+  padding:3mm 0; border-top:.5mm solid var(--hair)}
+.br:last-child{border-bottom:.5mm solid var(--hair)}
+.br .who{font-family:var(--disp); font-weight:700; font-size:25pt; line-height:1.08; color:var(--a)}
+.br.b .who{color:var(--b)} .br.c .who{color:var(--c)}
+.br .say{font-size:22pt; line-height:1.24; color:var(--mute); font-style:italic}
+.br .fix{font-family:var(--disp); font-weight:700; font-size:23pt; line-height:1.12;
+  text-align:right}
+.bar .note{margin-top:5mm; font-size:18pt; line-height:1.3; color:var(--mute); max-width:120ch}
+
+/* ── three initiatives ── */
+.ini{flex:0 0 auto; padding:7mm 18mm 0; display:flex; flex-direction:column}
+.icards{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:7mm; margin-top:5mm;
+  align-items:stretch}
+.ic{background:var(--card); border-radius:4mm; padding:6mm 6mm; border-top:2.4mm solid var(--a);
+  display:flex; flex-direction:column; gap:3mm}
+.ic.b{border-top-color:var(--b)} .ic.c{border-top-color:var(--c)}
+.ic .n{font-family:var(--disp); font-weight:700; font-size:20pt; color:var(--a)}
+.ic .seg{font-family:var(--disp); font-weight:700; font-size:14.5pt; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--mute); margin-top:-1.5mm}
+/* the mechanism, as a chain — the same shape for all three so they read as parallel */
+.chain{display:flex; flex-wrap:wrap; gap:2mm 0; align-items:center; margin-top:1mm}
+.chain i{font-style:normal; font-family:var(--disp); font-weight:700; font-size:14.5pt;
+  background:var(--amber); color:var(--amber-ink); border-radius:99mm; padding:1.6mm 3.4mm}
+.chain s{text-decoration:none; color:var(--hair); font-weight:700; padding:0 1.2mm}
+.ic.b .n{color:var(--b)} .ic.c .n{color:var(--c)}
+.ic h3{font-size:24pt; line-height:1.1}
+.ic p{font-size:17pt; line-height:1.26; color:var(--mute)}
+.ic .fig{margin-top:auto; padding-top:3.5mm; border-top:.4mm solid var(--hair);
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:4mm}
+.ic .fig .k{font-family:var(--disp); font-weight:700; font-size:14pt; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--mute); display:block; line-height:1.14}
+.ic .fig .v{font-family:var(--disp); font-weight:700; font-size:26pt; line-height:1; margin-top:1.4mm}
+.ic .fig .v.rev{color:var(--a)}
+.ic.b .fig .v.rev{color:var(--b)} .ic.c .fig .v.rev{color:var(--c)}
+.ic .kpi{margin-top:3mm; font-size:15pt; line-height:1.2; color:var(--mute)}
+.ic .kpi b{font-family:var(--disp); font-weight:700; display:block; font-size:14pt;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ink)}
+
+/* ── where it happens, and what it physically is ──
+   The estate carries the three pins; the two photographs sit beside it at a quarter of
+   the width, because they are evidence, not the argument. */
+.estate{flex:1 1 auto; min-height:0; background:var(--navy-d); color:#fff;
+  padding:7mm 18mm 7mm; display:flex; flex-direction:column; margin-top:9mm}
+.estate .sect{color:var(--gold)}
+/* the map on top, the group's own renders across the full width beneath it — small
+   thumbnails made the work impossible to read, which defeated showing it at all */
+.ewrap{display:flex; flex-direction:column; gap:6mm; margin-top:4mm; flex:1 1 auto; min-height:0}
+.emap{flex:1 1 auto; min-height:74mm}
+figure#fig{position:relative; border-radius:4mm; overflow:hidden; background:#9FC0DC;
+  width:100%; height:100%}
+figure#fig > img{display:block; width:100%; height:100%; object-fit:cover}
 #leads{position:absolute; inset:0; width:100%; height:100%}
-#leads line{stroke:rgba(255,255,255,.9); stroke-width:1.1}
-#leads .mk{fill:var(--flame); stroke:#fff; stroke-width:1.8}
-#leads text{fill:#fff; font-family:var(--disp); font-weight:700; font-size:7.5px;
+/* the trail: a dashed gold route through the thirteen stops, then the bonus */
+#leads .route{fill:none; stroke:var(--gold); stroke-width:1.6; stroke-dasharray:3.4 3.2;
+  stroke-linecap:round; stroke-linejoin:round; opacity:.95}
+#leads .route.bonus{stroke-dasharray:1.6 3.2; opacity:.7}
+#leads .mk{fill:#fff; stroke:var(--a); stroke-width:1.6}
+#leads .mk.bonus{fill:var(--gold); stroke:#fff}
+#leads text{fill:var(--a); font-family:var(--disp); font-weight:700; font-size:6.4px;
   text-anchor:middle; dominant-baseline:central}
+#leads text.bonus{fill:var(--ink)}
 .tag{position:absolute; transform:translate(-50%,-50%); background:#fff; border-radius:3mm;
-  padding:2mm 4mm; font-family:var(--disp); font-weight:700; font-size:17pt;
+  padding:1.8mm 3.4mm; font-family:var(--disp); font-weight:700; font-size:15pt;
   line-height:1.1; white-space:nowrap; color:var(--ink)}
-.tag i{font-style:normal; color:var(--flame-d); margin-right:2.4mm}
-.mcap{display:flex; justify-content:space-between; margin-top:3.5mm; font-family:var(--disp);
-  font-weight:700; font-size:15pt; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.66)}
+.tag i{font-style:normal; color:var(--a); margin-right:2mm}
+.eshots{flex:0 0 auto; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:7mm}
+.eshots figure{border-radius:4mm; overflow:hidden; background:var(--navy);
+  display:flex; flex-direction:column; min-height:0}
+.eshots img{display:block; width:100%; height:36mm; object-fit:cover; flex:0 0 auto}
+.eshots figcaption{flex:0 0 auto; padding:2.2mm 4mm; font-size:14pt; line-height:1.18;
+  color:rgba(255,255,255,.88)}
+.eshots figcaption b{font-family:var(--disp); font-weight:700; font-size:13.5pt;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--gold); display:block;
+  margin-bottom:1.2mm}
+.enote{flex:0 0 auto; margin-top:4mm; font-size:16pt; line-height:1.26;
+  color:rgba(255,255,255,.8)}
 
-.bench{flex:0 0 auto; padding:5mm 18mm 0}
-.bench .bh{display:flex; align-items:baseline; gap:6mm; margin-bottom:4mm}
-.bench h2{font-size:22pt}
-.bench .r0{flex:1 1 auto; height:.6mm; background:var(--hair)}
-.bench .sub{font-family:var(--disp); font-weight:600; font-size:14pt; color:var(--mute)}
-.bench .grid{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)) 150mm; gap:6mm; align-items:start}
-.bench .b{border-top:.8mm solid var(--royal); padding-top:2.6mm}
-.bench .b .k{font-family:var(--disp); font-weight:700; font-size:15pt; line-height:1.08}
-.bench .b .v{font-size:14pt; line-height:1.18; color:var(--mute); margin-top:1.2mm}
-.bench .note{background:var(--amber); border-radius:4mm; padding:3mm 4mm; font-size:14pt;
-  line-height:1.2; color:#4A3600}
-.bench .note b{font-family:var(--disp); font-weight:700; display:block; font-size:13pt;
-  letter-spacing:.12em; text-transform:uppercase; color:#7A5500; margin-bottom:1.6mm}
+/* ── feasibility ── */
+.feas{flex:0 0 auto; margin-top:6mm; background:var(--gold); color:#4A3600; padding:5mm 18mm}
+.feas .sect{color:#7A5500}
+.fgrid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:9mm; margin-top:4mm}
+.fg .v{font-family:var(--disp); font-weight:700; font-size:42pt; line-height:1}
+.fg .t{font-size:17pt; line-height:1.24; margin-top:2mm}
+.feas .obj{margin-top:5mm; padding-top:4mm; border-top:.8mm solid rgba(74,54,0,.3);
+  font-family:var(--disp); font-weight:700; font-size:19pt; line-height:1.26}
 
-/* the one topic, stated above the three */
-.rhead .topic{font-family:var(--disp); font-weight:700; font-size:13pt; letter-spacing:.16em;
-  text-transform:uppercase; color:var(--flame-d); display:block; margin-bottom:1.6mm}
+/* ── ninety days ── */
+.plan90{flex:0 0 auto; padding:6mm 18mm 0}
+.pgrid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:7mm; margin-top:5mm}
+.ph{border-top:2.4mm solid var(--a); padding-top:3.5mm}
+.ph:nth-child(2){border-top-color:var(--b)} .ph:nth-child(3){border-top-color:var(--c)}
+.ph .s{font-family:var(--disp); font-weight:700; font-size:16pt; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--mute)}
+.ph h3{font-size:25pt; margin-top:1.2mm}
+.ph p{font-size:17pt; line-height:1.26; color:var(--mute); margin-top:2mm}
+.dec{margin-top:5mm; font-family:var(--disp); font-weight:700; font-size:22pt; color:var(--a)}
 
-/* what the plan costs the Chateau, against what it already spends */
-.budget{margin-top:3mm; background:#fff; border-radius:4mm; padding:3mm 4.5mm; display:flex;
-  gap:5mm; align-items:baseline; flex-wrap:wrap}
-.budget .big{font-family:var(--disp); font-weight:700; font-size:26pt; line-height:1; color:var(--flame-d)}
-.budget p{flex:1 1 220mm; min-width:0; font-size:15pt; line-height:1.2; color:var(--ink)}
-.budget .src{flex-basis:100%; font-size:12pt; color:var(--mute); margin-top:1mm}
-
-.recs{flex:1 1 auto; min-height:0; padding:6mm 18mm 0; display:flex; flex-direction:column}
-.rhead{display:flex; align-items:baseline; gap:6mm; margin-bottom:4.5mm}
-.rhead h2{font-size:30pt; line-height:1.04; max-width:48ch}
-.rhead .r0{flex:1 1 auto; height:.8mm; background:var(--hair)}
-.rhead .n{font-family:var(--disp); font-weight:700; font-size:16pt; color:var(--mute);
-  flex:0 0 auto; max-width:105mm; text-align:right}
-.grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6mm 8mm;
-  align-content:stretch; flex:1 1 auto; min-height:0}
-.r{display:flex; flex-direction:column; gap:2.4mm; min-width:0}
-.r .num{width:13mm; height:13mm; border-radius:50%; background:var(--flame-d); color:#fff;
-  font-family:var(--disp); font-weight:700; font-size:21pt; display:grid; place-items:center}
-.r.off .num{background:var(--royal); border:.8mm dashed #fff}
-.r h4{font-size:21pt; line-height:1.1}
-.r p{font-size:18pt; line-height:1.26; color:var(--mute)}
-.r .v{margin-top:auto; padding-top:1.6mm; font-size:16pt; line-height:1.22; color:var(--royal)}
-.r .v b{font-family:var(--disp); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:14pt}
-
-.trail{flex:0 0 auto; margin-top:5mm; padding:0 18mm; display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr)) 128mm; gap:7mm; align-items:stretch}
-.trail .box{background:var(--amber); border-radius:4mm; padding:4.5mm 5.5mm;
-  display:flex; flex-direction:column}
-.trail .k{font-family:var(--disp); font-weight:700; font-size:14pt; letter-spacing:.14em;
-  text-transform:uppercase; color:#7A5500}
-.trail h3{font-size:21pt; margin-top:1.4mm; line-height:1.08}
-.trail p{font-size:16pt; line-height:1.2; margin-top:2mm; color:#4A3600}
-.word{display:flex; gap:2.2mm; flex-wrap:wrap; margin-top:4mm}
-.word i{width:10.5mm; height:13mm; border:.8mm solid var(--royal); border-radius:2mm;
-  background:#fff; display:grid; place-items:center; font-family:var(--disp);
-  font-weight:700; font-size:17pt; font-style:normal}
-.shot{border-radius:4mm; overflow:hidden; background:#141C4A}
-.shot img{display:block; width:100%; height:27mm; object-fit:cover; object-position:center 42%}
-.shot figcaption{padding:2.4mm 4.5mm; color:rgba(255,255,255,.88); font-size:13.5pt; line-height:1.16}
-.shot figcaption b{font-family:var(--disp); font-weight:700; font-size:14pt; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--gold); display:block; margin-bottom:1.4mm}
-
-.engine{flex:0 0 auto; margin-top:6mm; background:var(--navy-d); color:#fff; padding:8mm 18mm 8mm}
-.engine .eh{display:flex; align-items:baseline; gap:6mm; margin-bottom:6mm}
-.engine h2{font-size:30pt; color:#fff}
-.engine .r0{flex:1 1 auto; height:.8mm; background:rgba(255,255,255,.22)}
-.engine .sub{font-family:var(--disp); font-weight:600; font-size:15pt; color:rgba(255,255,255,.66)}
-.flow{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)) 142mm; gap:7mm; align-items:start}
-.step .s{font-family:var(--disp); font-weight:700; font-size:14pt; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--gold)}
-.step h4{font-size:23pt; margin-top:2mm; color:#fff}
-.step p{font-size:16pt; line-height:1.24; color:rgba(255,255,255,.8); margin-top:2mm}
-.money{background:var(--gold); color:var(--ink); border-radius:4mm; padding:5mm 6mm}
-.money .v{font-family:var(--disp); font-weight:700; font-size:38pt; line-height:1}
-.money p{font-size:16pt; line-height:1.22; margin-top:2.4mm; color:#4A3600}
-.money .warn{font-family:var(--disp); font-weight:700; font-size:13pt; letter-spacing:.08em;
-  text-transform:uppercase; margin-top:2.4mm; color:#4A3600}
-
-/* the three cases */
-.r .pil{font-family:var(--disp); font-weight:700; font-size:14pt; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--royal)}
-.r .goal{font-size:17pt; line-height:1.22; color:var(--mute)}
-.r ol{list-style:none; counter-reset:st; margin-top:1mm}
-.r ol li{counter-increment:st; display:grid; grid-template-columns:7mm 1fr; gap:2mm;
-  padding:1.7mm 0; border-top:.4mm solid var(--hair); font-family:var(--disp);
-  font-weight:600; font-size:17pt; line-height:1.14}
-.r ol li::before{content:counter(st); font-weight:700; color:var(--royal); font-size:14pt}
-.r .cost{margin-top:auto; padding-top:2.4mm; border-top:.8mm solid var(--ink);
-  display:flex; justify-content:space-between; align-items:baseline; gap:3mm}
-.r .cost .k{font-family:var(--disp); font-weight:700; font-size:13pt; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--mute); display:block}
-.r .cost .n2{font-family:var(--disp); font-weight:700; font-size:25pt; line-height:1}
-.r .cost .n2.b{color:#8A6400}
-
-/* the integrated case */
-table.pf{width:100%; border-collapse:collapse; color:#fff; font-size:18pt}
-table.pf th{text-align:right; font-family:var(--disp); font-weight:700; font-size:13pt;
-  letter-spacing:.12em; text-transform:uppercase; color:var(--gold); padding:0 0 2.4mm 6mm;
-  border-bottom:.5mm solid rgba(255,255,255,.3)}
-table.pf th:first-child{text-align:left; padding-left:0}
-table.pf td{padding:3mm 0 3mm 6mm; text-align:right; white-space:nowrap;
-  border-bottom:.3mm solid rgba(255,255,255,.16); font-variant-numeric:tabular-nums}
-table.pf td:first-child{text-align:left; padding-left:0; white-space:normal}
-table.pf td.bs{color:var(--gold); font-weight:700}
-table.pf tr.tot td{font-family:var(--disp); font-weight:700; font-size:21pt; border-bottom:0;
-  border-top:.9mm solid var(--gold); padding-top:3.4mm}
-
-/* the assumption strip */
-.reg{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:5mm; margin-top:5mm}
-.reg .c{display:flex; gap:3mm; align-items:flex-start}
-.reg .s{flex:0 0 auto; font-family:var(--disp); font-weight:700; font-size:12.5pt;
-  border-radius:99mm; padding:1.2mm 3.4mm; white-space:nowrap}
-.reg .s.ok{background:#1F5C2E; color:#fff}
-.reg .s.mid{background:var(--gold); color:#4A3600}
-.reg .s.low{background:var(--flame-d); color:#fff}
-.reg .i{font-size:15pt; line-height:1.2; color:rgba(255,255,255,.86)}
-
-.foot{flex:0 0 auto; padding:7mm 18mm 7mm; display:flex; gap:11mm; align-items:flex-start; overflow:hidden}
-.phases{flex:1 1 auto; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:7mm}
-.ph .s{font-family:var(--disp); font-weight:700; font-size:14pt; letter-spacing:.12em;
-  text-transform:uppercase; color:var(--flame-d)}
-.ph h4{font-size:20pt; margin-top:1.6mm}
-.ph p{font-size:16pt; line-height:1.22; color:var(--mute); margin-top:1.6mm}
-.qr{flex:0 0 auto; display:flex; gap:5mm; align-items:flex-start}
-.qr .box{width:38mm; height:38mm; background:#fff; border:1px solid var(--hair);
-  border-radius:3mm; padding:2.4mm; display:grid; place-items:center}
+/* ── foot ── */
+.foot{flex:0 0 auto; padding:6mm 18mm 7mm; display:flex; gap:10mm; align-items:flex-end;
+  justify-content:space-between}
+.rules{display:flex; gap:4mm; flex-wrap:wrap}
+.rules span{background:var(--navy); color:#fff; border-radius:99mm; padding:2.4mm 6mm;
+  font-family:var(--disp); font-weight:700; font-size:17pt}
+.foot .src{margin-top:4mm; font-size:15pt; line-height:1.3; color:var(--mute); max-width:118mm}
+.foot .dis{margin-top:2.5mm; font-size:15pt; color:var(--mute); max-width:118mm}
+/* the QR is the route to everything the sheet had to leave out, so it is sized to be
+   seen from across the room, not found by someone already leaning in */
+.qr{flex:0 0 auto; display:flex; gap:6mm; align-items:center; background:var(--navy);
+  border-radius:5mm; padding:5mm 7mm 5mm 5mm}
+.qr .box{width:60mm; height:60mm; background:#fff; border-radius:3mm; padding:2.5mm;
+  display:grid; place-items:center}
 .qr .box svg{width:100%; height:100%; shape-rendering:crispEdges}
-.qr .t{font-family:var(--disp); font-weight:700; font-size:18pt; line-height:1.2; max-width:54mm}
-.qr .u{font-size:12pt; color:var(--mute); margin-top:2mm; max-width:54mm}
-.flamme{flex:0 0 auto; width:44mm; height:auto; align-self:flex-end; margin-bottom:-8mm}
+.qr .t{font-family:var(--disp); font-weight:700; font-size:25pt; line-height:1.14;
+  max-width:62mm; color:#fff}
+.qr .u{font-size:16pt; color:var(--gold); margin-top:2.5mm; max-width:62mm}
 </style>
 </head>
 <body>
 
 <header class="head">
-  <div class="in">
-    <div style="flex:1 1 auto">
-      <div class="eyebrow" id="eyebrow"></div>
-      <h1 id="big"></h1>
-      <p class="by">Leveraging Data for Marketing Science · Section E01 · 21 October 2026</p>
-    </div>
-    <p class="lede" id="lede"></p>
-  </div>
+  <div class="eyebrow" id="eyebrow"></div>
+  <h1 id="line"></h1>
+  <p class="sub" id="sub"></p>
+  <img class="flamme" src="flamme.png" alt="Flamme, the crowned salamander of François I">
 </header>
 
-<section class="mapband">
-  <figure id="fig">
-    <img id="map" src="poster-map.png" alt="The estate, with the three recommendations marked where each happens">
-    <svg id="leads" viewBox="0 0 558 330" preserveAspectRatio="none" aria-hidden="true"></svg>
-  </figure>
-  <div class="mcap"><span>One topic, three workstreams, where each one happens</span>
-    <span id="offnote"></span></div>
+<section class="bar">
+  <div class="sect" id="barT"></div>
+  <h2>Three different barriers stop Fontainebleau turning its heritage into engagement</h2>
+  <div class="brows" id="barRows"></div>
+  <p class="note" id="barNote"></p>
 </section>
 
-<section class="bench">
-  <div class="bh"><h2 id="benchH"></h2><span class="r0"></span>
-    <span class="sub">Read from their public pages, October 2026</span></div>
-  <div class="grid" id="benchGrid"></div>
+<section class="ini">
+  <div class="sect" id="iT"></div>
+  <div class="icards" id="iCards"></div>
 </section>
 
-<section class="recs">
-  <div class="rhead"><h2><span class="topic" id="topicLabel"></span><span id="topicT"></span></h2>
-    <span class="r0"></span><span class="n" id="topicSub"></span></div>
-  <div class="grid" id="recs"></div>
-</section>
-
-<section class="trail">
-  <div id="guRules" style="display:contents"></div>
-  <figure class="shot" id="shot"></figure>
-</section>
-
-<section class="engine">
-  <div class="eh"><h2 id="pfH"></h2><span class="r0"></span>
-    <span class="sub">Observed baseline: €17 admission · 103,443 paid · 166,919 free, Jan–Sep 2026</span></div>
-  <div style="display:grid; grid-template-columns:1fr 150mm; gap:9mm; align-items:start">
-    <table class="pf" id="pfTable"></table>
-    <div class="money" id="money"></div>
+<section class="estate">
+  <div class="sect" id="eT"></div>
+  <div class="ewrap">
+    <div class="emap"><figure id="fig">
+      <img id="map" src="poster-map.png" alt="The estate, with the three recommendations marked">
+      <svg id="leads" viewBox="0 0 558 330" preserveAspectRatio="none" aria-hidden="true"></svg>
+    </figure></div>
+    <div class="eshots" id="eShots"></div>
   </div>
-  <div class="reg" id="reg"></div>
-  <div class="budget" id="budget"></div>
+  <p class="enote" id="eNote"></p>
+</section>
+
+<section class="feas">
+  <div class="sect" id="fT"></div>
+  <div class="fgrid" id="fGrid"></div>
+  <div class="obj" id="fObj"></div>
+</section>
+
+<section class="plan90">
+  <div class="sect">Ninety days</div>
+  <div class="pgrid" id="pGrid"></div>
+  <div class="dec" id="pDec"></div>
 </section>
 
 <footer class="foot">
-  <img class="flamme" src="flamme.png" alt="Flamme, the salamander of François I, drawn as a mascot">
-  <div class="phases" id="phases"></div>
+  <div>
+    <div class="rules" id="rules"></div>
+    <div class="src" id="srcLine"></div>
+    <div class="dis">A student marketing proposal prepared for a course. Not affiliated with,
+      commissioned by or endorsed by the Château de Fontainebleau.</div>
+  </div>
   <div class="qr">
     <div class="box" id="qr"></div>
-    <div><div class="t">Turn the estate yourself.</div><div class="u" id="url"></div></div>
+    <div><div class="t" id="ctaT"></div><div class="u" id="url"></div></div>
   </div>
 </footer>
 
@@ -242,110 +228,104 @@ table.pf tr.tot td{font-family:var(--disp); font-weight:700; font-size:21pt; bor
 <script>
 var SITE = (new URLSearchParams(location.search)).get('url')
         || 'https://edav8.github.io/G11-Poster/';
-var MM_W = 558, MM_H = 330;
 function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function T(id,v){ document.getElementById(id).textContent = v; }
 
-document.getElementById('eyebrow').textContent =
-  'Ch\u00e2teau de Fontainebleau \u00b7 ' + CONCEPT.plan + ' \u00b7 INSEAD Group 11';
-document.getElementById('big').textContent = CONCEPT.big;
-document.getElementById('lede').textContent = PROBLEM.headline + ' ' + PROBLEM.difference;
-/* the one broad topic, stated above the three workstreams */
-document.getElementById('topicLabel').textContent = TOPIC.label;
-document.getElementById('topicT').textContent = TOPIC.t;
-document.getElementById('topicSub').textContent = TOPIC.sub;
+T('eyebrow', BOARD.eyebrow); T('sub', BOARD.sub);
+document.getElementById('line').innerHTML =
+  'Fontainebleau already has the content.\n<em>We change how three audiences reach it.</em>';
 
-/* the benchmark the problem rests on */
-document.getElementById('benchH').textContent = BENCHMARK.label;
-document.getElementById('benchGrid').innerHTML =
-  BENCHMARK.rows.map(function(b){
-    return '<div class="b"><div class="k">'+esc(b.k)+'</div><div class="v">'+esc(b.v)+'</div></div>';
-  }).join('') +
-  '<div class="note"><b>Why it matters</b>'+esc(BENCHMARK.line)+'</div>';
+T('barT', BOARD.barriers.t); T('barNote', BOARD.barriers.note);
+document.getElementById('barRows').innerHTML = BOARD.barriers.rows.map(function(b){
+  return '<div class="br '+esc(b.c)+'"><div class="who">'+esc(b.who)+'</div>'+
+    '<div class="say">'+esc(b.say)+'</div><div class="fix">'+esc(b.fix)+'</div></div>'; }).join('');
 
-/* what the plan costs against what the Chateau already spends */
-document.getElementById('budget').innerHTML =
-  '<div class="big">'+esc(CONSTRAINT.share)+'</div>' +
-  '<p><b>'+esc(CONSTRAINT.ask)+'</b> against '+esc(CONSTRAINT.budget)+' \u2014 ' +
-  esc(CONSTRAINT.budgetNote) + '. ' + esc(CONSTRAINT.line) + '</p>' +
-  '<div class="src">'+esc(CONSTRAINT.src)+'</div>';
+T('iT', BOARD.inits.t);
+document.getElementById('iCards').innerHTML = BOARD.inits.rows.map(function(r){
+  var chain = '<div class="chain">' + r.chain.map(function(c,i){
+    return (i ? '<s>\u203a</s>' : '') + '<i>'+esc(c)+'</i>'; }).join('') + '</div>';
+  return '<article class="ic '+esc(r.c)+'"><div class="n">'+esc(r.n)+'</div>'+
+    '<div class="seg">'+esc(r.seg)+'</div>'+
+    '<h3>'+esc(r.k)+'</h3><p>'+esc(r.p)+'</p>'+ chain +
+    '<div class="fig">'+
+      '<div><span class="k">'+esc(BOARD.inits.costLabel)+'</span>'+
+        '<div class="v">'+esc(r.cost)+'</div></div>'+
+      '<div><span class="k">'+esc(BOARD.inits.revLabel)+'</span>'+
+        '<div class="v rev">'+esc(r.rev)+'</div></div>'+
+    '</div>'+
+    '<div class="kpi"><b>'+esc(BOARD.inits.kpiLabel)+'</b>'+esc(r.kpi)+'</div></article>'; }).join('');
 
-document.getElementById('guRules').innerHTML = GUARDRAILS.rows.map(function(g, i){
-  return '<div class="box">' + (i === 0 ? '<div class="k">' + esc(GUARDRAILS.t) + '</div>' : '') +
-    '<h3>' + esc(g.t) + '</h3><p>' + esc(g.short || g.p) + '</p></div>'; }).join('');
-document.getElementById('shot').innerHTML =
-  '<img src="'+STATION_SHOT.src+'" alt="'+esc(STATION_SHOT.alt)+'">'+
-  '<figcaption><b>'+esc(STATION_SHOT.cap)+'</b>'+esc(STATION_SHOT.note)+'</figcaption>';
+T('eT', BOARD.estate.t); T('eNote', BOARD.estate.note);
+/* the group's own renders: one per recommendation, plus the retail horizon */
+document.getElementById('eShots').innerHTML =
+  [STATION_SHOT, TIMELINE_SHOT, MERCH_SHOT].map(function(f){
+    return '<figure><img src="'+f.src+'" alt="'+esc(f.alt)+'">'+
+      '<figcaption><b>'+esc(f.cap)+'</b>'+esc(f.note)+'</figcaption></figure>'; }).join('');
 
-/* the three recommendations: headline, five step titles, the money */
-document.getElementById('recs').innerHTML = RECS.map(function(r){
-  var steps = '<ol>' + r.steps.map(function(x){ return '<li><span>'+esc(x.t)+'</span></li>'; }).join('') + '</ol>';
-  return '<article class="r'+(r.off?' off':'')+'"><div class="num">'+esc(r.n)+'</div>'+
-    '<div class="pil">'+esc(r.pillar)+'</div>'+
-    '<h4>'+esc(r.t)+'</h4>'+
-    '<div class="goal">'+esc(r.goal)+'</div>'+ steps +
-    '<div class="cost"><div><span class="k">Year one</span><span class="n2">'+esc(r.total)+'</span></div>'+
-    '<div style="text-align:right"><span class="k">Base scenario</span>'+
-    '<span class="n2 b">'+esc(r.base)+'</span></div></div></article>'; }).join('');
-
-/* the integrated case */
-document.getElementById('pfH').textContent = PORTFOLIO.t;
-document.getElementById('pfTable').innerHTML =
-  '<thead><tr><th>Mechanism</th><th>Low</th><th>Base</th><th>High</th><th>Cost</th></tr></thead><tbody>'+
-  PORTFOLIO.rows.map(function(r){
-    return '<tr><td>'+esc(r.k)+'</td><td>'+esc(r.low)+'</td><td class="bs">'+esc(r.base)+
-      '</td><td>'+esc(r.high)+'</td><td>'+esc(r.cost)+'</td></tr>'; }).join('')+
-  '<tr class="tot"><td>Total</td><td>'+esc(PORTFOLIO.totals.low)+'</td><td class="bs">'+
-  esc(PORTFOLIO.totals.base)+'</td><td>'+esc(PORTFOLIO.totals.high)+'</td><td>'+
-  esc(PORTFOLIO.totals.cost)+'</td></tr></tbody>';
-document.getElementById('money').innerHTML =
-  '<div class="v">'+esc(PORTFOLIO.totals.base)+'</div><p>'+esc(PORTFOLIO.headline)+'</p>'+
-  '<div class="warn">'+esc(PORTFOLIO.warn)+'</div>';
-document.getElementById('reg').innerHTML = ASSUMPTIONS.rows.map(function(a){
-  return '<div class="c"><span class="s '+a.k+'">'+esc(a.s)+'</span>'+
-    '<span class="i">'+esc(a.i)+'</span></div>'; }).join('');
-
-/* the ninety days */
-document.getElementById('phases').innerHTML = ROADMAP.rows.map(function(r){
-  return '<div class="ph"><div class="s">'+esc(r.s)+'</div><h4>'+esc(r.p)+'</h4>'+
-    '<p><b>Proves:</b> '+esc(r.e)+'</p></div>';
-}).join('');
-
+/* The map shows the TRAIL: fourteen stops projected through the same camera the estate
+   was rendered with, joined by a dashed route in order. Positions are schematic \u2014 the
+   model is a reconstruction, not a survey \u2014 but the rooms and their rough relation are
+   real: the Salle de Bal overlooks the Cour Ovale, the horseshoe staircase is on the
+   Cour du Cheval Blanc. */
 (async function(){
-  var fig = document.getElementById('fig'), svg = document.getElementById('leads');
-  var box = fig.getBoundingClientRect(), pxPerMm = box.width / MM_W;
-  MM_H = box.height / pxPerMm;
+  var svg = document.getElementById('leads');
+  var MM_W = 558, MM_H = 330;
+  var fig = document.getElementById('fig');
+  var box = fig.getBoundingClientRect();
+  MM_H = box.height / (box.width / MM_W);
   svg.setAttribute('viewBox', '0 0 ' + MM_W + ' ' + MM_H.toFixed(1));
 
-  var pins = [];
-  try { pins = await (await fetch('poster-pins.json', {cache:'no-store'})).json(); } catch(e) {}
-  var by = {}; pins.forEach(function(p){ by[p.i] = p; });
+  var stops = [];
+  try { stops = await (await fetch('poster-stops.json', {cache:'no-store'})).json(); } catch(e) {}
+  if (!stops.length) { window.__posterReady = true; return; }
 
-  var parts = '', tags = '', offs = [];
-  RECS.forEach(function(r, i){
-    if (r.off){ offs.push(r.n + ' ' + r.t); return; }
-    var p = by[i]; if (!p) return;
-    var px = p.x * MM_W, py = p.y * MM_H;
-    var left = p.x < 0.5, tx = px + (left ? -8 : 8), ty = py - 8;
-    parts += '<line x1="'+px.toFixed(1)+'" y1="'+py.toFixed(1)+'" x2="'+tx.toFixed(1)+'" y2="'+ty.toFixed(1)+'"/>';
-    parts += '<circle class="mk" cx="'+px.toFixed(1)+'" cy="'+py.toFixed(1)+'" r="5.4"/>';
-    parts += '<text x="'+px.toFixed(1)+'" y="'+py.toFixed(1)+'">'+esc(r.n)+'</text>';
-    tags += '<div class="tag" style="left:'+((tx/MM_W)*100).toFixed(2)+'%; top:'+((ty/MM_H)*100).toFixed(2)+'%;'+
-            ' transform:translate('+(left?'-100%':'0')+',-50%)"><i>'+esc(r.n)+'</i>'+esc(r.t)+'</div>';
+  var pt = stops.map(function(st){
+    return { n: st.n, bonus: st.bonus, x: st.x * MM_W, y: st.y * MM_H };
   });
-  svg.innerHTML = parts;
-  fig.insertAdjacentHTML('beforeend', tags);
-  document.getElementById('offnote').textContent = offs.length
-    ? offs.join(' · ') + ' happens off the estate' : '';
+  var main = pt.filter(function(p){ return !p.bonus; });
+  var bonus = pt.filter(function(p){ return p.bonus; });
 
-  document.getElementById('url').textContent = SITE.replace(/^https?:\/\//,'');
-  try{
-    var q = qrcode(0,'M'); q.addData(SITE); q.make();
-    document.getElementById('qr').innerHTML = q.createSvgTag({cellSize:4, margin:0});
-    var sv = document.querySelector('#qr svg');
-    if (sv){ sv.setAttribute('width','100%'); sv.setAttribute('height','100%'); }
-  }catch(e){ document.getElementById('qr').innerHTML='<div style="font:700 11pt sans-serif">QR offline</div>'; }
-  window.__posterReady = true;
+  function path(list){
+    return list.map(function(p,i){
+      return (i ? 'L' : 'M') + p.x.toFixed(1) + ' ' + p.y.toFixed(1); }).join(' ');
+  }
+  var out = '<path class="route" d="' + path(main) + '"/>';
+  if (bonus.length && main.length){
+    out += '<path class="route bonus" d="' +
+      path([main[main.length-1], bonus[0]]) + '"/>';
+  }
+  pt.forEach(function(p){
+    out += '<circle class="mk' + (p.bonus ? ' bonus' : '') + '" cx="' + p.x.toFixed(1) +
+           '" cy="' + p.y.toFixed(1) + '" r="4.4"/>';
+    out += '<text class="' + (p.bonus ? 'bonus' : '') + '" x="' + p.x.toFixed(1) +
+           '" y="' + p.y.toFixed(1) + '">' + esc(String(p.n)) + '</text>';
+  });
+  svg.innerHTML = out;
 })();
+
+T('fT', BOARD.feas.t); T('fObj', BOARD.feas.objective);
+document.getElementById('fGrid').innerHTML =
+  '<div class="fg"><div class="v">'+esc(BOARD.feas.cost)+'</div><div class="t">'+esc(BOARD.feas.costOf)+'</div></div>'+
+  '<div class="fg"><div class="v">'+esc(BOARD.feas.share)+'</div><div class="t">'+esc(BOARD.feas.shareOf)+'</div></div>'+
+  '<div class="fg"><div class="v">'+esc(BOARD.feas.days)+'</div><div class="t">'+esc(BOARD.feas.daysOf)+'</div></div>';
+
+document.getElementById('pGrid').innerHTML = BOARD.phases.map(function(p){
+  return '<div class="ph"><div class="s">'+esc(p.s)+'</div><h3>'+esc(p.k)+'</h3>'+
+    '<p>'+esc(p.p)+'</p></div>'; }).join('');
+T('pDec', BOARD.decision);
+
+document.getElementById('rules').innerHTML = BOARD.rules.map(function(r){
+  return '<span>'+esc(r)+'</span>'; }).join('');
+T('srcLine', BOARD.sources);
+T('ctaT', BOARD.cta);
+document.getElementById('url').textContent = SITE.replace(/^https?:\/\//,'');
+try{
+  var q = qrcode(0,'M'); q.addData(SITE); q.make();
+  document.getElementById('qr').innerHTML = q.createSvgTag({cellSize:4, margin:0});
+  var sv = document.querySelector('#qr svg');
+  if (sv){ sv.setAttribute('width','100%'); sv.setAttribute('height','100%'); }
+}catch(e){ document.getElementById('qr').innerHTML='<div style="font:700 12pt sans-serif">QR offline</div>'; }
+window.__posterReady = true;
 </script>
 </body>
 </html>

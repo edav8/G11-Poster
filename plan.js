@@ -406,11 +406,26 @@ var MASCOT = {
        + 'the case stands on the three recommendations alone.'
 };
 
+/* the group's own renders of the three projects */
+var TIMELINE_SHOT = {
+  src: 'timeline-shot.jpg',
+  alt: 'A gallery corridor lined with panels: each French king with a portrait, dates and one line, Flamme pointing the way',
+  cap: 'Eight hundred years, in one corridor',
+  note: 'A face, a date and one line per reign \u2014 the whole story before you walk into it.'
+};
+
+var MERCH_SHOT = {
+  src: 'mascot-retail.jpg',
+  alt: 'Flamme merchandise in the Ch\u00e2teau shop: plush, cap, tote, keyrings, snow globe, postcards, and a throne photo spot',
+  cap: 'The emblem, applied',
+  note: 'Retail and a photo spot. Not counted above \u2014 it needs its own case.'
+};
+
 var STATION_SHOT = {
-  src: 'station-photo.jpg',
+  src: 'station-photo-hi.jpg',
   alt: 'A stamp station in the Galerie François I: a numbered sign, the open passport and a stamp press on a wooden stand',
   cap: 'A station, as a visitor meets it',
-  note: 'A removable stand, a numbered sign and a self-inking press. Nothing is fixed to a historic wall or object.'
+  note: 'A removable stand and a self-inking press. Nothing fixed to a historic surface.'
 };
 
 var STAMP_SHEET = {
@@ -444,3 +459,366 @@ var STATIONS = [
   { n:13, L:'U', t:'Étang aux Carpes',             p:[-160,22,235] },
   { n:'★', L:'', t:'La Fontaine Belle Eau, Jardin Anglais', bonus:true, p:[-420,26,250] }
 ];
+
+/* ===========================================================================
+ * THE CAMPAIGN. From Flamme_Campaign_Fontainebleau — the group's own deck, which
+ * is narrower and more complete than the three-recommendation business case: one
+ * audience, one funnel, one budget, one set of metrics. The poster is built on this.
+ * ========================================================================= */
+
+var CAMPAIGN = {
+  kicker: 'Institutional marketing campaign',
+  t: 'Flamme invites your class to the palace',
+  sub: 'A campaign to bring Île de France private schools to the Château through Flamme’s '
+     + 'Royal Stamp Trail: a programme-based visit pupils want to repeat with their families.',
+  by: 'Group 11 · Section E01 · Leveraging Data for Marketing Science',
+  badge: '13 stamps · 1 secret'
+};
+
+var AUDIENCE = {
+  n: '01', label: 'Target audience',
+  t: 'Private schools in and around Paris',
+  segLabel: 'Institutional segment',
+  seg: 'Around 300 private schools, 236 under contract in Île de France',
+  points: [
+    { k:'A small, defined target.', v:'Around 300 schools we can contact one by one, so we need '
+      + 'direct contact with teachers rather than mass advertising.' },
+    { k:'The programme is the brief.', v:'Schools under contract follow the national programme, '
+      + 'so a visit mapped onto it is easy for a head to approve.' },
+    { k:'Today’s visit misses them.', v:'The tour is built for adult tourists, so teachers must '
+      + 'create the lesson themselves and often choose another outing.' },
+    { k:'Families follow.', v:'A pupil who loves the trail brings parents and siblings back, so '
+      + 'every school also opens the door to families.' }
+  ],
+  dmLabel: 'Key decision-makers and influencers',
+  dm: [
+    { n:'1', who:'Head of school',       role:'Decision-maker',
+      p:'Approves the trip, the date and the budget. Wants educational value, safety, simple logistics and a cost that fits.' },
+    { n:'2', who:'Class teachers',       role:'Initiators',
+      p:'Plan trips in spring and book in autumn. Want a visit linked to their programme, with nothing to prepare.' },
+    { n:'3', who:'Parents (APEL)',       role:'Influencers and co-funders',
+      p:'Often help fund trips. Respond to wonder, heritage and a story their child brings home, then visit as a family.' },
+    { n:'4', who:'Pedagogical networks', role:'Gatekeepers',
+      p:'The Catholic school magazine and the Rendez-vous de l’histoire de Blois, trusted sources for outings.' }
+  ]
+};
+
+var FUNNEL = {
+  n: '02', label: 'Budget allocation',
+  t: '€95,000 across the funnel, plus a €5,000 reserve',
+  stages: [
+    { k:'Awareness', v:'€39,000', pct:'39%', when:'April to October',
+      goal:'Build trust where teachers already look',
+      rows:[
+        { t:'Catholic school magazine: 3 full-page ads', v:'€12,000' },
+        { t:'Rendez-vous de l’histoire stand, Blois (October)', v:'€10,000' },
+        { t:'Premium brochure: design and 5,000 copies', v:'€10,000' },
+        { t:'Facebook ads to teachers and parents (≈730K impressions)', v:'€7,000' }
+      ] },
+    { k:'Engagement', v:'€28,000', pct:'28%', when:'September to November',
+      goal:'Give teachers a reason to act',
+      rows:[
+        { t:'Magazine feature: a class day at the Château', v:'€5,000' },
+        { t:'Blois talk: teaching the Renaissance and Napoleon', v:'€8,000' },
+        { t:'3 kit booklets (primary, collège, lycée), 1,500 copies', v:'€8,000' },
+        { t:'300-school contact list and 4-email sequence', v:'€7,000' }
+      ] },
+    { k:'Conversion', v:'€28,000', pct:'28%', when:'October to January',
+      goal:'Turn interest into signed partnerships',
+      rows:[
+        { t:'Partnerships coordinator (freelance, 6 months)', v:'€16,000' },
+        { t:'Partnership packs by post to head, teacher and APEL', v:'€9,000' },
+        { t:'Facebook retargeting: “Book your class visit”', v:'€3,000' },
+        { t:'ADAGE listing so schools can pay via Pass Culture', v:'Free' }
+      ] }
+  ],
+  reserve: '€5,000 reserve',
+  total: '€100,000'
+};
+
+var CREATIVE = {
+  n: '03', label: 'Creative strategy',
+  t: 'No boring visits: pupils lead the enquiry',
+  p: 'Museum visits often bore pupils, so Flamme’s booklet makes the Château interactive: a puzzle '
+   + 'in every room, 13 stamps and a secret word. Because school programmes are public, each booklet '
+   + 'matches every theme of its level, from CP to lycée, so the visit extends the lesson.',
+  benefit: 'Pupils stand where history happened, from François I’s gallery to Napoleon’s farewell, '
+         + 'and play instead of listening, in a UNESCO site where the Renaissance entered France.',
+  stages: [
+    { k:'Awareness', who:'Heads and teachers, April–October',
+      line:'« Une sortie où les élèves mènent l’enquête »',
+      need:'A trip fee-paying families will value.',
+      proof:'UNESCO site, other heads’ testimonials.',
+      assets:'Magazine ads, Blois stand, brochure, Facebook.',
+      cta:'« Découvrir le livret »' },
+    { k:'Engagement', who:'Teachers, September–November',
+      line:'« Votre programme, page par page »',
+      need:'Content that fits their lessons, no extra preparation.',
+      proof:'A booklet per level, with answers and a teacher sheet.',
+      assets:'Booklet per level, Blois talk, 4-email series.',
+      cta:'« Recevoir le livret de mon niveau »' },
+    { k:'Conversion', who:'Heads and parents, October–January',
+      line:'« Une journée royale, tout est prêt »',
+      need:'Confidence the day is worth it and children enjoy it.',
+      proof:'One price per class, a ready-to-send parent letter.',
+      assets:'Partnership pack by post, parent letter, retargeting.',
+      cta:'« Réserver la visite de ma classe »' }
+  ]
+};
+
+var METRICS = {
+  n: '04', label: 'Performance metrics',
+  t: 'How we will know it worked',
+  chain: [
+    { k:'Awareness',  v:'300', u:'schools, qualified reach',
+      p:'Teacher and head each reached twice, via two channels, by end of January' },
+    { k:'Engagement', v:'600', u:'kit requests',
+      p:'Split by level (primary, collège, lycée); replies and clicks, not opens' },
+    { k:'Leads',      v:'250', u:'qualified leads',
+      p:'Counted per school and per person, source-tagged from first touch' },
+    { k:'Bookings',   v:'120', u:'class bookings',
+      p:'From 40 partner schools; signed, booked and attended tracked to June' }
+  ],
+  roiLabel: 'Return on investment',
+  roi: 'ROI = (revenue generated − campaign cost) ÷ campaign cost',
+  roiRows: [
+    { k:'Year 1 cost',    v:'≈€33', u:'per pupil' },
+    { k:'Cost per class', v:'€830',      u:'lower in Year 2; higher once the baseline is netted out' },
+    { k:'Reusable assets',v:'≈€15,000', u:'brochure, contact list, emails, kits and visuals reused' },
+    { k:'Renewal target', v:'50%',        u:'partner schools rebooking without a second pack' }
+  ],
+  renewal: 'Renewal decides: if half the schools rebook, Year 2 pays off.',
+  also: 'Incremental bookings vs last year, Pass Culture share on ADAGE, and teacher '
+      + 'satisfaction after the visit.'
+};
+
+/* ===========================================================================
+ * THE BOARD. A1 is read standing up in about thirty seconds, so this is the
+ * poster's own, much shorter script: one idea, one journey, three initiatives,
+ * the feasibility story, ninety days. Everything else lives behind the QR.
+ * ========================================================================= */
+
+var BOARD = {
+  eyebrow: 'Ch\u00e2teau de Fontainebleau \u00b7 Marketing Activities Plan 2027 \u00b7 INSEAD Group 11',
+  line: 'Fontainebleau already has the content.\nWe change how three audiences reach it.',
+  sub: 'Three recommendations built on existing heritage assets and limited new investment: '
+     + 'children interact with it, schools build recurring relationships around it, and '
+     + 'international families understand it.',
+
+  /* the argument, before any solution: one barrier per audience */
+  barriers: {
+    t: 'Three audiences, three different barriers',
+    rows: [
+      { c:'a', who:'Children',
+        say:'\u201cI can see it, but there is nothing to do.\u201d',
+        fix:'Make it interactive' },
+      { c:'b', who:'Schools',
+        say:'\u201cWe visited once.\u201d',
+        fix:'Make it recurring' },
+      { c:'c', who:'International families',
+        say:'\u201cI can read the translation, but I don\u2019t understand the context.\u201d',
+        fix:'Make it understandable' }
+    ],
+    note: 'Translation is not understanding, and a visit is not a relationship. Each barrier '
+        + 'needs a different answer \u2014 none of them needs a new building.'
+  },
+
+  inits: {
+    t: 'Three recommendations',
+    costLabel: 'Pilot cost',
+    revLabel: 'Expected incremental receipts',
+    kpiLabel: 'What we measure',
+    rows: [
+      { n:'01', c:'a', seg:'Children \u00b7 experience',
+        k:'Give children something to do, and words they can follow',
+        p:'Two problems, one answer. Nothing to do: thirteen stops, a stamp at each, a '
+         + 'certificate to take home. Nothing they can follow: labels written for a nine-year-old, '
+         + 'one object to find per room, and Flamme pointing the way along the wall.',
+        chain:['Do','Find','Follow','Stamp','Complete','Take home'],
+        cost:'\u20AC5,578', rev:'\u20AC6,193', kpi:'Passports completed, and families who come back' },
+      { n:'02', c:'b', seg:'Schools \u00b7 acquisition',
+        k:'Turn one-off visits into recurring partnerships',
+        p:'Fran\u00e7ois I and the Renaissance already sit in the CM1 programme, so the visit '
+         + 'needs no new content \u2014 only a page a teacher can act on, one price, and one '
+         + 'booking path. Sell it to teachers directly, send each child home with a family '
+         + 'challenge, then ask the school for the same trip again next year.',
+        chain:['Target','Convert','Deliver','Rebook','Refer'],
+        cost:'\u20AC3,853', rev:'\u20AC6,800', kpi:'Classes booked, and schools that rebook' },
+      { n:'03', c:'c', seg:'International families \u00b7 accessibility',
+        k:'Make royal history understandable without prior context',
+        p:'A child can read \u201cFran\u00e7ois Ier\u201d in English and still have no idea who he was. '
+         + 'Not translation \u2014 interpretation: a kings\u2019 timeline down the gallery wall, each '
+         + 'reign with a face, a date and one line on what they built, so eight hundred years '
+         + 'becomes something you can see in a corridor.',
+        chain:['Context','Story','Two languages','Every age','Booked'],
+        cost:'\u20AC2,875', rev:'\u20AC4,403', kpi:'International family bookings' }
+    ]
+  },
+
+  feas: {
+    t: 'Why it is safe to try',
+    cost: '\u20AC12,306', share: '1.8%', days: '90 days',
+    shareOf: 'of the Ch\u00e2teau\u2019s existing annual marketing and communications budget',
+    costOf: 'total pilot investment across all three recommendations',
+    daysOf: 'to a go, adapt or stop decision',
+    objective: 'Primary objective: prove demand, engagement and repeatability \u2014 not maximise '
+             + 'year-one profit.'
+  },
+
+  phases: [
+    { s:'Days 1\u201330',  k:'Build',   p:'Conservation approval, prototype trail, supplier quotes' },
+    { s:'Days 31\u201360', k:'Recruit', p:'Five to ten CM1 classes, bilingual materials live' },
+    { s:'Days 61\u201390', k:'Test',    p:'Run it; measure completion, conversion and receipts' }
+  ],
+  decision: 'Decision at day 90: stop, adapt or scale.',
+
+  estate: {
+    t: 'Where each one happens',
+    note: '01 runs through the rooms and the court. 03 sits in the Grands Appartements and on '
+        + 'the website. 02 happens off the estate entirely \u2014 in schools, before anyone arrives. '
+        + 'All three reuse walls, rooms and objects the Ch\u00e2teau already owns: a timeline panel, '
+        + 'a portable stamp stand, a printed passport. Nothing is built, and nothing is fixed to '
+        + 'a historic surface.'
+  },
+
+  rules: ['No permanent alteration', 'No discounting', 'Fully measurable'],
+  cta: 'Scan to walk the trail and turn the estate in 3D',
+  sources: 'Full costings, scenarios and the evidence grade behind every figure are on the site. '
+         + 'Ticket data: the Ch\u00e2teau\u2019s own file, Jan\u2013Sep 2026. Budget: INSEAD case, 2024.'
+};
+
+/* ===========================================================================
+ * THE FINAL BOARD, as submitted. The website is built from this, word for word,
+ * so the QR code and the sheet cannot say different things.
+ * Audience colours sampled from the poster: children #FF995A, schools #9BB0FE,
+ * international #5DD3BE on navy; darker siblings for cream.
+ * ========================================================================= */
+
+var FINAL = {
+  head: {
+    pre: 'Make Fontainebleau more',
+    parts: [
+      { t:'engaging for ',        k:'children',             c:'a' },
+      { t:', more repeatable for ', k:'schools',            c:'b' },
+      { t:', and more understandable for ', k:'international families', c:'c' }
+    ],
+    cta: 'Project website',
+    by: 'Château de Fontainebleau · Marketing Activities Plan 2027 · INSEAD Group 11'
+  },
+
+  barriers: {
+    t: 'Three audiences. Three barriers. Three responses.',
+    insight: {
+      k: 'The insight',
+      q: '“The rooms are magnificent. But to a nine-year-old, they can become a corridor of labels.”'
+    },
+    rows: [
+      { n:'01', c:'a', who:'Children',
+        q:'“I can see it, but what do I do?”', r:'Make the visit active.' },
+      { n:'02', c:'b', who:'Schools',
+        q:'“We visited once.”', r:'Make the relationship recurring.' },
+      { n:'03', c:'c', who:'International families',
+        q:'“I can read it, but I don’t understand the context.”',
+        r:'Make the history understandable.' }
+    ]
+  },
+
+  museums: {
+    k: 'Inspiration from other museums',
+    t: 'What 4 UK museums give children at the door',
+    rows: [
+      { k:'English Heritage',          v:'Free quest booklets and Explorer Backpacks, every day' },
+      { k:'National Trust',            v:'A children’s activity passport, stamped visit after visit' },
+      { k:'London Transport Museum',   v:'A free stamper trail, not a paid add-on' },
+      { k:'Hampton Court Palace',      v:'Costumed interpreters daily, in the standard ticket' }
+    ],
+    take: 'They give children <b>immediate agency</b>: a trail, pack, passport or challenge. '
+        + 'Fontainebleau can borrow the idea, using its own heritage.'
+  },
+
+  recs: [
+    { n:'01', c:'a', seg:'Children · the experience',
+      t:'Make the visit active and memorable',
+      problem:'Children can see the heritage, but the visit asks them to watch, not take part.',
+      rec:'A self-led Royal Stamp Trail: look, solve, stamp, and take the finished passport home.',
+      steps:[
+        { k:'Look',  v:'Find the clue hidden in the real room.' },
+        { k:'Solve', v:'Crack Flamme’s riddle about it.' },
+        { k:'Stamp', v:'Earn a royal stamp in your passport.' },
+        { k:'Spell', v:'Collect all 13 letters of the secret word.' },
+        { k:'Win',   v:'Solve the final secret, win a certificate!' }
+      ],
+      strap:'Portable stations: nothing fixed to historic walls.',
+      cost:'€5,578', base:'€6,193',
+      shots:['timeline-shot.jpg','mascot-retail.jpg'] },
+
+    { n:'02', c:'b', seg:'Schools · the acquisition engine',
+      t:'Turn one-off visits into recurring partnerships',
+      problem:'A visit creates value once. A relationship brings a new class every year.',
+      rec:'Make the curriculum-fit visit easy to book, with a reason to return next year.',
+      steps:[
+        { k:'Target',  v:'CM1 first: François I is on the syllabus.' },
+        { k:'Convert', v:'Teacher materials and a clear offer.' },
+        { k:'Visit',   v:'Self-led or guided, clear objectives.' },
+        { k:'Rebook',  v:'Same grade-level visit, next year.' },
+        { k:'Refer',   v:'A family challenge brings parents back.' }
+      ],
+      strap:'Success = rebookings + family referrals.',
+      cost:'€3,853', base:'€6,800',
+      browser:{
+        url:'chateaudefontainebleau.fr/schools-teachers',
+        tabs:['Visit','Collections','Schools & Teachers','Families','Tickets'],
+        kicker:'CM1 · Le temps des rois',
+        title:'François I and the Renaissance, on site',
+        sub:'Trail or guided visit · objectives',
+        cta:'Request a booking',
+        links:['↓ Teacher guide','↓ Pupil booklet + map','Prices · access · transport','FAQ · contact']
+      } },
+
+    { n:'03', c:'c', seg:'International families · access',
+      t:'Make history understandable, not just translated',
+      problem:'Translation is not understanding. A child can read “François I” and not know why he matters.',
+      rec:'One child-friendly story of royal history, across languages and ages.',
+      steps:[
+        { k:'Context',  v:'Who each figure is, and why.' },
+        { k:'Story',    v:'Short stories tied to something visible.' },
+        { k:'Language', v:'French + English first.' },
+        { k:'Access',   v:'Audio, captions, symbols, large type.' },
+        { k:'Convert',  v:'English family page linked to tickets.' }
+      ],
+      strap:'Don’t just translate the labels: give the context.',
+      cost:'€2,875', base:'€4,403',
+      figures:['Louis IX','François I','Napoléon I'] }
+  ],
+
+  money: {
+    riskK: 'Low risk by design', risk: '€12.3K',
+    riskNote: 'Total Year-1 pilot budget: ≈ 1.8% of the Château’s €700k marketing budget',
+    t: 'Pilot, measure, then scale',
+    cols: ['Gross receipts','Low','Base case','High','Pilot cost'],
+    rows: [
+      { k:'01  Children · stamp trail',   v:['€3,473','€6,193','€8,913','€5,578'] },
+      { k:'02  Schools · partnerships',   v:['€3,400','€6,800','€10,200','€3,853'] },
+      { k:'03  International families',        v:['€1,751','€4,403','€8,789','€2,875'] }
+    ],
+    total: { k:'Total', v:['€8,624','€17,396','€27,902','€12,306'] },
+    bigK: 'Base-case gross receipts', big: '€17,396', bigNote: 'vs €12,306 total pilot spend'
+  },
+
+  pilot: {
+    t: 'The 90-day pilot',
+    k: 'What we ask the Château to approve',
+    phases: [
+      { n:'1', s:'Days 1–30',  t:'Build & validate' },
+      { n:'2', s:'Days 31–60', t:'Test' },
+      { n:'3', s:'Days 61–90', t:'Measure' }
+    ],
+    decision: { k:'Day 90 decision', t:'Stop, adapt or scale' },
+    guardK: 'Three guardrails · protect…',
+    guards: [
+      { k:'Conservation', v:'Nothing permanent on historic walls.' },
+      { k:'Yield',        v:'No discounts without proven value.' },
+      { k:'Measurement',  v:'Never count a ticket twice.' }
+    ]
+  }
+};
