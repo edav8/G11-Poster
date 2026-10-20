@@ -626,10 +626,13 @@ h2.big{font-size:clamp(30px,4.6vw,52px); letter-spacing:-.018em; line-height:1.0
 .figs2 b{font-family:var(--disp); font-weight:700; font-size:clamp(24px,2.8vw,32px); line-height:1.1}
 .figs2 b.hi{color:var(--a-d)} .rec.b .figs2 b.hi{color:var(--b-d)} .rec.c .figs2 b.hi{color:var(--c-d)}
 .chain{list-style:none; counter-reset:ch}
-.chain li{counter-increment:ch; display:grid; grid-template-columns:92px minmax(0,1fr); gap:14px;
+/* the label column was a fixed 92px, which clips in French: "Recommander" and
+   "Accessibilité" are half again as long as "Refer" and "Access" */
+.chain li{counter-increment:ch; display:grid;
+  grid-template-columns:minmax(92px,max-content) minmax(0,1fr); gap:14px;
   padding:7px 0; border-top:1px solid var(--hair); align-items:baseline}
 .chain li b{font-family:var(--disp); font-weight:700; font-size:15px; letter-spacing:.12em;
-  text-transform:uppercase; color:var(--a-d)}
+  text-transform:uppercase; color:var(--a-d); padding-right:6px}
 .rec.b .chain li b{color:var(--b-d)} .rec.c .chain li b{color:var(--c-d)}
 .chain li span{font-size:16.5px; line-height:1.4; color:var(--mute)}
 .shots{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:22px}
@@ -639,6 +642,53 @@ h2.big{font-size:clamp(30px,4.6vw,52px); letter-spacing:-.018em; line-height:1.0
 .shots img{width:100%; height:200px; object-fit:cover; border-radius:12px; display:block;
   background:var(--hair)}
 .shots.one img{height:320px}
+.shots .open{display:block; width:100%; padding:0; border:0; background:none; cursor:zoom-in;
+  border-radius:12px; position:relative; overflow:hidden}
+.shots .open:focus-visible{outline:3px solid var(--a-d); outline-offset:3px}
+.rec.b .shots .open:focus-visible{outline-color:var(--b-d)}
+.rec.c .shots .open:focus-visible{outline-color:var(--c-d)}
+.shots .open::after{content:"View full"; position:absolute; right:9px; bottom:9px;
+  font-family:var(--disp); font-weight:700; font-size:12px; letter-spacing:.08em;
+  text-transform:uppercase; color:#fff; background:rgba(20,28,74,.82);
+  padding:5px 10px; border-radius:999px; opacity:0; transition:opacity .18s ease}
+html[lang="fr"] .shots .open::after{content:"Voir en grand"}
+.shots .open:hover::after,.shots .open:focus-visible::after{opacity:1}
+.shots .open img{transition:transform .35s cubic-bezier(.4,0,.2,1)}
+.shots .open:hover img{transform:scale(1.03)}
+
+/* the full view: the image uncropped, with the words that go with it */
+/* always reachable, including on the hero before anything has been scrolled */
+.lang{position:fixed; top:18px; right:18px; z-index:120; cursor:pointer;
+  font-family:var(--disp); font-weight:700; font-size:14px; letter-spacing:.12em;
+  min-width:58px; height:38px; padding:0 14px; border-radius:999px;
+  border:1px solid rgba(255,255,255,.42); background:rgba(20,28,74,.6); color:#fff;
+  -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+  transition:background .18s ease, border-color .18s ease}
+.lang:hover{background:rgba(20,28,74,.86); border-color:var(--gold)}
+.lang:focus-visible{outline:3px solid var(--gold); outline-offset:3px}
+@media (max-width:760px){ .lang{top:12px; right:12px; height:34px; min-width:52px} }
+@media (prefers-reduced-motion:reduce){ .lang{transition:none} }
+
+.lb{position:fixed; inset:0; z-index:300; display:none; place-items:center;
+  background:rgba(12,16,42,.93); padding:clamp(16px,4vw,48px)}
+.lb[open]{display:grid}
+.lb figure{margin:0; max-width:min(1200px,100%); max-height:100%;
+  display:flex; flex-direction:column; gap:14px}
+.lb img{max-width:100%; max-height:76vh; width:auto; height:auto; object-fit:contain;
+  border-radius:10px; background:#fff; display:block; margin-inline:auto}
+.lb figcaption{color:#fff; text-align:center; max-width:70ch; margin-inline:auto}
+.lb .cp{font-family:var(--disp); font-weight:700; font-size:19px; display:block}
+.lb .nt{font-size:15px; line-height:1.45; color:rgba(255,255,255,.76); margin-top:5px; display:block}
+.lb .x{position:absolute; top:clamp(12px,2.5vw,24px); right:clamp(12px,2.5vw,24px);
+  width:46px; height:46px; border-radius:50%; border:1px solid rgba(255,255,255,.35);
+  background:rgba(255,255,255,.1); color:#fff; font-size:22px; line-height:1; cursor:pointer}
+.lb .x:hover{background:rgba(255,255,255,.2)}
+.lb .x:focus-visible{outline:3px solid var(--gold); outline-offset:3px}
+@media (prefers-reduced-motion:reduce){
+  .shots .open img,.shots .open::after{transition:none}
+  .shots .open:hover img{transform:none}
+}
+
 .shots figcaption{margin-top:9px}
 .shots .cp{font-family:var(--disp); font-weight:700; font-size:15px; line-height:1.18; display:block}
 .shots .nt{font-size:13.5px; line-height:1.38; color:var(--mute); margin-top:3px; display:block}
@@ -649,6 +699,12 @@ h2.big{font-size:clamp(30px,4.6vw,52px); letter-spacing:-.018em; line-height:1.0
 .figs{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:20px}
 .figs .fg{background:var(--navy); color:#fff; border-radius:12px; padding:18px 12px; text-align:center;
   font-family:var(--disp); font-weight:700; font-size:15px; letter-spacing:.06em}
+/* with a render present the figure becomes a portrait; without one it stays the
+   plain plate, so a missing file degrades instead of breaking the row */
+.figs .fg.art{padding:12px 10px 14px; display:flex; flex-direction:column;
+  align-items:center; gap:10px}
+.figs .fg.art img{width:100%; height:150px; object-fit:contain; display:block}
+@media (max-width:760px){ .figs .fg.art img{height:120px} }
 /* a plain browser mock for the schools page */
 .mock{margin-top:14px; border:1px solid var(--hair); border-radius:14px; overflow:hidden;
   background:#fff; box-shadow:0 10px 30px rgba(42,35,64,.08)}
@@ -741,7 +797,10 @@ h2.big{font-size:clamp(30px,4.6vw,52px); letter-spacing:-.018em; line-height:1.0
   .rec{position:relative; min-height:0}
   .mgrid{grid-template-columns:minmax(0,1fr)}
   .mock .body{grid-template-columns:1fr}
-  .chain li{grid-template-columns:84px minmax(0,1fr)}
+  /* an even tighter column here, and the French labels have nowhere to go:
+     below 900px the label sits above its line instead of beside it */
+  .chain li{grid-template-columns:minmax(0,1fr); gap:2px; padding:9px 0}
+  .chain li b{letter-spacing:.1em}
 }
 
 @media (max-width:980px){
@@ -804,6 +863,20 @@ h2.big{font-size:clamp(30px,4.6vw,52px); letter-spacing:-.018em; line-height:1.0
     <h2 class="big reveal" data-d="1" id="musT"></h2>
     <div class="mus" id="musRows"></div>
     <p class="take reveal" data-d="2" id="musTake"></p>
+  </div>
+</section>
+
+<section class="track" id="rooms" data-track data-clip="galerie" data-scrub style="height:320svh">
+  <div class="stage">
+    <div class="plate">
+      <video id="vid-galerie" muted playsinline preload="auto" poster="v/galerie.jpg"></video>
+      <div class="cap">
+        <h2 class="cue" data-in=".03" data-out=".34">The rooms are already the content.</h2>
+        <p class="cue" data-in=".09" data-out=".34">The Galerie François I on an ordinary afternoon: long labels, uneven translations, and no reason to stop walking.</p>
+        <h2 class="cue" data-in=".56" data-out=".96">Sixty metres of salamander, and nobody is ever told.</h2>
+        <p class="cue" data-in=".62" data-out=".96">François I put his badge on every wall of this gallery in 1528 and gave it a motto. It is the mascot the Château already owns.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -917,8 +990,20 @@ h2.big{font-size:clamp(30px,4.6vw,52px); letter-spacing:-.018em; line-height:1.0
   <a href="#money">Numbers</a>
 </nav>
 
+<button type="button" id="lang" class="lang" aria-pressed="false"
+  aria-label="Afficher le site en français"><span>FR</span></button>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image, full size">
+  <button type="button" class="x" id="lbX" aria-label="Close">&times;</button>
+  <figure>
+    <img id="lbImg" src="" alt="">
+    <figcaption><span class="cp" id="lbCap"></span><span class="nt" id="lbNote"></span></figcaption>
+  </figure>
+</div>
+
 
 <script src="plan.js"></script>
+<script src="i18n-fr.js"></script>
 <script>
 "use strict";
 try{ history.scrollRestoration = 'manual'; }catch(e){}
@@ -939,12 +1024,13 @@ document.getElementById('heroCta').textContent = FINAL.head.cta;
   /* Stagger per WORD, not per phrase: inline-block spans swallow a trailing space,
      which ran "for" into "children" the first time. Each word is its own span and
      the spaces live between them, so the line wraps and reads normally. */
+  window.buildHero = function(head){
   var words = [];
   function push(text, cls){
     String(text).split(/\s+/).forEach(function(w){ if (w) words.push({ w:w, c:cls }); });
   }
-  push(FINAL.head.pre, '');
-  FINAL.head.parts.forEach(function(p){ push(p.t, ''); push(p.k, 'hl ' + p.c); });
+  push(head.pre, '');
+  head.parts.forEach(function(p){ push(p.t, ''); push(p.k, 'hl ' + p.c); });
   /* a lone comma is punctuation, not a word: hang it on the one before it */
   for (var i = words.length - 1; i > 0; i--){
     if (/^[,.;:]+$/.test(words[i].w)){ words[i-1].w += words[i].w; words.splice(i, 1); }
@@ -953,6 +1039,8 @@ document.getElementById('heroCta').textContent = FINAL.head.cta;
   document.getElementById('heroLine').innerHTML = words.map(function(o, i){
     return '<span class="w ' + o.c + '" style="--i:' + i + '">' + esc(o.w) + '</span>';
   }).join(' ');
+  };
+  buildHero(FINAL.head);
 })();
 
 /* the three barriers */
@@ -975,6 +1063,47 @@ document.getElementById('musRows').innerHTML = FINAL.museums.rows.map(function(m
 document.getElementById('musTake').innerHTML = FINAL.museums.take;
 
 /* the three recommendations, as a pinned stack */
+/* click a shot to see it uncropped */
+(function(){
+  var lb   = document.getElementById('lb'),
+      img  = document.getElementById('lbImg'),
+      cap  = document.getElementById('lbCap'),
+      note = document.getElementById('lbNote'),
+      x    = document.getElementById('lbX'),
+      last = null;
+
+  function open(btn){
+    var src = btn.getAttribute('data-src'), o = SHOT[src] || {};
+    last = btn;
+    img.src = src;
+    img.alt = o.alt || '';
+    cap.textContent  = o.cap  || '';
+    note.textContent = o.note || '';
+    if (window.trLive) window.trLive(lb);
+    lb.setAttribute('open','');
+    document.body.style.overflow = 'hidden';
+    x.focus();
+  }
+  function close(){
+    if (!lb.hasAttribute('open')) return;
+    lb.removeAttribute('open');
+    document.body.style.overflow = '';
+    img.src = '';
+    if (last){ last.focus(); last = null; }
+  }
+
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest ? e.target.closest('.shots .open') : null;
+    if (btn){ e.preventDefault(); open(btn); return; }
+    if (e.target === lb || e.target === x) close();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') close();
+    /* nothing else in the dialog is focusable, so Tab stays on the close button */
+    if (e.key === 'Tab' && lb.hasAttribute('open')){ e.preventDefault(); x.focus(); }
+  });
+})();
+
 var SHOT = {};
 [TIMELINE_SHOT, MERCH_SHOT, STATION_SHOT, STAMP_SHEET].forEach(function(o){ SHOT[o.src] = o; });
 
@@ -998,13 +1127,23 @@ document.getElementById('recStack').innerHTML = FINAL.recs.map(function(r){
   }
   if (r.figures){
     art += '<div class="figs">' + r.figures.map(function(f){
-      return '<div class="fg"><span>' + esc(f) + '</span></div>'; }).join('') + '</div>';
+      var name = (typeof f === 'string') ? f : f.n;
+      var img  = (typeof f === 'string') ? null : f.img;
+      /* onerror drops the portrait and leaves the plate, so a file that is not
+         there yet costs a broken-image icon rather than the row */
+      return '<div class="fg' + (img ? ' art' : '') + '">' +
+        (img ? '<img src="' + esc(img) + '" alt="' + esc(f.alt || name) + '" ' +
+          'onerror="var p=this.parentNode; this.remove(); p.classList.remove(\'art\')">' : '') +
+        '<span>' + esc(name) + '</span></div>'; }).join('') + '</div>';
   }
   if (r.shots){
     var cls = r.shots.length === 3 ? ' three' : (r.shots.length === 1 ? ' one' : '');
     art += '<div class="shots' + cls + '">' + r.shots.map(function(src){
       var o = SHOT[src] || {};
-      return '<figure><img src="' + src + '" alt="' + esc(o.alt || '') + '">' +
+      return '<figure><button type="button" class="open" ' +
+        'data-src="' + esc(src) + '" ' +
+        'aria-label="View ' + esc(o.cap || src) + ' at full size">' +
+        '<img src="' + src + '" alt="' + esc(o.alt || '') + '"></button>' +
         (o.cap ? '<figcaption><span class="cp">' + esc(o.cap) + '</span>' +
           (o.note ? '<span class="nt">' + esc(o.note) + '</span>' : '') +
           '</figcaption>' : '') + '</figure>'; }).join('') + '</div>';
@@ -1125,6 +1264,7 @@ function station(i, fly){
   var read = document.getElementById('stRead');
   if (read) read.innerHTML = '<b>'+esc(String(st.n))+'</b>'+esc(st.t)+
     (st.L ? '<span class="ltr">'+esc(st.L)+'</span>' : '<span class="ltr">\u2605</span>');
+  if (window.trLive && read) window.trLive(read);
   if (fly) flyTo(st);
 }
 function stopWalk(){ if (walkTimer){ clearInterval(walkTimer); walkTimer = null;
@@ -1436,6 +1576,74 @@ else {
   [].slice.call(document.querySelectorAll('.cue')).forEach(function(c){ c.style.opacity = 1; });
   Object.keys(CLIPS).forEach(function(k){ if (CLIPS[k].el) CLIPS[k].el.currentTime = 0.1; });
 }
+/* ── language ───────────────────────────────────────────────────────────────
+   The page is translated in place rather than re-rendered: the 3D scene, the
+   videos, the observers and the scroll state all survive a toggle untouched.
+   Every node's English is kept so switching back is exact, not a reverse
+   lookup (two English strings could share one French one). */
+(function(){
+  var btn = document.getElementById('lang');
+  if (!btn || typeof FR === 'undefined') return;
+
+  var orig = new Map();        // node -> its English
+  var oAttr = new Map();       // element -> { attr: English }
+  var lang = 'en';
+  var ATTRS = ['alt','aria-label'];
+
+  function walk(root, to){
+    var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), n;
+    while ((n = w.nextNode())){
+      var par = n.parentElement;
+      if (!par || /SCRIPT|STYLE/.test(par.tagName)) continue;
+      if (!orig.has(n)) orig.set(n, n.nodeValue);
+      var en = orig.get(n), key = en.trim();
+      if (!key) continue;
+      if (to === 'en'){ n.nodeValue = en; continue; }
+      var fr = FR.t[key];
+      if (fr) n.nodeValue = en.replace(key, fr);   /* keep the original spacing */
+    }
+    var els = root.querySelectorAll ? root.querySelectorAll('[alt],[aria-label]') : [];
+    for (var i = 0; i < els.length; i++){
+      var el = els[i];
+      if (!oAttr.has(el)){
+        var keep = {};
+        ATTRS.forEach(function(a){ if (el.hasAttribute(a)) keep[a] = el.getAttribute(a); });
+        oAttr.set(el, keep);
+      }
+      var kept = oAttr.get(el);
+      ATTRS.forEach(function(a){
+        if (!(a in kept)) return;
+        if (to === 'en'){ el.setAttribute(a, kept[a]); return; }
+        var t = FR.t[kept[a].trim()];
+        if (t) el.setAttribute(a, t);
+      });
+    }
+  }
+
+  /* anything written after a toggle (the station panel, the lightbox caption)
+     calls this so it does not come back in English */
+  window.trLive = function(root){ if (lang === 'fr') walk(root || document.body, 'fr'); };
+
+  function setLang(to){
+    lang = to;
+    document.documentElement.lang = to;
+    walk(document.body, to);
+    buildHero(to === 'fr' ? FR.head : FINAL.head);
+    walk(document.getElementById('heroLine'), to);
+    btn.textContent = (to === 'fr') ? 'EN' : 'FR';
+    btn.setAttribute('aria-pressed', to === 'fr' ? 'true' : 'false');
+    btn.setAttribute('aria-label', to === 'fr'
+      ? 'Show the site in English' : 'Afficher le site en français');
+    try { localStorage.setItem('g11-lang', to); } catch(e){}
+  }
+
+  btn.addEventListener('click', function(){ setLang(lang === 'fr' ? 'en' : 'fr'); });
+
+  var saved = null;
+  try { saved = localStorage.getItem('g11-lang'); } catch(e){}
+  if (saved === 'fr' || (!saved && (navigator.language||'').slice(0,2) === 'fr')) setLang('fr');
+})();
+
 </script>
 </body>
 </html>

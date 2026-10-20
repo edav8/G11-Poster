@@ -791,7 +791,11 @@ var FINAL = {
       strap:'Don’t just translate the labels: give the context.',
       cost:'€2,875', base:'€4,403',
       shots:['timeline-shot.jpg'],
-      figures:['Louis IX','François I','Napoléon I'] }
+      figures:[
+        { n:'Louis IX',   img:'king-louis-ix.png',   alt:'Louis IX in a fleur-de-lis robe and crown, holding a sceptre' },
+        { n:'François I', img:'king-francois-i.png', alt:'François I in a plumed cap and ermine robe, gesturing in welcome' },
+        { n:'Napoléon I', img:'king-napoleon-i.png', alt:'Napoléon I in a bicorne hat and uniform, pointing ahead' }
+      ] }
   ],
 
   money: {
