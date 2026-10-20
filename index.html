@@ -632,8 +632,20 @@ h2.big{font-size:clamp(30px,4.6vw,52px); letter-spacing:-.018em; line-height:1.0
   text-transform:uppercase; color:var(--a-d)}
 .rec.b .chain li b{color:var(--b-d)} .rec.c .chain li b{color:var(--c-d)}
 .chain li span{font-size:16.5px; line-height:1.4; color:var(--mute)}
-.shots{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:20px}
-.shots img{width:100%; height:120px; object-fit:cover; border-radius:12px; display:block}
+.shots{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:22px}
+.shots.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.shots.one{grid-template-columns:minmax(0,1fr)}
+.shots figure{margin:0}
+.shots img{width:100%; height:200px; object-fit:cover; border-radius:12px; display:block;
+  background:var(--hair)}
+.shots.one img{height:320px}
+.shots figcaption{margin-top:9px}
+.shots .cp{font-family:var(--disp); font-weight:700; font-size:15px; line-height:1.18; display:block}
+.shots .nt{font-size:13.5px; line-height:1.38; color:var(--mute); margin-top:3px; display:block}
+@media (max-width:760px){
+  .shots, .shots.three{grid-template-columns:minmax(0,1fr)}
+  .shots img{height:220px}
+}
 .figs{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:20px}
 .figs .fg{background:var(--navy); color:#fff; border-radius:12px; padding:18px 12px; text-align:center;
   font-family:var(--disp); font-weight:700; font-size:15px; letter-spacing:.06em}
@@ -963,6 +975,9 @@ document.getElementById('musRows').innerHTML = FINAL.museums.rows.map(function(m
 document.getElementById('musTake').innerHTML = FINAL.museums.take;
 
 /* the three recommendations, as a pinned stack */
+var SHOT = {};
+[TIMELINE_SHOT, MERCH_SHOT, STATION_SHOT, STAMP_SHEET].forEach(function(o){ SHOT[o.src] = o; });
+
 document.getElementById('recStack').innerHTML = FINAL.recs.map(function(r){
   var steps = '<ol class="chain">' + r.steps.map(function(s){
     return '<li><b>' + esc(s.k) + '</b><span>' + esc(s.v) + '</span></li>'; }).join('') + '</ol>';
@@ -980,12 +995,19 @@ document.getElementById('recStack').innerHTML = FINAL.recs.map(function(r){
         '<span class="btn">' + esc(bw.cta) + '</span></div>' +
       '<div class="col links">' + bw.links.map(function(l){
         return '<span>' + esc(l) + '</span>'; }).join('') + '</div></div></div>';
-  } else if (r.figures){
-    art = '<div class="figs">' + r.figures.map(function(f){
+  }
+  if (r.figures){
+    art += '<div class="figs">' + r.figures.map(function(f){
       return '<div class="fg"><span>' + esc(f) + '</span></div>'; }).join('') + '</div>';
-  } else if (r.shots){
-    art = '<div class="shots">' + r.shots.map(function(src){
-      return '<img src="' + src + '" alt="">'; }).join('') + '</div>';
+  }
+  if (r.shots){
+    var cls = r.shots.length === 3 ? ' three' : (r.shots.length === 1 ? ' one' : '');
+    art += '<div class="shots' + cls + '">' + r.shots.map(function(src){
+      var o = SHOT[src] || {};
+      return '<figure><img src="' + src + '" alt="' + esc(o.alt || '') + '">' +
+        (o.cap ? '<figcaption><span class="cp">' + esc(o.cap) + '</span>' +
+          (o.note ? '<span class="nt">' + esc(o.note) + '</span>' : '') +
+          '</figcaption>' : '') + '</figure>'; }).join('') + '</div>';
   }
 
   return '<article class="rec ' + r.c + '" id="rec' + esc(r.n) + '"><div class="wrap inner">' +

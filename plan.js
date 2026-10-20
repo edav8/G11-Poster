@@ -752,7 +752,7 @@ var FINAL = {
       dl:{ file:'Flamme-Royal-Stamp-Trail.pdf', t:'Flamme’s Royal Stamp Trail',
            meta:'The booklet · 24 pages · PDF, 8.6 MB' },
       cost:'€5,578', base:'€6,193',
-      shots:['timeline-shot.jpg','mascot-retail.jpg'] },
+      shots:['station-photo-hi.jpg','stamps.jpg','mascot-retail.jpg'] },
 
     { n:'02', c:'b', seg:'Schools · the acquisition engine',
       t:'Turn one-off visits into recurring partnerships',
@@ -790,6 +790,7 @@ var FINAL = {
       ],
       strap:'Don’t just translate the labels: give the context.',
       cost:'€2,875', base:'€4,403',
+      shots:['timeline-shot.jpg'],
       figures:['Louis IX','François I','Napoléon I'] }
   ],
 
