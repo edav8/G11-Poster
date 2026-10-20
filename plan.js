@@ -749,6 +749,8 @@ var FINAL = {
         { k:'Win',   v:'Solve the final secret, win a certificate!' }
       ],
       strap:'Portable stations: nothing fixed to historic walls.',
+      dl:{ file:'Flamme-Royal-Stamp-Trail.pdf', t:'Flamme’s Royal Stamp Trail',
+           meta:'The booklet · 24 pages · PDF, 8.6 MB' },
       cost:'€5,578', base:'€6,193',
       shots:['timeline-shot.jpg','mascot-retail.jpg'] },
 
